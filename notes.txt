@@ -37,7 +37,7 @@ TODO list:
 git branch → zobrazi branche a zvyrazni tu v ktorej si
 git checkout nazov_branche → zmeni ta na danu branchu
 git push origin peter
-git fetch origin master → stiahnutie veci z master branche do sucasnej branche
+git fetch origin master → stiahnutie veci z master branche do sucasnej branchez
 ---------------------- merging master ----------------------
 git pull origin pirky → pullne z pirkyho branche veci
 git checkout peter → zmeni na peter branchu
