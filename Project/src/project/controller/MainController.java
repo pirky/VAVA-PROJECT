@@ -10,6 +10,7 @@ import project.model.databases.UserDatabase;
 import project.model.users.User;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class MainController {
     @FXML private TextField username;
@@ -18,8 +19,7 @@ public class MainController {
     public void logIn() throws IOException {
         User user;
         user = UserDatabase.login(username.getText(), password.getText());
-        if (user == null)
-        {
+        if (user == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Dialog");
             alert.setHeaderText("Nastala chyba");
@@ -27,7 +27,7 @@ public class MainController {
             alert.showAndWait();
         }
         else{
-            Parent root = FXMLLoader.load(Main.class.getResource("/project/view/LoggedIn.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/LoggedIn.fxml")));
             Scene scene = new Scene(root);
             Main.mainStage.setScene(scene);
             Main.mainStage.show();
@@ -36,12 +36,17 @@ public class MainController {
 
 
     public void changeToRegisterView() throws IOException {
-        Parent root = FXMLLoader.load(Main.class.getResource("/project/view/RegistrationView.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/RegistrationView.fxml")));
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
     }
 
-
+    public void temp() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/tempView.fxml")));
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
 
 }

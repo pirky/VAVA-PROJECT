@@ -13,8 +13,9 @@ import project.model.databases.UserDatabase;
 import project.model.users.User;
 
 import java.io.IOException;
+import java.util.Objects;
 
-public class RegistrationController {
+public class RegistrationController implements menuInterface{
     @FXML private TextField username;
     @FXML private TextField password;
     @FXML private ToggleGroup group;
@@ -32,7 +33,7 @@ public class RegistrationController {
         if (selectedType.equals("čitateľ")){
             number = 3;
         }
-        if (UserDatabase.checkIfExists(username.getText()) == false){
+        if (!UserDatabase.checkIfExists(username.getText())){
             if (username.getText().equals("") || password.getText().equals("")) {
                 Alert errorAlert = new Alert(Alert.AlertType.ERROR);
                 errorAlert.setHeaderText("Nespravny vstup");
@@ -40,12 +41,9 @@ public class RegistrationController {
                 errorAlert.showAndWait();
                 flag = false;
             }
-            if (flag == true) {
+            if (flag) {
                 UserDatabase.registration(username.getText(), password.getText(), number);
-                Parent root = FXMLLoader.load(Main.class.getResource("/project/view/MainView.fxml"));
-                Scene scene = new Scene(root);
-                Main.mainStage.setScene(scene);
-                Main.mainStage.show();
+                showMain();
             }
         }
         else{
@@ -58,5 +56,8 @@ public class RegistrationController {
 
     }
 
+    public void showMain() throws IOException {
+        this.changeMainView();
+    }
 
 }

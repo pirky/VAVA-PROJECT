@@ -6,20 +6,14 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import project.model.databases.UserDatabase;
-import project.model.users.User;
-
-import java.io.IOException;
 import java.util.Objects;
 
 public class Main extends Application {
     public static Stage mainStage;
-
+    public static UserDatabase userDatabase = new UserDatabase();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // testovaci clovek
-        UserDatabase.UserDatabase.add(new User("Martin", "Pirkovsky"));
-
         mainStage = primaryStage;
         mainStage.setTitle("eLib");
         mainStage.getIcons().add(new Image("project/images/logo.jpg"));

@@ -1,9 +1,4 @@
 TODO list:
--------------------- UVOD -------------------- 
-→ uzivatelia → knihovnik, citatel, organizator
-→ model triedy → kniha,burzova_kniha[extends kniha], udalost, beseda[extends udalost], burza[extends udalost], priestor_kniznice
-→ prihlasovanie
-→ registracia pouzivatela
 -------------------- KNIZNICA POZICIAVANIE -------------------- 
 → poziciavanie knih [citatel]
 	→ prezeranie knih
@@ -43,3 +38,12 @@ git pull origin pirky → pullne z pirkyho branche veci
 git checkout peter → zmeni na peter branchu
 ------------------------------------------------------------
 git merge brancha_ktoru_mergujem
+
+
+
+******************** DONE ********************
+-------------------- UVOD -------------------- 
+→ uzivatelia → knihovnik, citatel, organizator
+→ model triedy → kniha,burzova_kniha[extends kniha], udalost, beseda[extends udalost], burza[extends udalost], priestor_kniznice
+→ prihlasovanie
+→ registracia pouzivatela
