@@ -1,38 +1,23 @@
 package project.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
-import project.controller.Main;
+import javafx.scene.control.*;
 import project.model.databases.UserDatabase;
-import project.model.users.User;
 
+import javax.xml.soap.Text;
 import java.io.IOException;
-import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class RegistrationController implements menuInterface{
     @FXML private TextField username;
-    @FXML private TextField password;
+    @FXML private PasswordField password;
+    @FXML private PasswordField password1;
     @FXML private ToggleGroup group;
 
     public void registerUser() throws IOException {
         String selectedType = ((RadioButton) group.getSelectedToggle()).getText();
         boolean flag = true;
-        int number = 0;
-        if (selectedType.equals("knihovník")){
-            number = 1;
-        }
-        if (selectedType.equals("organizátor")){
-            number = 2;
-        }
-        if (selectedType.equals("čitateľ")){
-            number = 3;
-        }
+
         if (!UserDatabase.checkIfExists(username.getText())){
             if (username.getText().equals("") || password.getText().equals("")) {
                 Alert errorAlert = new Alert(Alert.AlertType.ERROR);
@@ -42,8 +27,17 @@ public class RegistrationController implements menuInterface{
                 flag = false;
             }
             if (flag) {
-                UserDatabase.registration(username.getText(), password.getText(), number);
-                showMain();
+                if (!password.getText().equals(password1.getText()))
+                {
+                    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                    errorAlert.setHeaderText("Nespravny vstup");
+                    errorAlert.setContentText("hesla sa nezhoduju");
+                    errorAlert.showAndWait();
+                }
+                else{
+                    UserDatabase.registration(username.getText(), password.getText(), selectedType);
+                    showMain();
+                }
             }
         }
         else{
@@ -53,6 +47,7 @@ public class RegistrationController implements menuInterface{
             alert.setContentText("Uzivatel s takymto menom uz existuje");
             alert.showAndWait();
         }
+
 
     }
 

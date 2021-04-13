@@ -7,12 +7,15 @@ import project.model.users.User;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class UserDatabase {
     private List<User> userDatabase;
+
 
     public UserDatabase() {
         loadDemo();
     }
+
 
     public static User login(String name, String password){
         for( User i: Main.userDatabase.getUserDatabase()){
@@ -23,23 +26,24 @@ public class UserDatabase {
         return null;
     }
 
-    public static void registration(String username, String password, int type) {
+
+    public static void registration(String username, String password, String type) {
         switch(type) {
-            case 1:
+            case "knihovník":
                 Librarian librarian = new Librarian(username,password);
                 Main.userDatabase.addUser(librarian);
                 break;
-            case 2:
+            case "organizátor":
                 Organizer organizer = new Organizer(username,password);
                 Main.userDatabase.addUser(organizer);
                 break;
-            case 3:
+            case "čitateľ":
                 Reader reader = new Reader(username,password);
                 Main.userDatabase.addUser(reader);
                 break;
         }
-
     }
+
 
     public static boolean checkIfExists(String username){
         for(User i: Main.userDatabase.getUserDatabase()){

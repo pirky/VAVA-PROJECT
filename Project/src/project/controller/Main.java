@@ -5,11 +5,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import project.model.databases.BooksDatabase;
 import project.model.databases.UserDatabase;
 import java.util.Objects;
 
 public class Main extends Application {
     public static Stage mainStage;
+    public static BooksDatabase booksDatabase = new BooksDatabase();
     public static UserDatabase userDatabase = new UserDatabase();
 
     @Override

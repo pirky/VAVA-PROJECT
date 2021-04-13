@@ -5,8 +5,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import project.controller.Main;
 import project.model.databases.UserDatabase;
+import project.model.users.Librarian;
+import project.model.users.Organizer;
+import project.model.users.Reader;
 import project.model.users.User;
 
 import java.io.IOException;
@@ -27,7 +29,16 @@ public class MainController {
             alert.showAndWait();
         }
         else{
-            Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/LoggedIn.fxml")));
+            Parent root = null ;
+            if (user instanceof Librarian){
+                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/LibrarianView.fxml")));
+            }
+            if (user instanceof Organizer){
+                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/OrganizerView.fxml")));
+            }
+            if (user instanceof Reader){
+                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/ReaderView.fxml")));
+            }
             Scene scene = new Scene(root);
             Main.mainStage.setScene(scene);
             Main.mainStage.show();
@@ -48,5 +59,8 @@ public class MainController {
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
     }
+
+
+
 
 }

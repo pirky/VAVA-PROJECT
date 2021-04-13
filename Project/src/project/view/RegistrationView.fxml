@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.RegistrationController">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.RegistrationController">
    <children>
-      <TextField fx:id="username" layoutX="231.0" layoutY="42.0" promptText="zadaj meno" />
-      <TextField fx:id="password" layoutX="231.0" layoutY="95.0" promptText="zadaj heslo" />
-      <Button layoutX="255.0" layoutY="305.0" mnemonicParsing="false" onAction="#registerUser" text="registrovat" />
-      <RadioButton layoutX="264.0" layoutY="213.0" mnemonicParsing="false" text="čitateľ">
+      <TextField fx:id="username" layoutX="226.0" layoutY="64.0" promptText="meno" />
+      <Button layoutX="256.0" layoutY="351.0" mnemonicParsing="false" onAction="#registerUser" text="registrovat" />
+      <RadioButton layoutX="251.0" layoutY="274.0" mnemonicParsing="false" text="čitateľ">
          <toggleGroup>
             <ToggleGroup fx:id="group" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="264.0" layoutY="183.0" mnemonicParsing="false" text="organizátor" toggleGroup="$group" />
-      <RadioButton layoutX="264.0" layoutY="150.0" mnemonicParsing="false" selected="true" text="knihovník" toggleGroup="$group" />
+      <RadioButton layoutX="251.0" layoutY="242.0" mnemonicParsing="false" text="organizátor" toggleGroup="$group" />
+      <RadioButton layoutX="251.0" layoutY="209.0" mnemonicParsing="false" selected="true" text="knihovník" toggleGroup="$group" />
+      <PasswordField fx:id="password" layoutX="226.0" layoutY="107.0" promptText="heslo" />
+      <PasswordField fx:id="password1" layoutX="226.0" layoutY="157.0" promptText="potvrd heslo" />
+      <AnchorPane prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: #0598ff;" />
+      <AnchorPane layoutX="450.0" prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: #0598ff;" />
    </children>
 </AnchorPane>

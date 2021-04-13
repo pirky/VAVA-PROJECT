@@ -1,6 +1,6 @@
 package project.controller;
 
-public class LoggedInController {
+public class LibrarianController {
 
 
 
