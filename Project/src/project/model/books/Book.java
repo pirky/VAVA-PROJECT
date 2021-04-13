@@ -5,13 +5,13 @@ import java.io.Serializable;
 
 
 public class Book implements Serializable {
-    private String name;
+    private String title;
     private String author;
     private String note;
     private CustomImage image;
 
     public Book(String name, String author, String note, CustomImage image) {
-        this.name = name;
+        this.title = name;
         this.author = author;
         this.note = note;
         this.image = image;
@@ -25,12 +25,12 @@ public class Book implements Serializable {
         this.author = author;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getNote() {
@@ -50,6 +50,6 @@ public class Book implements Serializable {
     }
 
     public Object clone(){
-        return new Book(this.name, this.author, this.note, this.image);
+        return new Book(this.title, this.author, this.note, this.image);
     }
 }

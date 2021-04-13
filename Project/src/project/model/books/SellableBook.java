@@ -31,7 +31,7 @@ public class SellableBook extends Book implements Serializable {
     }
 
     public Object clone(){
-        SellableBook sellableBook = new SellableBook(this.getName(), this.getAuthor(), this.getNote(), this.getImage(), this.price);
+        SellableBook sellableBook = new SellableBook(this.getTitle(), this.getAuthor(), this.getNote(), this.getImage(), this.price);
         sellableBook.setSold(this.sold);
         return sellableBook;
     }
