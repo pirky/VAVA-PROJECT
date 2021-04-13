@@ -30,7 +30,7 @@ public class CellController extends ListCell<Book> {
         }
         else {
             if (mLLoader == null) {
-                mLLoader = new FXMLLoader(getClass().getResource("/project/view/TempCellView.fxml"));
+                mLLoader = new FXMLLoader(getClass().getResource("/project/view/CellView.fxml"));
                 mLLoader.setController(this);
                 try {
                     mLLoader.load();

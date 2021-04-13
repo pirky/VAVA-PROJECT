@@ -4,13 +4,16 @@ import javafx.scene.image.Image;
 import project.model.CustomImage;
 import project.model.books.Book;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BooksDatabase {
     private List<Book> books;
+    private LocalDate date;
 
     public BooksDatabase() {
+        this.date = LocalDate.now();
         loadDemo();
     }
 
@@ -34,18 +37,47 @@ public class BooksDatabase {
         books.add(book);
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
     private void loadDemo(){
         books = new ArrayList<>();
-        books.add(new Book("Pekaren", "Julie Caplinova", "Popis knihy pekaren", new CustomImage(new Image("project/images/book1.jpg"))));
-        books.add(new Book("Kaviaren", "Julie Caplinova", "Popis knihy kaviaren", new CustomImage(new Image("project/images/book2.jpg"))));
-        books.add(new Book("V tieni", "Dominic Dan", "Popis knihy v tieni", new CustomImage(new Image("project/images/book3.jpg"))));
-        books.add(new Book("Zaklinac", "Andrej Sapkowski", "Popis knihy zaklinac", new CustomImage(new Image("project/images/book4.jpg"))));
+        Book book = new Book("Pekaren", "Julie Caplinova", "Popis knihy pekaren", new CustomImage(new Image("project/images/book1.jpg")));
+        book.setCreatedAt(date);
+        books.add(book);
 
-        books.add(new Book("V tieni", "Dominic Dan", "Popis knihy v tieni", new CustomImage(new Image("project/images/book3.jpg"))));
-        books.add(new Book("Pekaren", "Julie Caplinova", "Popis knihy pekaren", new CustomImage(new Image("project/images/book1.jpg"))));
-        books.add(new Book("Zaklinac", "Andrej Sapkowski", "Popis knihy zaklinac", new CustomImage(new Image("project/images/book4.jpg"))));
-        books.add(new Book("Kaviaren", "Julie Caplinova", "Popis knihy kaviaren", new CustomImage(new Image("project/images/book2.jpg"))));
+        book = new Book("Kaviaren", "Julie Caplinova", "Popis knihy kaviaren", new CustomImage(new Image("project/images/book2.jpg")));
+        book.setCreatedAt(date);
+        books.add(book);
 
+        book = new Book("V tieni", "Dominic Dan", "Popis knihy v tieni", new CustomImage(new Image("project/images/book3.jpg")));
+        book.setCreatedAt(date);
+        books.add(book);
+
+        book = new Book("Zaklinac", "Andrej Sapkowski", "Popis knihy zaklinac", new CustomImage(new Image("project/images/book4.jpg")));
+        book.setCreatedAt(date);
+        books.add(book);
+
+        book = new Book("V tieni", "Dominic Dan", "Popis knihy v tieni", new CustomImage(new Image("project/images/book3.jpg")));
+        book.setCreatedAt(date);
+        books.add(book);
+
+        book = new Book("Pekaren", "Julie Caplinova", "Popis knihy pekaren", new CustomImage(new Image("project/images/book1.jpg")));
+        book.setCreatedAt(date);
+        books.add(book);
+
+        book = new Book("Zaklinac", "Andrej Sapkowski", "Popis knihy zaklinac", new CustomImage(new Image("project/images/book4.jpg")));
+        book.setCreatedAt(date);
+        books.add(book);
+
+        book = new Book("Kaviaren", "Julie Caplinova", "Popis knihy kaviaren", new CustomImage(new Image("project/images/book2.jpg")));
+        book.setCreatedAt(date);
+        books.add(book);
     }
 
 }

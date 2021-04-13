@@ -1,7 +1,9 @@
 package project.model.books;
 
+import project.controller.Main;
 import project.model.CustomImage;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 
 public class Book implements Serializable {
@@ -9,6 +11,7 @@ public class Book implements Serializable {
     private String author;
     private String note;
     private CustomImage image;
+    private LocalDate createdAt;
 
     public Book(String name, String author, String note, CustomImage image) {
         this.title = name;
@@ -49,7 +52,17 @@ public class Book implements Serializable {
         this.image = image;
     }
 
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public Object clone(){
-        return new Book(this.title, this.author, this.note, this.image);
+        Book book = new Book(this.title, this.author, this.note, this.image);
+        book.setCreatedAt(this.createdAt);
+        return book;
     }
 }

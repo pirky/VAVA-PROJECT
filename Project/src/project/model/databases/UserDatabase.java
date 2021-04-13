@@ -11,11 +11,9 @@ import java.util.List;
 public class UserDatabase {
     private List<User> userDatabase;
 
-
     public UserDatabase() {
         loadDemo();
     }
-
 
     public static User login(String name, String password){
         for( User i: Main.userDatabase.getUserDatabase()){
@@ -25,7 +23,6 @@ public class UserDatabase {
         }
         return null;
     }
-
 
     public static void registration(String username, String password, String type) {
         switch(type) {
@@ -43,7 +40,6 @@ public class UserDatabase {
                 break;
         }
     }
-
 
     public static boolean checkIfExists(String username){
         for(User i: Main.userDatabase.getUserDatabase()){
@@ -76,8 +72,8 @@ public class UserDatabase {
 
     private void loadDemo(){
         userDatabase = new ArrayList<>();
-        userDatabase.add(new Librarian("Martin", "Pirkovsky"));
-        userDatabase.add(new Organizer("Pazo", "Pazicky"));
-        userDatabase.add(new Reader("Peter", "Plevko"));
+        userDatabase.add(new Librarian("librarian", "heslo"));
+        userDatabase.add(new Organizer("organizer", "heslo"));
+        userDatabase.add(new Reader("reader", "heslo"));
     }
 }
