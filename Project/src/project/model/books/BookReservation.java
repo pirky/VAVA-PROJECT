@@ -1,5 +1,7 @@
 package project.model.books;
 
+import project.controller.Main;
+
 import java.time.LocalDate;
 
 public class BookReservation {
@@ -44,6 +46,10 @@ public class BookReservation {
 
     public void setReturned(Boolean returned) {
         this.returned = returned;
+    }
+
+    public String toString(){
+        return Main.booksDatabase.getBooks().get(bookId) + ", od: " + dateFrom + " do: " + dateTo;
     }
 
     public Object clone(){

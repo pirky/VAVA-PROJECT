@@ -25,6 +25,10 @@ public class User {
         this.password = password;
     }
 
+    public String toString(){
+        return userName;
+    }
+
     public Object clone(){
         return new User(this.userName, this.password);
     }

@@ -1,9 +1,15 @@
 package project.model.databases;
+import javafx.scene.image.Image;
 import project.controller.Main;
+import project.model.CustomImage;
+import project.model.books.Book;
+import project.model.books.BookReservation;
 import project.model.users.Librarian;
 import project.model.users.Organizer;
 import project.model.users.Reader;
 import project.model.users.User;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,8 +78,17 @@ public class UserDatabase {
 
     private void loadDemo(){
         userDatabase = new ArrayList<>();
+        List<BookReservation> reservations = new ArrayList<>();
+        reservations.add(new BookReservation(0, LocalDate.parse("2021-04-13"), LocalDate.parse("2021-04-21")));
+        reservations.add(new BookReservation(1, LocalDate.parse("2021-05-03"), LocalDate.parse("2021-05-11")));
+        reservations.add(new BookReservation(2, LocalDate.parse("2021-04-14"), LocalDate.parse("2021-04-20")));
+        reservations.add(new BookReservation(3, LocalDate.parse("2021-04-15"), LocalDate.parse("2021-04-30")));
+
         userDatabase.add(new Librarian("librarian", "heslo"));
         userDatabase.add(new Organizer("organizer", "heslo"));
-        userDatabase.add(new Reader("reader", "heslo"));
+        Reader reader = new Reader("reader", "heslo");
+        reader.setReservations(reservations);
+        userDatabase.add(reader);
+
     }
 }

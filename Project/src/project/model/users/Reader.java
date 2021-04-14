@@ -1,61 +1,43 @@
 package project.model.users;
 
-import project.model.books.Book;
+import project.model.books.BookReservation;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Reader extends User{
-    private List<Book> rentedBooks;
-    private List<Book> reservedBooks;
+    private List<BookReservation> reservations;
 
     public Reader(String userName, String password) {
         super(userName, password);
     }
 
-    public List<Book> getRentedBooks() {
-        List<Book> returnList = new ArrayList<>();
-        for(Book book: rentedBooks){
-            returnList.add((Book) book.clone());
+    public List<BookReservation> getReservations() {
+        List<BookReservation> returnList = new ArrayList<>();
+        for(BookReservation reservation: reservations){
+            returnList.add((BookReservation) reservation.clone());
         }
         return returnList;
     }
 
-    public void setRentedBooks(List<Book> rentedBooks) {
-        List<Book> list = new ArrayList<>();
-        for(Book book: rentedBooks){
-            list.add((Book) book.clone());
+    public void setReservations(List<BookReservation> reservations) {
+        List<BookReservation> list = new ArrayList<>();
+        for(BookReservation reservation: reservations){
+            list.add((BookReservation) reservation.clone());
         }
-        this.rentedBooks = list;
+        this.reservations = list;
     }
 
-    public void addRentedBook(Book book){
-        rentedBooks.add((Book) book.clone());
+    public void addReservation(BookReservation bookReservation){
+        reservations.add((BookReservation) bookReservation.clone());
     }
 
-    public List<Book> getReservedBooks() {
-        List<Book> returnList = new ArrayList<>();
-        for(Book book: reservedBooks){
-            returnList.add((Book) book.clone());
-        }
-        return returnList;
-    }
-
-    public void setReservedBooks(List<Book> reservedBooks) {
-        List<Book> list = new ArrayList<>();
-        for(Book book: reservedBooks){
-            list.add((Book) book.clone());
-        }
-        this.reservedBooks = list;
-    }
-
-    public void addReservedBook(Book book){
-        reservedBooks.add((Book) book.clone());
+    public void removeReservation(BookReservation bookReservation){
+        reservations.removeIf(temp -> temp.toString().equals(bookReservation.toString()));
     }
 
     public Object clone(){
         Reader reader = new Reader(this.getUserName(), this.getPassword());
-        reader.setRentedBooks(this.rentedBooks);
-        reader.setReservedBooks(this.reservedBooks);
+        reader.setReservations(this.reservations);
         return reader;
     }
 }

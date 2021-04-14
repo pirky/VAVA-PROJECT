@@ -39,13 +39,13 @@ public class MainController {
         else{
             Parent root = null ;
             if (user instanceof Librarian){
-                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/LibrarianView.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));
             }
             else if (user instanceof Organizer){
                 root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/OrganizerView.fxml")));
             }
             else if (user instanceof Reader){
-                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/ReaderView.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/ReaderView.fxml")));
             }
             Scene scene = new Scene(root);
             Main.mainStage.setScene(scene);

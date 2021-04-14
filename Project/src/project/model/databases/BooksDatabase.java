@@ -3,15 +3,12 @@ package project.model.databases;
 import javafx.scene.image.Image;
 import project.model.CustomImage;
 import project.model.books.Book;
-import project.model.books.BookReservation;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BooksDatabase {
     private List<Book> books;
-    private List<BookReservation> reservations;
     private LocalDate date;
 
     public BooksDatabase() {
@@ -39,26 +36,6 @@ public class BooksDatabase {
         books.add((Book) book.clone());
     }
 
-    public List<BookReservation> getReservations() {
-        List<BookReservation> returnList = new ArrayList<>();
-        for(BookReservation reservation: reservations){
-            returnList.add((BookReservation) reservation.clone());
-        }
-        return returnList;
-    }
-
-    public void setReservations(List<BookReservation> reservations) {
-        List<BookReservation> list = new ArrayList<>();
-        for(BookReservation reservation: reservations){
-            list.add((BookReservation) reservation.clone());
-        }
-        this.reservations = list;
-    }
-
-    public void addReservation(BookReservation bookReservation){
-        reservations.add((BookReservation) bookReservation.clone());
-    }
-
     public LocalDate getDate() {
         return date;
     }
@@ -69,26 +46,21 @@ public class BooksDatabase {
 
     private void loadDemo(){
         books = new ArrayList<>();
-        reservations = new ArrayList<>();
         Book book = new Book(0, "Pekaren", "Julie Caplinova", "Popis knihy pekaren", new CustomImage(new Image("project/images/books/book0.jpg")));
         book.setCreatedAt(LocalDate.parse("2021-01-03"));
         books.add(book);
-        reservations.add(new BookReservation(book.getId(), LocalDate.parse("2021-04-13"), LocalDate.parse("2021-04-21")));
 
         book = new Book(1, "Kaviaren", "Julie Caplinova", "Popis knihy kaviaren", new CustomImage(new Image("project/images/books/book1.jpg")));
         book.setCreatedAt(LocalDate.parse("2021-03-03"));
         books.add(book);
-        reservations.add(new BookReservation(book.getId(), LocalDate.parse("2021-05-03"), LocalDate.parse("2021-05-11")));
 
         book = new Book(2, "V tieni", "Dominic Dan", "Popis knihy v tieni", new CustomImage(new Image("project/images/books/book2.jpg")));
         book.setCreatedAt(LocalDate.parse("2021-02-21"));
         books.add(book);
-        reservations.add(new BookReservation(book.getId(), LocalDate.parse("2021-04-14"), LocalDate.parse("2021-04-20")));
 
         book = new Book(3, "Zaklinac", "Andrej Sapkowski", "Popis knihy zaklinac", new CustomImage(new Image("project/images/books/book3.jpg")));
         book.setCreatedAt(LocalDate.parse("2020-02-21"));
         books.add(book);
-        reservations.add(new BookReservation(book.getId(), LocalDate.parse("2021-04-15"), LocalDate.parse("2021-04-30")));
 
         book = new Book(4, "Obklopený idiotmi", "Thomas Erikson", "Popis knihy v Obklopený idiotmi", new CustomImage(new Image("project/images/books/book4.jpg")));
         book.setCreatedAt(LocalDate.parse("2021-04-14"));

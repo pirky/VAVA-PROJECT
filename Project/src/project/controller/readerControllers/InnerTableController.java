@@ -1,4 +1,4 @@
-package project.controller;
+package project.controller.readerControllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,7 +25,7 @@ public class InnerTableController  extends ListCell<List<Book>> {
             setGraphic(null);
         } else {
             if (mLLoader == null) {
-                mLLoader = new FXMLLoader(getClass().getResource("/project/view/InnerTableView.fxml"));
+                mLLoader = new FXMLLoader(getClass().getResource("/project/view/readerViews/InnerTableView.fxml"));
                 mLLoader.setController(this);
                 try {
                     mLLoader.load();
