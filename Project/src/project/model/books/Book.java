@@ -1,23 +1,32 @@
 package project.model.books;
 
-import project.controller.Main;
 import project.model.CustomImage;
 import java.io.Serializable;
 import java.time.LocalDate;
 
 
 public class Book implements Serializable {
+    private int id;
     private String title;
     private String author;
     private String note;
     private CustomImage image;
     private LocalDate createdAt;
 
-    public Book(String name, String author, String note, CustomImage image) {
+    public Book(int id, String name, String author, String note, CustomImage image) {
+        this.id = id;
         this.title = name;
         this.author = author;
         this.note = note;
         this.image = image;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getAuthor() {
@@ -60,8 +69,12 @@ public class Book implements Serializable {
         this.createdAt = createdAt;
     }
 
+    public String toString(){
+        return this.title + ", " + this.author;
+    }
+
     public Object clone(){
-        Book book = new Book(this.title, this.author, this.note, this.image);
+        Book book = new Book(this.id, this.title, this.author, this.note, this.image);
         book.setCreatedAt(this.createdAt);
         return book;
     }

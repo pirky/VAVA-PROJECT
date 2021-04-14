@@ -1,6 +1,6 @@
 package project.model.events;
 
-import project.model.Reservation;
+import project.model.Rooms.RoomReservation;
 import project.model.books.SellableBook;
 import project.model.users.Organizer;
 import java.util.ArrayList;
@@ -10,8 +10,8 @@ public class BookExchange extends Event{
     private int numOfSold;
     private List<SellableBook> books;
 
-    public BookExchange(String name, String note, Reservation reservation, Organizer organizer) {
-        super(name, note, reservation, organizer);
+    public BookExchange(String name, String note, RoomReservation roomReservation, Organizer organizer) {
+        super(name, note, roomReservation, organizer);
         this.numOfSold = 0;
         this.books = new ArrayList<>();
     }

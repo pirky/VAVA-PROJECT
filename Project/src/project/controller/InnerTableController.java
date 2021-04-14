@@ -8,16 +8,13 @@ import javafx.geometry.Orientation;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import project.model.books.Book;
-
 import java.io.IOException;
 import java.util.List;
 
 public class InnerTableController  extends ListCell<List<Book>> {
     ObservableList<Book> booksQuartet = FXCollections.observableArrayList();
-    @FXML
-    private ListView listView;
-    @FXML
-    private FXMLLoader mLLoader;
+    @FXML private ListView<Book> listView;
+    @FXML private FXMLLoader mLLoader;
 
     @Override
     protected void updateItem(List<Book> bookList, boolean empty) {
@@ -43,7 +40,12 @@ public class InnerTableController  extends ListCell<List<Book>> {
             listView.setCellFactory(ListView -> new CellController());
             setText(null);
             setGraphic(listView);
+            listView.setOnMouseReleased(mouseEvent -> showBook());
         }
+    }
 
+    public void showBook(){
+        Book selectedBook = listView.getSelectionModel().getSelectedItems().get(0);
+        System.out.println(selectedBook);
     }
 }

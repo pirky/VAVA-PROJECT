@@ -1,13 +1,13 @@
 package project.model.events;
 
-import project.model.Reservation;
+import project.model.Rooms.RoomReservation;
 import project.model.users.Organizer;
 
 public class BookDiscussion extends Event{
     private String host;
 
-    public BookDiscussion(String name, String note, Reservation reservation, Organizer organizer, String host) {
-        super(name, note, reservation, organizer);
+    public BookDiscussion(String name, String note, RoomReservation roomReservation, Organizer organizer, String host) {
+        super(name, note, roomReservation, organizer);
         this.host = host;
     }
 

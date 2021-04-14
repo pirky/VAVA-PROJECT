@@ -31,12 +31,14 @@ public class BookReservationController{
         listView.setCellFactory(ListView -> new InnerTableController());
     }
 
-
-
     public void showMenu() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/project/view/ReaderView.fxml")));
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
+//        Main.mainStage.setWidth(600);
+//        Main.mainStage.setHeight(400);
+        Main.mainStage.setMinHeight(0);
+        Main.mainStage.setMinWidth(0);
     }
 }

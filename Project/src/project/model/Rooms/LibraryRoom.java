@@ -1,4 +1,4 @@
-package project.model;
+package project.model.Rooms;
 
 public class LibraryRoom {
     private final String name;

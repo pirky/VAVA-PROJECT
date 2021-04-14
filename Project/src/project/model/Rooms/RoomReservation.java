@@ -1,13 +1,13 @@
-package project.model;
+package project.model.Rooms;
 
 import java.time.LocalDate;
 
-public class Reservation {
+public class RoomReservation {
     private LocalDate dateFrom;
     private LocalDate dateTo;
     private LibraryRoom room;
 
-    public Reservation(LocalDate dateFrom, LocalDate dateTo, LibraryRoom room) {
+    public RoomReservation(LocalDate dateFrom, LocalDate dateTo, LibraryRoom room) {
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         this.room = room;
@@ -38,6 +38,6 @@ public class Reservation {
     }
 
     public Object clone(){
-        return new Reservation(this.dateFrom, this.dateTo, this.room);
+        return new RoomReservation(this.dateFrom, this.dateTo, this.room);
     }
 }

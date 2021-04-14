@@ -1,6 +1,6 @@
 package project.model.events;
 
-import project.model.Reservation;
+import project.model.Rooms.RoomReservation;
 import project.model.users.Organizer;
 import project.model.users.Reader;
 import java.util.ArrayList;
@@ -9,14 +9,14 @@ import java.util.List;
 public class Event {
     private String name;
     private String note;
-    private Reservation reservation;
+    private RoomReservation roomReservation;
     private Organizer organizer;
     private List<Reader> volunteers;
 
-    public Event(String name, String note, Reservation reservation, Organizer organizer) {
+    public Event(String name, String note, RoomReservation roomReservation, Organizer organizer) {
         this.name = name;
         this.note = note;
-        this.reservation = reservation;
+        this.roomReservation = roomReservation;
         this.organizer = organizer;
         this.volunteers = new ArrayList<>();
     }
@@ -61,16 +61,16 @@ public class Event {
         this.name = name;
     }
 
-    public Reservation getReservation() {
-        return (Reservation) reservation.clone();
+    public RoomReservation getReservation() {
+        return (RoomReservation) roomReservation.clone();
     }
 
-    public void setReservation(Reservation reservation) {
-        this.reservation = (Reservation) reservation.clone();
+    public void setReservation(RoomReservation roomReservation) {
+        this.roomReservation = (RoomReservation) roomReservation.clone();
     }
 
     public Object clone(){
-        Event event = new Event(this.name, this.note, this.reservation, this.organizer);
+        Event event = new Event(this.name, this.note, this.roomReservation, this.organizer);
         event.setVolunteers(this.volunteers);
         return event;
     }

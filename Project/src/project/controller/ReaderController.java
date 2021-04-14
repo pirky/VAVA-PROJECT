@@ -13,6 +13,8 @@ public class ReaderController implements menuInterface{
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
+        Main.mainStage.setMinWidth(1300);
+        Main.mainStage.setMinHeight(700);
     }
 
     public void showMain() throws IOException {

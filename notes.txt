@@ -4,7 +4,7 @@ TODO list:
 	→ prezeranie knih
 	→ rezervacia
 → vratenie knih [knihovnik]
-
+→ vydaj knih [knihovnik] → zobrazi len tie knihy, na kt. ma v dany den urobenu rezervaciu citatel
 -------------------- KNIZNICA PREHLAD NOVINIEK --------------------
 → nahravanie kniznich noviniek [knihovnik]
 	→ pridanie knihy s popisom a vsetkym
