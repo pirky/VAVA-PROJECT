@@ -13,9 +13,9 @@ public class Book implements Serializable {
     private CustomImage image;
     private LocalDate createdAt;
 
-    public Book(int id, String name, String author, String note, CustomImage image) {
+    public Book(int id, String title, String author, String note, CustomImage image) {
         this.id = id;
-        this.title = name;
+        this.title = title;
         this.author = author;
         this.note = note;
         this.image = image;

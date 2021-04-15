@@ -1,15 +1,11 @@
 TODO list:
 -------------------- KNIZNICA POZICIAVANIE -------------------- 
-→ poziciavanie knih [citatel]
-	→ prezeranie knih
-	→ rezervacia
-→ vydaj knihy [knihovnik] → dorobit aby sa dalo aj vydat novu knihu, na kt. nie je rezervacia, a kt. je dostupna
 → vratenie knih [knihovnik]
 -------------------- KNIZNICA PREHLAD NOVINIEK --------------------
 → nahravanie kniznich noviniek [knihovnik]
 	→ pridanie knihy s popisom a vsetkym
 	→ odstranenie knihy z noviniek (mozno zobrazit medzi novinkami iba tie, ktore su viac ako 2 tyzdne stare (nejaky created_at datum pri knihe))
-→ prezeranie kniznich noviniek [citatel] → ako prezeranie knih len su to novinky
+→ prezeranie kniznich noviniek/vsetkych knih [citatel] → ako prezeranie knih len su to novinky
 
 -------------------- UDALOSTI --------------------
 → kalendar → YT video
@@ -22,6 +18,9 @@ TODO list:
 	→ prihlasenie sa na dobrovolnictvo
 
 -------------------- OPTIONAL --------------------
+→ pridat vyhladavanie medzi knihami
+→ pridat ze moze mat citatel len 5 knih pozicanych
+→ moze si pozicat knihu len na mesiac max
 → diskusne forum k besede
 → recenzie ku kniham
 → posielanie sprav medzi uzivatelmi
@@ -47,3 +46,8 @@ git merge brancha_ktoru_mergujem
 → model triedy → kniha,burzova_kniha[extends kniha], udalost, beseda[extends udalost], burza[extends udalost], priestor_kniznice
 → prihlasovanie
 → registracia pouzivatela
+-------------------- KNIZNICA POZICIAVANIE -------------------- 
+→ poziciavanie knih [citatel]
+	→ prezeranie knih
+	→ rezervacia
+→ vydaj knihy [knihovnik]
