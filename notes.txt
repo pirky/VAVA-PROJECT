@@ -3,7 +3,7 @@ TODO list:
 → poziciavanie knih [citatel]
 	→ prezeranie knih
 	→ rezervacia
-
+→ vydaj knihy [knihovnik] → dorobit aby sa dalo aj vydat novu knihu, na kt. nie je rezervacia, a kt. je dostupna
 → vratenie knih [knihovnik]
 -------------------- KNIZNICA PREHLAD NOVINIEK --------------------
 → nahravanie kniznich noviniek [knihovnik]
