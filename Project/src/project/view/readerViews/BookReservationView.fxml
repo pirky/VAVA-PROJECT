@@ -18,7 +18,6 @@
             <Pane prefHeight="693.0" prefWidth="167.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#showMenu" text="Späť" />
-                  <Button layoutX="25.0" layoutY="86.0" mnemonicParsing="false" text="Zobraziť knihu" />
                </children>
             </Pane>
          </children>

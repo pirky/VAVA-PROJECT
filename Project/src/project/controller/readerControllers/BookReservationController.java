@@ -39,7 +39,7 @@ public class BookReservationController{
         Main.mainStage.show();
 //        Main.mainStage.setWidth(600);
 //        Main.mainStage.setHeight(400);
-        Main.mainStage.setMinHeight(0);
-        Main.mainStage.setMinWidth(0);
+//        Main.mainStage.setMinHeight(0);
+//        Main.mainStage.setMinWidth(0);
     }
 }

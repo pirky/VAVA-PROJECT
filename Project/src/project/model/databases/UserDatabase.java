@@ -4,6 +4,7 @@ import project.controller.Main;
 import project.model.CustomImage;
 import project.model.books.Book;
 import project.model.books.BookReservation;
+import project.model.books.SellableBook;
 import project.model.users.Librarian;
 import project.model.users.Organizer;
 import project.model.users.Reader;
@@ -24,6 +25,7 @@ public class UserDatabase {
     public static User login(String name, String password){
         for( User i: Main.userDatabase.getUserDatabase()){
             if((i.getUserName().equals(name)) && (i.getPassword().equals(password))){
+                Main.currUser = i;
                 return i;
             }
         }
@@ -57,11 +59,39 @@ public class UserDatabase {
     }
 
     public List<User> getUserDatabase() {
-        return userDatabase;
+        List<User> returnList = new ArrayList<>();
+        for(User user: userDatabase){
+            if(user instanceof Reader){
+                returnList.add((Reader) user.clone());
+            }
+            else if(user instanceof Librarian){
+                returnList.add((Librarian) user.clone());
+            }
+            else if(user instanceof Organizer){
+                returnList.add((Organizer) user.clone());
+            }
+        }
+        return returnList;
     }
 
     public void setUserDatabase(List<User> userDatabase) {
-        this.userDatabase = userDatabase;
+        List<User> list = new ArrayList<>();
+        for(User user: userDatabase){
+            if(user instanceof Reader){
+                list.add((Reader) user.clone());
+            }
+            else if(user instanceof Librarian){
+                list.add((Librarian) user.clone());
+            }
+            else if(user instanceof Organizer){
+                list.add((Organizer) user.clone());
+            }
+        }
+        this.userDatabase = list;
+    }
+
+    public void removeUser(User user){
+        userDatabase.removeIf(temp -> user.getUserName().equals(temp.getUserName()));
     }
 
     public void addUser(Librarian librarian){

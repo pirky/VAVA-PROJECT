@@ -5,11 +5,15 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Orientation;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import project.controller.Main;
 import project.model.books.Book;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 public class InnerTableController  extends ListCell<List<Book>> {
     ObservableList<Book> booksQuartet = FXCollections.observableArrayList();
@@ -40,12 +44,24 @@ public class InnerTableController  extends ListCell<List<Book>> {
             listView.setCellFactory(ListView -> new CellController());
             setText(null);
             setGraphic(listView);
-            listView.setOnMouseReleased(mouseEvent -> showBook());
+            listView.setOnMouseReleased(mouseEvent -> {
+                try {
+                    showBook();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
         }
     }
 
-    public void showBook(){
+    public void showBook() throws IOException {
         Book selectedBook = listView.getSelectionModel().getSelectedItems().get(0);
-        System.out.println(selectedBook);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/BookInfoView.fxml"));
+        Parent root = loader.load();
+        BookInfoController bookInfoController = loader.getController();
+        bookInfoController.setBook(selectedBook);
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
     }
 }

@@ -55,6 +55,9 @@
                </image>
             </ImageView>
             <DatePicker fx:id="datePicker" layoutX="402.0" layoutY="14.0" onAction="#changeDate" />
+            <Button layoutX="170.0" layoutY="500.0" mnemonicParsing="false" onAction="#knihovnik" text="knihovník" />
+            <Button layoutX="298.0" layoutY="500.0" mnemonicParsing="false" onAction="#citatel" text="čítateľ" />
+            <Button layoutX="402.0" layoutY="500.0" mnemonicParsing="false" onAction="#organizator" text="organizátor" />
          </children>
       </AnchorPane>
    </center>
