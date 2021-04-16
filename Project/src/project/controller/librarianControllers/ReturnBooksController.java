@@ -25,6 +25,7 @@ public class ReturnBooksController {
     ObservableList<project.model.users.Reader> readers = FXCollections.observableArrayList();
     ObservableList<TableBook> rentedBooks = FXCollections.observableArrayList();
     private Reader reader;
+    private Book book;
     @FXML
     private ComboBox<Reader> readersBox;
     @FXML
@@ -37,6 +38,12 @@ public class ReturnBooksController {
     private TableColumn<TableBook, ImageView> imageColumn;
     @FXML
     private DatePicker datePicker;
+    @FXML
+    private Button returnBtn;
+    @FXML
+    private Button extendBtn;
+    @FXML
+    private Label infoLabel;
 
     @FXML
     public void initialize(){
@@ -68,67 +75,107 @@ public class ReturnBooksController {
             return cell;
         });
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageView"));
+        returnBtn.setDisable(true);
+        extendBtn.setDisable(true);
+        infoLabel.setVisible(false);
     }
 
     public void updateTableView(){
-//        tableView.getItems().clear();
-//        reader = readersBox.getValue();
-//        for(Book book: Main.booksDatabase.getBooks()){
-//            for(User user: Main.userDatabase.getUserDatabase()){
-//                if(user instanceof Reader){
-//                    for(BookReservation bookReservation: ((Reader) user).getReservations()){
-//                        if (!bookReservation.isReturned()) {
-//                            break;
-//                        }
-//                    }
-//                }
-//            }
-//            if (isFree){
-//                rentedBooks.add(new TableBook(book.getId(), book.getTitle(), book.getAuthor(), book.getNote(), book.getImage()));
-//            }
-//        }
-//        tableView.setItems(rentedBooks);
-//        tableView.refresh();
+        tableView.getItems().clear();
+        reader = readersBox.getValue();
+        for(BookReservation bookReservation: reader.getReservations()){
+            if(bookReservation.isReturned() == null){
+                continue;
+            }
+            if(!bookReservation.isReturned()){
+                Book temp = Main.booksDatabase.getBooks().get(bookReservation.getBookId());
+                rentedBooks.add(new TableBook(temp.getId(), temp.getTitle(), temp.getAuthor(), temp.getNote(), temp.getImage()));
+            }
+        }
+        tableView.setItems(rentedBooks);
+        tableView.refresh();
     }
 
     public void showDates(){
-//        datePicker.setDisable(false);
-//        Book book = tableView.getSelectionModel().getSelectedItem();
-//        final Callback<DatePicker, DateCell> dayCellFactory = new Callback<DatePicker, DateCell>() {
-//            public DateCell call(final DatePicker datePicker) {
-//                return new DateCell() {
-//                    @Override
-//                    public void updateItem(LocalDate dateCurr, boolean empty) {
-//                        super.updateItem(dateCurr, empty);
-//                        LocalDate now = Main.booksDatabase.getDate();
-//                        if(dateCurr.compareTo(now) <= 0){
-//                            setDisable(true);
-//                            return;
-//                        }
-//
-//                        for(User user: Main.userDatabase.getUserDatabase()){
-//                            if (!(user instanceof Reader)){
-//                                continue;
-//                            }
-//                            Reader reader = (Reader) user;
-//                            for(BookReservation bookReservation: reader.getReservations()){
-//                                if(bookReservation.getBookId() == book.getId()){
-//                                    LocalDate dateFrom = bookReservation.getDateFrom();
-//                                    LocalDate dateTo = bookReservation.getDateTo();
-//                                    if ((dateCurr.isAfter(dateFrom) && dateCurr.isBefore(dateTo)) || dateCurr.equals(dateFrom) || dateCurr.equals(dateTo)) {
-//                                        setStyle("-fx-background-color: #ff4444;");
-//                                        setDisable(true);
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                };
-//            }
-//        };
-//
-//        datePicker.setDayCellFactory(dayCellFactory);
-//        datePicker.setDisable(false);
+        if(rentedBooks.size() == 0){
+            return;
+        }
+        returnBtn.setDisable(false);
+
+        datePicker.setDisable(false);
+        book = tableView.getSelectionModel().getSelectedItem();
+        final Callback<DatePicker, DateCell> dayCellFactory = new Callback<DatePicker, DateCell>() {
+            LocalDate dateBlock = null;
+            public DateCell call(final DatePicker datePicker) {
+                return new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate dateCurr, boolean empty) {
+                        super.updateItem(dateCurr, empty);
+                        LocalDate now = Main.booksDatabase.getDate();
+                        if(dateCurr.compareTo(now) <= 0){
+                            setDisable(true);
+                            return;
+                        }
+
+                        for(User user: Main.userDatabase.getUserDatabase()){
+                            if (!(user instanceof Reader) || user.getUserName().equals(reader.getUserName())){
+                                continue;
+                            }
+                            Reader temp = (Reader) user;
+                            for(BookReservation bookReservation: temp.getReservations()){
+                                if(bookReservation.getBookId() == book.getId()){
+                                    LocalDate dateFrom = bookReservation.getDateFrom();
+                                    LocalDate dateTo = bookReservation.getDateTo();
+                                    if ((dateCurr.isAfter(dateFrom) && dateCurr.isBefore(dateTo)) || dateCurr.equals(dateFrom) || dateCurr.equals(dateTo)) {
+                                        setStyle("-fx-background-color: #ff4444;");
+                                        setDisable(true);
+                                        dateBlock = dateCurr;
+                                        continue;
+                                    }
+                                    if (dateBlock != null && dateCurr.compareTo(dateBlock) >= 0){
+                                        setDisable(true);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+            }
+        };
+
+        datePicker.setDayCellFactory(dayCellFactory);
+        datePicker.setDisable(false);
+    }
+
+    public void showExtendBtn(){
+        extendBtn.setDisable(false);
+    }
+
+    public void returnBook(){
+        for(BookReservation bookReservation: reader.getReservations()){
+            if(bookReservation.getBookId() == book.getId() && !bookReservation.isReturned()){
+                bookReservation.setReturned(true);
+                reader.removeReservation(bookReservation);
+                bookReservation.setDateTo(Main.booksDatabase.getDate());
+                reader.addReservation(bookReservation);
+                Main.userDatabase.removeUser(reader);
+                Main.userDatabase.addUser(reader);
+                rentedBooks.removeIf(temp -> temp.getId() == book.getId());
+                tableView.refresh();
+                returnBtn.setDisable(true);
+                book = null;
+                return;
+            }
+        }
+    }
+
+    public void extendBook(){
+
+    }
+
+    private void deleteFields(){
+        returnBtn.setDisable(true);
+        extendBtn.setDisable(true);
     }
 
     public void showMenu() throws IOException {

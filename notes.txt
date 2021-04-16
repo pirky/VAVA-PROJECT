@@ -1,6 +1,5 @@
 TODO list:
 -------------------- KNIZNICA POZICIAVANIE -------------------- 
-→ osetrit ked nie je vratena kniha ale je poziciana aby ju neukazalo ako volnu knihu pri rezerzvacii [citatel] a vydanie knihy [knihovnik]
 → vratenie knih [knihovnik]
 -------------------- KNIZNICA PREHLAD NOVINIEK --------------------
 → nahravanie kniznich noviniek [knihovnik]
