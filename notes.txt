@@ -1,5 +1,6 @@
 TODO list:
 -------------------- KNIZNICA POZICIAVANIE -------------------- 
+→ osetrit ked nie je vratena kniha ale je poziciana aby ju neukazalo ako volnu knihu pri rezerzvacii [citatel] a vydanie knihy [knihovnik]
 → vratenie knih [knihovnik]
 -------------------- KNIZNICA PREHLAD NOVINIEK --------------------
 → nahravanie kniznich noviniek [knihovnik]
@@ -18,6 +19,7 @@ TODO list:
 	→ prihlasenie sa na dobrovolnictvo
 
 -------------------- OPTIONAL --------------------
+→ pridat nejake statistiky napr. nevratene knihy, kt mali byt vratene
 → pridat vyhladavanie medzi knihami
 → pridat ze moze mat citatel len 5 knih pozicanych
 → moze si pozicat knihu len na mesiac max
