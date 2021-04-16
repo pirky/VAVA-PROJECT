@@ -23,6 +23,5 @@
       </TableView>
       <DatePicker fx:id="datePicker" layoutX="69.0" layoutY="235.0" onAction="#showExtendBtn" prefHeight="31.0" prefWidth="289.0" />
       <Button fx:id="extendBtn" layoutX="144.0" layoutY="549.0" mnemonicParsing="false" onAction="#extendBook" text="Predĺžiť požičanie" />
-      <Label fx:id="infoLabel" alignment="TOP_CENTER" layoutX="51.0" layoutY="485.0" prefHeight="49.0" prefWidth="324.0" text="Label" textAlignment="CENTER" textFill="RED" />
    </children>
 </AnchorPane>

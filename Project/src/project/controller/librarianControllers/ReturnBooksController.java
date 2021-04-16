@@ -42,8 +42,6 @@ public class ReturnBooksController {
     private Button returnBtn;
     @FXML
     private Button extendBtn;
-    @FXML
-    private Label infoLabel;
 
     @FXML
     public void initialize(){
@@ -77,7 +75,6 @@ public class ReturnBooksController {
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageView"));
         returnBtn.setDisable(true);
         extendBtn.setDisable(true);
-        infoLabel.setVisible(false);
     }
 
     public void updateTableView(){
@@ -162,7 +159,7 @@ public class ReturnBooksController {
                 Main.userDatabase.addUser(reader);
                 rentedBooks.removeIf(temp -> temp.getId() == book.getId());
                 tableView.refresh();
-                returnBtn.setDisable(true);
+                deleteFields();
                 book = null;
                 return;
             }
@@ -170,12 +167,26 @@ public class ReturnBooksController {
     }
 
     public void extendBook(){
-
+        LocalDate dateTo = datePicker.getValue();
+        for(BookReservation bookReservation: reader.getReservations()){
+            if(bookReservation.getBookId() == book.getId() && !bookReservation.isReturned()){
+                reader.removeReservation(bookReservation);
+                bookReservation.setDateTo(dateTo);
+                reader.addReservation(bookReservation);
+                Main.userDatabase.removeUser(reader);
+                Main.userDatabase.addUser(reader);
+                deleteFields();
+                book = null;
+                return;
+            }
+        }
     }
 
     private void deleteFields(){
         returnBtn.setDisable(true);
         extendBtn.setDisable(true);
+        datePicker.setValue(null);
+        datePicker.setDisable(true);
     }
 
     public void showMenu() throws IOException {

@@ -10,6 +10,6 @@
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMain" text="Späť" />
       <Button layoutX="593.0" layoutY="287.0" mnemonicParsing="false" onAction="#returnBook" text="Vrátenie knihy" />
       <Button layoutX="593.0" layoutY="183.0" mnemonicParsing="false" onAction="#giveBook" text="Výdanie knihy" />
-      <Button layoutX="594.0" layoutY="235.0" mnemonicParsing="false" onAction="#addNewBook" prefHeight="25.0" prefWidth="90.0" text="Nahraj knihu" />
+      <Button layoutX="594.0" layoutY="235.0" mnemonicParsing="false" onAction="#addNewBook" prefHeight="31.0" prefWidth="113.0" text="Nahraj knihu" />
    </children>
 </AnchorPane>
