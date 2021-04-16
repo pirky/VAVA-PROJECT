@@ -34,4 +34,14 @@ public class LibrarianController implements menuInterface {
     public void showMain() throws IOException {
         this.changeMainView();
     }
+
+    public void addNewBook() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/AddBookView.fxml")));
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
+
+
+
 }

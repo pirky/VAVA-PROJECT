@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="vBox" alignment="CENTER" prefHeight="280.0" prefWidth="246.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+    <padding>
+        <Insets top="5.0" />
+    </padding>
+    <ImageView fx:id="imageView" fitHeight="200.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+        <VBox.margin>
+          <Insets />
+        </VBox.margin>
+    </ImageView>
+    <Label fx:id="authorLabel" alignment="CENTER" prefHeight="40.0" prefWidth="250.0" text="Autor" wrapText="true" />
+    <Label fx:id="titleLabel" alignment="CENTER" prefHeight="40.0" prefWidth="250.0" text="Nazov knihy" textAlignment="CENTER" wrapText="true" />
+</VBox>

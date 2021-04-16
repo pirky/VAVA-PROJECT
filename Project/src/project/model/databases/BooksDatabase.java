@@ -44,6 +44,11 @@ public class BooksDatabase {
         this.date = date;
     }
 
+
+    public int getBookId(){
+        return getBooks().size();
+    }
+
     private void loadDemo(){
         books = new ArrayList<>();
         Book book = new Book(0, "Pekaren", "Julie Caplinova", "Popis knihy pekaren", new CustomImage(new Image("project/images/books/book0.jpg")));

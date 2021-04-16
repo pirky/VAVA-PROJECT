@@ -20,5 +20,7 @@
       <RadioButton layoutX="251.0" layoutY="209.0" mnemonicParsing="false" selected="true" text="knihovník" toggleGroup="$group" />
       <PasswordField fx:id="password" layoutX="226.0" layoutY="107.0" promptText="heslo" />
       <PasswordField fx:id="password1" layoutX="226.0" layoutY="157.0" promptText="potvrd heslo" />
+      <AnchorPane prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: #0598ff;" />
+      <AnchorPane layoutX="450.0" prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: #0598ff;" />
    </children>
 </AnchorPane>
