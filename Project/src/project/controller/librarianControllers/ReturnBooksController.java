@@ -53,6 +53,21 @@ public class ReturnBooksController {
         }
         readersBox.setItems(readers);
 
+        tableView.setRowFactory(tv -> new TableRow<TableBook>() {
+            @Override
+            protected void updateItem(TableBook item, boolean empty) {
+                super.updateItem(item, empty);
+                if(item == null){
+                    setStyle("");
+                    return;
+                }
+                if(Main.booksDatabase.getDate().compareTo(item.getDateTo()) > 0){
+                    setStyle("-fx-background-color: #ff9494;");
+                }
+                else setStyle("");
+            }
+        });
+
         authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
         authorColumn.setCellFactory(param -> {
             TableCell<TableBook, String> cell = new TableCell<>();
@@ -65,30 +80,6 @@ public class ReturnBooksController {
             text.textProperty().bind(cell.itemProperty());
             return cell;
         });
-        tableView.setRowFactory(tv -> new TableRow<TableBook>() {
-            @Override
-            protected void updateItem(TableBook item, boolean empty) {
-                super.updateItem(item, empty);
-                if(item == null){
-                    setStyle("");
-                    return;
-                }
-                if(Main.booksDatabase.getDate().compareTo(item.getDateTo()) > 0){
-                    setTextFill(Color.RED);
-//                    setStyle("-fx-background-color: #ff0000;");
-                }
-                else setStyle("");
-//                if (item == null || item.getValue() == null)
-//                    setStyle("");
-//                else if (item.getValue() > 0)
-//                    setStyle("-fx-background-color: #baffba;");
-//                else if (item.getValue() < 0)
-//                    setStyle("-fx-background-color: #ffd7d1;");
-//                else
-//                    setStyle("");
-            }
-        });
-
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         titleColumn.setCellFactory(param -> {
             TableCell<TableBook, String> cell = new TableCell<>();
