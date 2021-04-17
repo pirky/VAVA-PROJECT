@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.organizerControllers.OrganizerController">
-   <Text layoutX="270.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="organizátor" />
-   <DatePicker layoutX="156.0" layoutY="68.0" prefHeight="31.0" prefWidth="289.0" />
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.organizerControllers.OrganizerController">
+   <Text layoutX="270.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="organizátor"/>
 </AnchorPane>

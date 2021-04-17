@@ -13,7 +13,6 @@ import project.controller.Main;
 import project.model.books.Book;
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 
 public class InnerTableController  extends ListCell<List<Book>> {
     ObservableList<Book> booksQuartet = FXCollections.observableArrayList();
@@ -38,6 +37,8 @@ public class InnerTableController  extends ListCell<List<Book>> {
                 }
             }
 
+            booksQuartet.clear();
+            listView.getItems().clear();
             booksQuartet.addAll(bookList);
             listView.setItems(booksQuartet);
             listView.setOrientation(Orientation.HORIZONTAL);

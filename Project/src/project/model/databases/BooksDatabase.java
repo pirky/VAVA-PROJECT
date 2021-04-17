@@ -72,7 +72,7 @@ public class BooksDatabase {
         books.add(book);
 
         book = new Book(5, "Môj macík", "Mária Rázusová-Martáková", "Popis knihy Môj macík", new CustomImage(new Image("project/images/books/book5.jpg")));
-        book.setCreatedAt(LocalDate.parse("2021-01-11"));
+        book.setCreatedAt(LocalDate.parse("2021-04-11"));
         books.add(book);
 
         book = new Book(6, "Sochár smrti", "Chris Carter", "Popis knihy Sochár smrti", new CustomImage(new Image("project/images/books/book6.jpg")));
