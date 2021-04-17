@@ -1,15 +1,15 @@
 package project.model.databases;
-import javafx.scene.image.Image;
 import project.controller.Main;
-import project.model.CustomImage;
-import project.model.books.Book;
+import project.model.Rooms.LibraryRoom;
+import project.model.Rooms.RoomReservation;
 import project.model.books.BookReservation;
-import project.model.books.SellableBook;
+import project.model.events.BookDiscussion;
+import project.model.events.BookExchange;
+import project.model.events.Event;
 import project.model.users.Librarian;
 import project.model.users.Organizer;
 import project.model.users.Reader;
 import project.model.users.User;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -115,10 +115,23 @@ public class UserDatabase {
         reservations.add(new BookReservation(3, LocalDate.parse("2021-04-15"), LocalDate.parse("2021-04-30")));
 
         userDatabase.add(new Librarian("librarian", "heslo"));
-        userDatabase.add(new Organizer("organizer", "heslo"));
+
+        List<Event> events = new ArrayList<>();
+        events.add(new BookDiscussion("Diskusia o knihe Sapiens", "velmi zaujmava diskusia", new RoomReservation(LocalDate.parse("2021-01-01"), LocalDate.parse("2021-01-10"), new LibraryRoom("Miestnost 5", 5)), new Organizer("jano", "balazia"), "Yuval Harari"));
+        events.add(new BookDiscussion("Diskusia o knihe Homo Deus", "velmi pestra diskusia", new RoomReservation(LocalDate.parse("2021-02-01"), LocalDate.parse("2021-02-10"), new LibraryRoom("Miestnost 6", 10)), new Organizer("rasto", "bencel"), "Yuval Harari"));
+        events.add(new BookDiscussion("Diskusia o knihe Life 3.0", "velmi intelektualna diskusia", new RoomReservation(LocalDate.parse("2021-03-01"), LocalDate.parse("2021-03-10"), new LibraryRoom("Miestnost 7", 15)), new Organizer("peto", "kockin"), "Max Tegmark"));
+        events.add(new BookExchange("Januarova vymena knih", "Januarova vymena knih", new RoomReservation(LocalDate.parse("2021-01-15"), LocalDate.parse("2021-01-20"), new LibraryRoom("Miestnost 8", 20)), new Organizer("fero", "vangel")));
+        events.add(new BookExchange("Februarova vymena knih", "Februarova vymena knih", new RoomReservation(LocalDate.parse("2021-02-15"), LocalDate.parse("2021-02-20"), new LibraryRoom("Miestnost 9", 25)), new Organizer("pele", "smevko")));
+        Organizer organizer = new Organizer("organizer", "heslo");
+        organizer.setEvents(events);
+        userDatabase.add(organizer);
+
+
         Reader reader = new Reader("reader", "heslo");
         reader.setReservations(reservations);
         userDatabase.add(reader);
+
+
 
     }
 }
