@@ -1,5 +1,6 @@
 TODO list:
 -------------------- UDALOSTI --------------------
+→ upravit existujucu miestnost
 → kalendar → YT video
 → vytvorenie udalosti [organizator]
 	→ zobrazenie volnych terminov → jednoduchy kalendar len obsadenost

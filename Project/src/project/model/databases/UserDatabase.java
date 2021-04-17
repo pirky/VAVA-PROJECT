@@ -116,22 +116,19 @@ public class UserDatabase {
 
         userDatabase.add(new Librarian("librarian", "heslo"));
 
-        List<Event> events = new ArrayList<>();
-        events.add(new BookDiscussion("Diskusia o knihe Sapiens", "velmi zaujmava diskusia", new RoomReservation(LocalDate.parse("2021-01-01"), LocalDate.parse("2021-01-10"), new LibraryRoom("Miestnost 5", 5)), new Organizer("jano", "balazia"), "Yuval Harari"));
-        events.add(new BookDiscussion("Diskusia o knihe Homo Deus", "velmi pestra diskusia", new RoomReservation(LocalDate.parse("2021-02-01"), LocalDate.parse("2021-02-10"), new LibraryRoom("Miestnost 6", 10)), new Organizer("rasto", "bencel"), "Yuval Harari"));
-        events.add(new BookDiscussion("Diskusia o knihe Life 3.0", "velmi intelektualna diskusia", new RoomReservation(LocalDate.parse("2021-03-01"), LocalDate.parse("2021-03-10"), new LibraryRoom("Miestnost 7", 15)), new Organizer("peto", "kockin"), "Max Tegmark"));
-        events.add(new BookExchange("Januarova vymena knih", "Januarova vymena knih", new RoomReservation(LocalDate.parse("2021-01-15"), LocalDate.parse("2021-01-20"), new LibraryRoom("Miestnost 8", 20)), new Organizer("fero", "vangel")));
-        events.add(new BookExchange("Februarova vymena knih", "Februarova vymena knih", new RoomReservation(LocalDate.parse("2021-02-15"), LocalDate.parse("2021-02-20"), new LibraryRoom("Miestnost 9", 25)), new Organizer("pele", "smevko")));
         Organizer organizer = new Organizer("organizer", "heslo");
+        List<Event> events = new ArrayList<>();
+        events.add(new BookDiscussion("Diskusia o knihe Sapiens", "velmi zaujmava diskusia", new RoomReservation(LocalDate.parse("2021-04-20"), LocalDate.parse("2021-04-21"), 0), organizer, "Yuval Harari"));
+        events.add(new BookDiscussion("Diskusia o knihe Homo Deus", "velmi pestra diskusia", new RoomReservation(LocalDate.parse("2021-04-28"), LocalDate.parse("2021-04-30"), 0), organizer, "Yuval Harari"));
+        events.add(new BookDiscussion("Diskusia o knihe Life 3.0", "velmi intelektualna diskusia", new RoomReservation(LocalDate.parse("2021-04-17"), LocalDate.parse("2021-04-18"), 1), organizer, "Max Tegmark"));
+        events.add(new BookExchange("Aprilova vymena knih", "popis Aprilova vymena knih", new RoomReservation(LocalDate.parse("2021-04-20"), LocalDate.parse("2021-04-25"), 1), organizer));
+        events.add(new BookExchange("Majova vymena knih", "popis Majova vymena knih", new RoomReservation(LocalDate.parse("2021-05-20"), LocalDate.parse("2021-05-25"), 1), organizer));
+
         organizer.setEvents(events);
         userDatabase.add(organizer);
-
 
         Reader reader = new Reader("reader", "heslo");
         reader.setReservations(reservations);
         userDatabase.add(reader);
-
-
-
     }
 }

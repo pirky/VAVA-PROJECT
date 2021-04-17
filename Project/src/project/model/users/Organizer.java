@@ -8,18 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Organizer extends User{
-
+    private List<Event> events;
 
     public Organizer(String userName, String password) {
         super(userName, password);
     }
-
-    public Object clone(){
-        return new Organizer(this.getUserName(), this.getPassword());
-    }
-
-    private List<Event> events;
-    
 
     public List<Event> getEvents() {
         List<Event> returnList = new ArrayList<>();
@@ -45,5 +38,7 @@ public class Organizer extends User{
         events.add((Event) bookExchange.clone());
     }
 
-
+    public Object clone(){
+        return new Organizer(this.getUserName(), this.getPassword());
+    }
 }

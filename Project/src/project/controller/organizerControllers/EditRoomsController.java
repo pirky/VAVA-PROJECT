@@ -7,7 +7,7 @@ import project.controller.Main;
 import java.io.IOException;
 import java.util.Objects;
 
-public class AddEventViewController {
+public class EditRoomsController {
 
     public void showMenu() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")));

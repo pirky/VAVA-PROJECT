@@ -5,12 +5,12 @@ import java.time.LocalDate;
 public class RoomReservation {
     private LocalDate dateFrom;
     private LocalDate dateTo;
-    private LibraryRoom room;
+    private int roomId;
 
-    public RoomReservation(LocalDate dateFrom, LocalDate dateTo, LibraryRoom room) {
+    public RoomReservation(LocalDate dateFrom, LocalDate dateTo, int roomId) {
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
-        this.room = room;
+        this.roomId = roomId;
     }
 
     public LocalDate getDateFrom() {
@@ -29,15 +29,15 @@ public class RoomReservation {
         this.dateTo = dateTo;
     }
 
-    public LibraryRoom getRoom() {
-        return (LibraryRoom) room.clone();
+    public int getRoomId() {
+        return roomId;
     }
 
-    public void setRoom(LibraryRoom room) {
-        this.room = (LibraryRoom) room.clone();
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 
     public Object clone(){
-        return new RoomReservation(this.dateFrom, this.dateTo, this.room);
+        return new RoomReservation(this.dateFrom, this.dateTo, this.roomId);
     }
 }
