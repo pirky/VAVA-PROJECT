@@ -120,7 +120,7 @@ public class GiveBooksController {
                 }
             }
             if (isFree){
-                freeBooks.add(new TableBook(book.getId(), book.getTitle(), book.getAuthor(), book.getNote(), book.getImage()));
+                freeBooks.add(new TableBook(book.getId(), book.getTitle(), book.getAuthor(), book.getNote(), book.getImage(), null, null, null));
             }
         }
         tableView.setItems(freeBooks);

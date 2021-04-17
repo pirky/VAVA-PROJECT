@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import project.controller.Main;
@@ -57,16 +58,43 @@ public class ReturnBooksController {
             TableCell<TableBook, String> cell = new TableCell<>();
             Text text = new Text();
             cell.setGraphic(text);
+            cell.setTextFill(Color.RED);
+            cell.setText("item");
             cell.setPrefHeight(Control.USE_COMPUTED_SIZE);
             text.wrappingWidthProperty().bind(cell.widthProperty());
             text.textProperty().bind(cell.itemProperty());
             return cell;
         });
+        tableView.setRowFactory(tv -> new TableRow<TableBook>() {
+            @Override
+            protected void updateItem(TableBook item, boolean empty) {
+                super.updateItem(item, empty);
+                if(item == null){
+                    setStyle("");
+                    return;
+                }
+                if(Main.booksDatabase.getDate().compareTo(item.getDateTo()) > 0){
+                    setTextFill(Color.RED);
+//                    setStyle("-fx-background-color: #ff0000;");
+                }
+                else setStyle("");
+//                if (item == null || item.getValue() == null)
+//                    setStyle("");
+//                else if (item.getValue() > 0)
+//                    setStyle("-fx-background-color: #baffba;");
+//                else if (item.getValue() < 0)
+//                    setStyle("-fx-background-color: #ffd7d1;");
+//                else
+//                    setStyle("");
+            }
+        });
+
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         titleColumn.setCellFactory(param -> {
             TableCell<TableBook, String> cell = new TableCell<>();
             Text text = new Text();
             cell.setGraphic(text);
+            cell.setTextFill(Color.RED);
             cell.setPrefHeight(Control.USE_COMPUTED_SIZE);
             text.wrappingWidthProperty().bind(cell.widthProperty());
             text.textProperty().bind(cell.itemProperty());
@@ -86,7 +114,7 @@ public class ReturnBooksController {
             }
             if(!bookReservation.isReturned()){
                 Book temp = Main.booksDatabase.getBooks().get(bookReservation.getBookId());
-                rentedBooks.add(new TableBook(temp.getId(), temp.getTitle(), temp.getAuthor(), temp.getNote(), temp.getImage()));
+                rentedBooks.add(new TableBook(temp.getId(), temp.getTitle(), temp.getAuthor(), temp.getNote(), temp.getImage(), bookReservation.getDateFrom(), bookReservation.getDateTo(), bookReservation.isReturned()));
             }
         }
         tableView.setItems(rentedBooks);
