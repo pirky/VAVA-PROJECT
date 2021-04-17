@@ -23,4 +23,12 @@ public class ReaderController implements menuInterface {
     public void showMain() throws IOException {
         this.changeMainView();
     }
+
+    public void showHistory() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/BookHistoryView.fxml")));
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
+
 }

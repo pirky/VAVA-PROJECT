@@ -8,4 +8,5 @@
    <Text layoutX="284.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="čitateľ" />
    <Button layoutX="233.0" layoutY="72.0" mnemonicParsing="false" onAction="#bookReservation" text="Rezervovať knihu" />
    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMain" text="Späť" />
+   <Button layoutX="233.0" layoutY="122.0" mnemonicParsing="false" onAction="#showHistory" text="historia knih" />
 </AnchorPane>
