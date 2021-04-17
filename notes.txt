@@ -1,7 +1,4 @@
 TODO list:
--------------------- KNIZNICA POZICIAVANIE -------------------- 
-→ historia pozicanych knih [citatel]
-→ zvyraznit neskore vratenia na cerveno [knihovnik] → tie, kt. sú este u citatela, no uz je po dateTo z rezervacie knihy
 -------------------- KNIZNICA PREHLAD NOVINIEK --------------------
 → odstranenie knihy z noviniek (mozno zobrazit medzi novinkami iba tie, ktore su viac ako 2 tyzdne stare (nejaky created_at datum pri knihe))
 → prezeranie kniznich noviniek/vsetkych knih [citatel] → ako prezeranie knih len su to novinky
@@ -55,3 +52,6 @@ git merge brancha_ktoru_mergujem
 -------------------- KNIZNICA PREHLAD NOVINIEK --------------------
 → nahravanie kniznich noviniek [knihovnik]
 	→ pridanie knihy s popisom a vsetkym
+→ historia pozicanych knih [citatel]
+→ zvyraznit neskore vratenia na cerveno [knihovnik] → tie, kt. sú este u citatela, no uz je po dateTo z rezervacie knihy
+-------------------- KNIZNICA PREHLAD NOVINIEK --------------------
