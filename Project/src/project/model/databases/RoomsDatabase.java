@@ -38,14 +38,15 @@ public class RoomsDatabase {
     }
 
     private void loadDemo(){
+        rooms = new ArrayList<>();
         LibraryRoom room = new LibraryRoom(0, "Miestnost 1", 15);
-        room.addImage(new CustomImage(new Image("project/images/books/room1_1.jpg")));
-        room.addImage(new CustomImage(new Image("project/images/books/room1_2.jpg")));
+        room.addImage(new CustomImage(new Image("project/images/rooms/room1_1.jpg")));
+        room.addImage(new CustomImage(new Image("project/images/rooms/room1_2.jpg")));
         rooms.add(room);
 
         room = new LibraryRoom(1, "Miestnost 2", 100);
-        room.addImage(new CustomImage(new Image("project/images/books/room2_1.jpg")));
-        room.addImage(new CustomImage(new Image("project/images/books/room2_2.jpg")));
+        room.addImage(new CustomImage(new Image("project/images/rooms/room2_1.jpg")));
+        room.addImage(new CustomImage(new Image("project/images/rooms/room2_2.jpg")));
         rooms.add(room);
     }
 }
