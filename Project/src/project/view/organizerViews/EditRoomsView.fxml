@@ -11,5 +11,6 @@
       <ListView fx:id="roomPictures" layoutX="640.0" layoutY="14.0" prefHeight="672.0" prefWidth="530.0" />
       <ComboBox fx:id="roomComboBox" layoutX="181.0" layoutY="138.0" onAction="#comboClick" prefWidth="150.0" />
       <Button layoutX="181.0" layoutY="196.0" mnemonicParsing="false" onAction="#addImage" text="pridaj fotku" />
+      <Button layoutX="181.0" layoutY="245.0" mnemonicParsing="false" onAction="#deletePhoto" text="odstran fotku" />
    </children>
 </AnchorPane>
