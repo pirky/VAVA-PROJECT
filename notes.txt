@@ -1,15 +1,18 @@
 TODO list:
 -------------------- UDALOSTI --------------------
 → upravit existujucu miestnost
-→ kalendar → YT video
-→ vytvorenie udalosti [organizator]
-	→ zobrazenie volnych terminov → jednoduchy kalendar len obsadenost
 
+→ úprava existujucej udalosti [organizátor]
+→ zrušenie udalosti [organizátor]
 → prihlasovanie na udalost [citatel] 
 	→ zobrazenie udalosti v kalendari 
 		→ zlozite, ked si rozklikne tak sa zobrazi popis
 	→ prihlasenie sa na dobrovolnictvo
-
+-------------------- NA ZÁVER --------------------
+→ serializácia
+→ internationalization
+→ loggeri
+→ UML tried
 -------------------- OPTIONAL --------------------
 → pridat nejake statistiky napr. nevratene knihy, kt mali byt vratene
 → pridat vyhladavanie medzi knihami
@@ -55,3 +58,5 @@ git merge brancha_ktoru_mergujem
 → odstranenie knihy z noviniek (mozno zobrazit medzi novinkami iba tie, ktore su viac ako 2 tyzdne stare (nejaky created_at datum pri knihe))
 → prezeranie kniznich noviniek/vsetkych knih [citatel] → ako prezeranie knih len su to novinky
 -------------------- UDALOSTI --------------------
+→ vytvorenie udalosti [organizator]
+	→ zobrazenie volnych terminov → jednoduchy kalendar len obsadenost

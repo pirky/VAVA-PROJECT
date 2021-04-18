@@ -109,6 +109,7 @@ public class BookInfoController{
         reader.addReservation(new BookReservation(book.getId(), dateFrom, dateTo));
         Main.userDatabase.addUser(reader);
         Main.currUser = reader;
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image("project/images/logo.jpg"));
@@ -120,6 +121,7 @@ public class BookInfoController{
         alert.setGraphic(imageView);
         alert.setContentText(null);
         alert.showAndWait();
+
         showBooks();
     }
 

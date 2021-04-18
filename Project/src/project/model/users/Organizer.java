@@ -39,6 +39,8 @@ public class Organizer extends User{
     }
 
     public Object clone(){
-        return new Organizer(this.getUserName(), this.getPassword());
+        Organizer organizer = new Organizer(this.getUserName(), this.getPassword());
+        organizer.setEvents(this.events);
+        return organizer;
     }
 }
