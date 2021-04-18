@@ -45,6 +45,10 @@ public class LibraryRoom {
         images.add(image);
     }
 
+    public String toString(){
+        return this.name;
+    }
+
     public Object clone(){
         LibraryRoom room = new LibraryRoom(this.id, this.name, this.capacity);
         room.setImages(images);
