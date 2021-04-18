@@ -1,7 +1,5 @@
 TODO list:
 -------------------- UDALOSTI --------------------
-→ upravit existujucu miestnost
-
 → úprava existujucej udalosti [organizátor]
 → zrušenie udalosti [organizátor]
 → prihlasovanie na udalost [citatel] 
@@ -14,6 +12,7 @@ TODO list:
 → loggeri
 → UML tried
 -------------------- OPTIONAL --------------------
+→ popridavat sort do comboboxu
 → pridat nejake statistiky napr. nevratene knihy, kt mali byt vratene
 → pridat vyhladavanie medzi knihami
 → pridat ze moze mat citatel len 5 knih pozicanych
@@ -59,4 +58,5 @@ git merge brancha_ktoru_mergujem
 → prezeranie kniznich noviniek/vsetkych knih [citatel] → ako prezeranie knih len su to novinky
 -------------------- UDALOSTI --------------------
 → vytvorenie udalosti [organizator]
-	→ zobrazenie volnych terminov → jednoduchy kalendar len obsadenost
+	→ zobrazenie volnych terminov → jednoduchy kalendar
+→ upravit existujucu miestnost

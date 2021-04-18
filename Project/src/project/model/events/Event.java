@@ -69,6 +69,10 @@ public class Event {
         this.roomReservation = (RoomReservation) roomReservation.clone();
     }
 
+    public String toString(){
+        return name + ", od: " + roomReservation.getDateFrom() + ", do: " + roomReservation.getDateTo();
+    }
+
     public Object clone(){
         Event event = new Event(this.name, this.note, this.roomReservation, this.organizer);
         event.setVolunteers(this.volunteers);

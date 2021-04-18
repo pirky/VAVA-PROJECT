@@ -126,11 +126,11 @@ public class EditRoomsController implements Initializable {
                         roomsSort.sort(Comparator.comparing(LibraryRoom::getName));
                         Main.roomsDatabase.setRooms(roomsSort);
 
-                        String string = roomComboBox.getSelectionModel().getSelectedItem().getName();
+                        LibraryRoom selectedRoom = roomComboBox.getSelectionModel().getSelectedItem();
                         allRooms.clear();
                         allRooms.addAll(Main.roomsDatabase.getRooms());
                         roomComboBox.setItems(allRooms);
-                        roomComboBox.getSelectionModel().select(Integer.parseInt(string.substring(string.length() - 1))-1);
+                        roomComboBox.getSelectionModel().select(selectedRoom);
 
                         roomPictures.getItems().clear();
                         for(CustomImage image: roomFor.getImages()){
