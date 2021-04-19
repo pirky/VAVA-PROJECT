@@ -1,4 +1,4 @@
-package project.controller.organizerControllers;
+package project.controller.librarianControllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -34,7 +34,7 @@ public class EditRoomsController implements Initializable {
 
 
     public void showMenu() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();

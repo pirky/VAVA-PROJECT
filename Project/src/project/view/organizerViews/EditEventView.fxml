@@ -20,7 +20,7 @@
    <TextArea fx:id="nameArea" layoutX="40.0" layoutY="264.0" prefHeight="73.0" prefWidth="301.0" />
    <TextArea fx:id="hostArea" layoutX="383.0" layoutY="264.0" prefHeight="73.0" prefWidth="301.0" />
    <Label fx:id="hostLabel" layoutX="500.0" layoutY="218.0" text="Meno hosťa:" />
-   <Button fx:id="btn" layoutX="275.0" layoutY="613.0" mnemonicParsing="false" onAction="#createEvent" prefHeight="31.0" prefWidth="154.0" text="zmen podujatie" />
+   <Button fx:id="btn" layoutX="115.0" layoutY="610.0" mnemonicParsing="false" onAction="#createEvent" prefHeight="31.0" prefWidth="154.0" text="zmen podujatie" />
    <Label fx:id="infoLabel" alignment="CENTER" layoutX="383.0" layoutY="389.0" prefHeight="50.0" prefWidth="301.0" text="Label" textAlignment="CENTER" textFill="RED" wrapText="true" />
    <ComboBox fx:id="events" layoutX="51.0" layoutY="85.0" onAction="#comboClicked" prefWidth="150.0" />
    <RadioButton fx:id="exchangeRB" disable="true" layoutX="201.0" layoutY="30.0" mnemonicParsing="false" text="Burza">
@@ -31,5 +31,6 @@
       <toggleGroup>
       </toggleGroup>
    </RadioButton>
+   <Button layoutX="461.0" layoutY="610.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="31.0" prefWidth="150.0" text="zrus podujatie" />
 
 </AnchorPane>

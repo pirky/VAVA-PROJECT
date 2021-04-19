@@ -177,6 +177,20 @@ public class EditEventController {
         noteArea.setDisable(true);
     }
 
+
+    public void deleteEvent(){
+        Organizer organizer = (Organizer) Main.currUser;
+        organizer.removeEvent(globalEvent);
+        events.getItems().clear();
+        eventsObservable.addAll(organizer.getEvents());
+        events.setItems(eventsObservable);
+        deleteFields();
+
+
+    }
+
+
+
     public void showMenu() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")));
         Scene scene = new Scene(root);

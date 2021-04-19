@@ -11,12 +11,7 @@ import java.util.Objects;
 
 public class OrganizerController implements menuInterface {
 
-    public void editRooms() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/EditRoomsView.fxml")));
-        Scene scene = new Scene(root);
-        Main.mainStage.setScene(scene);
-        Main.mainStage.show();
-    }
+
 
     public void addEvent() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/AddEventView.fxml")));

@@ -42,6 +42,11 @@ public class LibrarianController implements menuInterface {
         Main.mainStage.show();
     }
 
-
+    public void editRooms() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/EditRoomsView.fxml")));
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
 
 }
