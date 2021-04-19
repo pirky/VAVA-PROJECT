@@ -78,7 +78,7 @@ public class CalendarController {
             }
             Label label = new Label(" " + calendarDate.getDayOfMonth());
             label.setMinSize(190, 5);
-            label.setFont(new Font("Arial", 14));
+            label.setStyle("-fx-font-size:14.0;");
             label.setTextAlignment(TextAlignment.LEFT);
             vBoxNode.setDate(calendarDate);
 
@@ -119,6 +119,7 @@ public class CalendarController {
             }
         });
         listView.setItems(currEvents);
+        ////// listView on click action pridat
         return listView;
     }
 
