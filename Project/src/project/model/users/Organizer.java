@@ -38,6 +38,10 @@ public class Organizer extends User{
         events.add((Event) bookExchange.clone());
     }
 
+    public void removeEvent(Event event){
+        events.removeIf(temp -> temp.toString().equals(event.toString()));
+    }
+
     public Object clone(){
         Organizer organizer = new Organizer(this.getUserName(), this.getPassword());
         organizer.setEvents(this.events);

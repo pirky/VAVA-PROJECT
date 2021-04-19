@@ -28,4 +28,13 @@ public class OrganizerController implements menuInterface {
     public void showMenu() throws IOException {
         this.changeMainView();
     }
+
+
+    public void editEvent() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/EditEventView.fxml")));
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
+
 }

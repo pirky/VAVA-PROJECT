@@ -7,4 +7,5 @@
     <Button layoutX="596.0" layoutY="182.0" mnemonicParsing="false" onAction="#addEvent" text="pridaj udalosť" />
    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
    <Button layoutX="588.0" layoutY="263.0" mnemonicParsing="false" onAction="#editRooms" text="uprav miestnosť" />
+   <Button layoutX="596.0" layoutY="224.0" mnemonicParsing="false" onAction="#editEvent" text="uprav udalost" />
 </AnchorPane>
