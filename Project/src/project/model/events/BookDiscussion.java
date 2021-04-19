@@ -20,6 +20,9 @@ public class BookDiscussion extends Event{
     }
 
     public Object clone(){
-        return new BookDiscussion(this.getName(), this.getNote(), this.getReservation(), this.getOrganizer(), this.host);
+        BookDiscussion bookDiscussion = new BookDiscussion(this.getName(), this.getNote(), this.getReservation(), this.getOrganizer(), this.host);
+        bookDiscussion.setVolunteers(this.getVolunteers());
+        bookDiscussion.setParticipants(this.getParticipants());
+        return bookDiscussion;
     }
 }

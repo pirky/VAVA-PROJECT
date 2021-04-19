@@ -2,21 +2,25 @@ package project.controller.readerControllers.Calendar;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import project.controller.Main;
+import project.controller.readerControllers.EventEnrollController;
 import project.model.events.Event;
 import project.model.users.Organizer;
+import project.model.users.Reader;
 import project.model.users.User;
-
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
@@ -90,13 +94,13 @@ public class CalendarController {
                 continue;
             }
 
-            ListView<Event> listView = getListView(calendarDate, vBoxNode);
+            ListView<Event> listView = getListView(calendarDate, vBoxNode, yearMonth);
             vBoxNode.getChildren().addAll(label, listView);
             calendarDate = calendarDate.plusDays(1);
         }
     }
 
-    private ListView<Event> getListView(LocalDate calendarDate, VBoxNode vBoxNode){
+    private ListView<Event> getListView(LocalDate calendarDate, VBoxNode vBoxNode, YearMonth yearMonth){
         ObservableList<Event> currEvents = getCurrEvents(calendarDate);
         ListView<Event> listView = new ListView<>();
         listView.setMaxHeight(vBoxNode.getPrefHeight() - 25);
@@ -104,23 +108,59 @@ public class CalendarController {
         listView.setStyle("-fx-font-size:14.0;");
         listView.setCellFactory(param -> new ListCell<Event>(){
             @Override
-            protected void updateItem(Event item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty || item==null) {
+            protected void updateItem(Event event, boolean empty) {
+                super.updateItem(event, empty);
+                if (empty || event==null) {
                     setGraphic(null);
                     setText(null);
                 }else{
+                    for(Reader reader: event.getParticipants()){
+                        if(reader.toString().equals(Main.currUser.toString())){
+                            setStyle("-fx-background-color: #bdffb3");
+                            break;
+                        }
+                    }
+                    for(Reader reader: event.getVolunteers()){
+                        if(reader.toString().equals(Main.currUser.toString())){
+                            setStyle("-fx-background-color: #bdffb3");
+                            break;
+                        }
+                    }
                     setMinWidth(param.getWidth() - 19);
                     setMaxWidth(param.getWidth() - 19);
                     setPrefWidth(param.getWidth() - 19);
                     setWrapText(true);
-                    setText(item.getName());
+                    setText(event.getName());
                 }
             }
         });
         listView.setItems(currEvents);
-        ////// listView on click action pridat
+        if(!currEvents.isEmpty()){
+            listView.setOnMouseReleased(e -> {
+                try {
+                    showEvent(listView, yearMonth);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            });
+        }
         return listView;
+    }
+
+    private void showEvent(ListView<Event> listView, YearMonth yearMonth) throws IOException {
+        Event event = listView.getSelectionModel().getSelectedItem();
+        if(event == null){
+            return;
+        }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventEnrollView.fxml"));
+        Parent root = loader.load();
+        Main.mainStage.setResizable(false);
+        EventEnrollController eventEnrollController = loader.getController();
+        eventEnrollController.setYearMonth(yearMonth);
+        eventEnrollController.setEvent(event);
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
     }
 
     private ObservableList<Event> getCurrEvents(LocalDate currDate){

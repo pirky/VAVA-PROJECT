@@ -22,25 +22,27 @@ public class EventsController {
     @FXML
     public void initialize(){
         currYearMonth = YearMonth.from(Main.booksDatabase.getDate());
-        yearMonthLabel.setText(currYearMonth.getMonth().toString() + " " + currYearMonth.getYear());
         updateCalendar();
     }
 
-    private void updateCalendar(){
+    public void updateCalendar(){
+        yearMonthLabel.setText(currYearMonth.getMonth().toString() + " " + currYearMonth.getYear());
         pane.getChildren().clear();
         pane.getChildren().add(new CalendarController(currYearMonth).getView());
     }
 
     public void previousMonth(){
         currYearMonth = currYearMonth.minusMonths(1);
-        yearMonthLabel.setText(currYearMonth.getMonth().toString() + " " + currYearMonth.getYear());
         updateCalendar();
     }
 
     public void nextMonth(){
         currYearMonth = currYearMonth.plusMonths(1);
-        yearMonthLabel.setText(currYearMonth.getMonth().toString() + " " + currYearMonth.getYear());
         updateCalendar();
+    }
+
+    public void setCurrYearMonth(YearMonth currYearMonth) {
+        this.currYearMonth = currYearMonth;
     }
 
     public void showMenu() throws IOException {

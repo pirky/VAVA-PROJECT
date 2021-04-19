@@ -12,6 +12,7 @@ public class Event {
     private RoomReservation roomReservation;
     private Organizer organizer;
     private List<Reader> volunteers;
+    private List<Reader> participants;
 
     public Event(String name, String note, RoomReservation roomReservation, Organizer organizer) {
         this.name = name;
@@ -19,6 +20,7 @@ public class Event {
         this.roomReservation = roomReservation;
         this.organizer = organizer;
         this.volunteers = new ArrayList<>();
+        this.participants = new ArrayList<>();
     }
 
     public List<Reader> getVolunteers() {
@@ -35,6 +37,38 @@ public class Event {
             list.add((Reader) volunteer.clone());
         }
         this.volunteers = list;
+    }
+
+    public void addVolunteer(Reader reader){
+        volunteers.add(reader);
+    }
+
+    public void removeVolunteer(Reader reader){
+        volunteers.removeIf(temp -> temp.toString().equals(reader.toString()));
+    }
+
+    public List<Reader> getParticipants() {
+        List<Reader> returnList = new ArrayList<>();
+        for(Reader participant: participants){
+            returnList.add((Reader) participant.clone());
+        }
+        return returnList;
+    }
+
+    public void setParticipants(List<Reader> participants) {
+        List<Reader> list = new ArrayList<>();
+        for(Reader participant: participants){
+            list.add((Reader) participant.clone());
+        }
+        this.participants = list;
+    }
+
+    public void addParticipant(Reader reader){
+        participants.add(reader);
+    }
+
+    public void removeParticipant(Reader reader){
+        participants.removeIf(temp -> temp.toString().equals(reader.toString()));
     }
 
     public String getNote() {
@@ -76,6 +110,7 @@ public class Event {
     public Object clone(){
         Event event = new Event(this.name, this.note, this.roomReservation, this.organizer);
         event.setVolunteers(this.volunteers);
+        event.setParticipants(this.participants);
         return event;
     }
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="493.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventEnrollController">
+   <children>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showCalendar" text="Späť" />
+      <TextArea fx:id="titleArea" editable="false" layoutX="48.0" layoutY="95.0" prefHeight="47.0" prefWidth="373.0" wrapText="true" />
+      <Label layoutX="49.0" layoutY="63.0" text="Názov podujatia:" />
+      <TextArea fx:id="noteArea" editable="false" layoutX="48.0" layoutY="196.0" prefHeight="117.0" prefWidth="373.0" wrapText="true" />
+      <Label layoutX="49.0" layoutY="164.0" text="Popis podujatia:" />
+      <DatePicker fx:id="datePickerFrom" editable="false" layoutX="496.0" layoutY="103.0" prefHeight="31.0" prefWidth="280.0" />
+      <DatePicker fx:id="datePickerTo" editable="false" layoutX="496.0" layoutY="188.0" prefHeight="31.0" prefWidth="280.0" />
+      <Label layoutX="499.0" layoutY="66.0" text="Začiatok podujatia:" />
+      <Label layoutX="499.0" layoutY="156.0" text="Koniec podujatia:" />
+      <Label fx:id="hostLabel" layoutX="49.0" layoutY="334.0" text="Hosť podujatia:" />
+      <TextField fx:id="hostField" layoutX="48.0" layoutY="368.0" prefHeight="31.0" prefWidth="373.0" />
+      <Button fx:id="participantBtn" layoutX="548.0" layoutY="257.0" mnemonicParsing="false" onAction="#enrollParticipant" text="Prihlásiť sa ako účastník" />
+      <Button fx:id="volunteerBtn" layoutX="535.0" layoutY="340.0" mnemonicParsing="false" onAction="#enrollVolunteer" text="Prihlásiť sa ako dobrovoľník" />
+      <Label fx:id="typeLabel" alignment="CENTER" layoutX="262.0" layoutY="4.0" prefHeight="51.0" prefWidth="318.0" text="Label">
+         <font>
+            <Font name="Segoe UI Bold" size="41.0" />
+         </font>
+      </Label>
+      <Button fx:id="cancelBtn" layoutX="360.0" layoutY="436.0" mnemonicParsing="false" onAction="#cancelParticipation" text="Zrušiť účasť" />
+      <Label fx:id="participantLabel" alignment="CENTER" layoutX="520.0" layoutY="290.0" prefHeight="47.0" prefWidth="235.0" text="Label">
+         <font>
+            <Font name="Segoe UI" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

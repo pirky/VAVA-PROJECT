@@ -48,6 +48,8 @@ public class BookExchange extends Event{
         BookExchange bookExchange = new BookExchange(this.getName(), this.getNote(), this.getReservation(), this.getOrganizer());
         bookExchange.setNumOfSold(this.numOfSold);
         bookExchange.setBooks(this.books);
+        bookExchange.setVolunteers(this.getVolunteers());
+        bookExchange.setParticipants(this.getParticipants());
         return bookExchange;
     }
 }
