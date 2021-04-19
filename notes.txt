@@ -9,9 +9,10 @@ TODO list:
 -------------------- NA ZÁVER --------------------
 → serializácia
 → internationalization
-→ loggeri
+→ loggovanie
 → UML tried
 -------------------- OPTIONAL --------------------
+→ pridat do kalendarov toto: setTooltip(new Tooltip("Beware the Ides of March!"));
 → popridavat sort do comboboxu
 → pridat nejake statistiky napr. nevratene knihy, kt mali byt vratene
 → pridat vyhladavanie medzi knihami

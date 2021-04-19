@@ -16,12 +16,6 @@ public class ReaderController implements menuInterface {
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
-//        Main.mainStage.setMinWidth(1300);
-//        Main.mainStage.setMinHeight(700);
-    }
-
-    public void showMain() throws IOException {
-        this.changeMainView();
     }
 
     public void showHistory() throws IOException {
@@ -31,4 +25,15 @@ public class ReaderController implements menuInterface {
         Main.mainStage.show();
     }
 
+    public void showEvents()throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/EventsView.fxml")));
+        Scene scene = new Scene(root);
+        Main.mainStage.setResizable(false);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
+
+    public void showMain() throws IOException {
+        this.changeMainView();
+    }
 }
