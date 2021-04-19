@@ -1,4 +1,5 @@
 TODO list:
+→ osetrit vratenie vsetkych knih
 -------------------- UDALOSTI --------------------
 → zahajenie udalosti
 	→ burza zoznam knih a moznost ich kupi

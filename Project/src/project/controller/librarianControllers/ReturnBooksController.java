@@ -169,7 +169,7 @@ public class ReturnBooksController {
 
     public void returnBook(){
         for(BookReservation bookReservation: reader.getReservations()){
-            if(bookReservation.getBookId() == book.getId() && !bookReservation.isReturned()){
+            if(bookReservation.getBookId() == book.getId() && bookReservation.isReturned() != null &&!bookReservation.isReturned()){
                 bookReservation.setReturned(true);
                 reader.removeReservation(bookReservation);
                 bookReservation.setDateTo(Main.booksDatabase.getDate());
