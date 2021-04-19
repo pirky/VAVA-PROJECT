@@ -49,4 +49,13 @@ public class LibrarianController implements menuInterface {
         Main.mainStage.show();
     }
 
+
+    public void notReturned() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/NotReturnedView.fxml")));
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
+
+
 }

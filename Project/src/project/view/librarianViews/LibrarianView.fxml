@@ -12,5 +12,6 @@
       <Button layoutX="593.0" layoutY="183.0" mnemonicParsing="false" onAction="#giveBook" text="Výdanie knihy" />
       <Button layoutX="594.0" layoutY="235.0" mnemonicParsing="false" onAction="#addNewBook" prefHeight="31.0" prefWidth="92.0" text="Nahraj knihu" />
       <Button layoutX="589.0" layoutY="338.0" mnemonicParsing="false" onAction="#editRooms" text="uprav miestnosť" />
+      <Button layoutX="592.0" layoutY="393.0" mnemonicParsing="false" onAction="#notReturned" text="nevratene knihy" />
    </children>
 </AnchorPane>
