@@ -7,10 +7,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import project.controller.Main;
 import project.model.events.BookDiscussion;
 import project.model.events.Event;
 import project.model.events.Message;
+import project.model.users.Organizer;
+import project.model.users.User;
+
 import java.io.IOException;
 import java.time.YearMonth;
 
@@ -21,15 +25,46 @@ public class DiscussionController {
     private Event event;
     @FXML
     private ListView<Message> listView;
+    @FXML
+    private TextArea textArea;
 
     public void setEvent(Event event) {
         this.event = event;
-//        messages.addAll(((BookDiscussion) event).getMessages());
-        messages.add(new Message("serus", "userName"));
-        messages.add(new Message("serus", "pele"));
-        messages.add(new Message("debilko", "jozo"));
-        listView.setItems(messages);
+        updateList();
+    }
 
+    private void updateList(){
+        listView.getItems().clear();
+        messages.add(new Message("cojeee", "Tvoja mama"));
+        messages.addAll(((BookDiscussion) event).getMessages());
+        listView.setCellFactory(ListView -> new MessageController());
+        listView.setItems(messages);
+    }
+
+    public void addMessage(){
+        String msg = textArea.getText().trim();
+        if(msg.isEmpty()){
+            return;
+        }
+        Message message = new Message(msg, Main.currUser.getUserName());
+        for(User user: Main.userDatabase.getUserDatabase()){
+            if(!(user instanceof Organizer)){
+                continue;
+            }
+            Organizer organizer = (Organizer) user;
+            for (Event temp: organizer.getEvents()){
+                if(temp.toString().equals(event.toString())){
+                    ((BookDiscussion) event).addMessage(message);
+                    organizer.removeEvent(event);
+                    organizer.addEvent((BookDiscussion) event);
+                    Main.userDatabase.removeUser(organizer);
+                    Main.userDatabase.addUser(organizer);
+                    updateList();
+                    textArea.clear();
+                    return;
+                }
+            }
+        }
     }
 
     public void setYearMonth(YearMonth yearMonth) {

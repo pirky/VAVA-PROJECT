@@ -1,20 +1,16 @@
 package project.controller.readerControllers.EventsCalendar;
 
-import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import project.controller.readerControllers.BookReservation.CellController;
-import project.model.books.Book;
+import project.controller.Main;
 import project.model.events.Message;
-
 import java.io.IOException;
 
 public class MessageController extends ListCell<Message> {
@@ -38,7 +34,7 @@ public class MessageController extends ListCell<Message> {
             setGraphic(null);
         } else {
             if (mLLoader == null) {
-                mLLoader = new FXMLLoader(getClass().getResource("/project/view/readerViews/BookReservation/InnerTableView.fxml"));
+                mLLoader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/MessageView.fxml"));
                 mLLoader.setController(this);
                 try {
                     mLLoader.load();
@@ -47,31 +43,35 @@ public class MessageController extends ListCell<Message> {
                 }
             }
 
-//            booksQuartet.clear();
-//            listView.getItems().clear();
-//            booksQuartet.addAll(bookList);
-//            listView.setItems(booksQuartet);
-//            listView.setOrientation(Orientation.HORIZONTAL);
-//            listView.setCellFactory(ListView -> new CellController());
-//            setText(null);
-//            setGraphic(listView);
-//            listView.setOnMouseReleased(mouseEvent -> {
-//                try {
-//                    showBook();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            });
+            label.setText(message.getUserName());
+            textArea.setText(message.getText());
+
+            Text helper = new Text();
+            helper.setText(message.getText());
+            helper.setFont(textArea.getFont());
+            double width = helper.getLayoutBounds().getWidth();
+            int rows = (int) Math.ceil(width / 450);
+            double areaHeight = (helper.getLayoutBounds().getHeight() + 2) * rows + 12;
+            int height = 23 + (int) areaHeight;
+
+            textArea.setPrefHeight(areaHeight);
+            hBox.setPrefHeight(height);
+            vBox.setPrefHeight(height);
+
+            if(message.getUserName().equals(Main.currUser.getUserName())){
+                hBox.setAlignment(Pos.TOP_RIGHT);
+                vBox.setAlignment(Pos.TOP_RIGHT);
+                textArea.setStyle("-fx-control-inner-background: #0055a0; -fx-text-fill: #ffffff;");
+            }
+            else {
+                hBox.setAlignment(Pos.TOP_LEFT);
+                vBox.setAlignment(Pos.TOP_LEFT);
+                textArea.setStyle("-fx-control-inner-background: #ffffff; -fx-text-fill: #000000;");
+            }
+
+            setText(null);
+            setGraphic(vBox);
         }
     }
 
-//    @FXML
-//    public void initialize(){
-//        textArea.setText("serus");
-//        textArea.textProperty().addListener((ChangeListener) (observable, oldValue, newValue) -> {
-//            Text text = new Text();
-//            text.setWrappingWidth(textArea.getWidth());
-//            text.setText((String)newValue);
-//        });
-//    }
 }
