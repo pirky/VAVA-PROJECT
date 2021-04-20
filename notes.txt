@@ -1,8 +1,4 @@
 TODO list:
--------------------- UDALOSTI --------------------
-→ zahajenie udalosti
-	→ burza zoznam knih
-	→ beseda diskusne forum
 -------------------- NA ZÁVER --------------------
 → serializácia
 → internationalization
@@ -10,13 +6,13 @@ TODO list:
 → UML tried
 → dokumentacia
 -------------------- OPTIONAL --------------------
+→ pri zruseni ucasti na burze, odstranit ucastnikove knihy 
+(userName ucastnika == userName pri SellableBook)
 → skontrolovat nevratene knihy len tie, kt. su pozicane a maju po datume vratenie
 → pridat zobrazenie kapacity pri vybere miestnosti v pridaj udalost
 → prihlasenie sa na udalost iba ak je este volne miesto 
 kapacita = participants + volunters
-→ pridat do sellableBook ktori citatel pridal knihu
 → pridat vyhladavanie medzi knihami GiveBooksController
-→ diskusne forum k besede
 → ucast sa moze zrusit len ak je pred udalostou
 → recenzie ku kniham // asi nie
 → posielanie sprav medzi uzivatelmi // asi nie
@@ -64,3 +60,7 @@ git merge brancha_ktoru_mergujem
 	→ zobrazenie udalosti v kalendari 
 		→ zlozite, ked si rozklikne tak sa zobrazi popis
 	→ prihlasenie sa na dobrovolnictvo
+→ zahajenie udalosti
+	→ beseda diskusne forum
+→ zahajenie udalosti
+	→ burza zoznam knih
