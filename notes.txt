@@ -1,22 +1,25 @@
 TODO list:
-→ osetrit vratenie vsetkych knih
 -------------------- UDALOSTI --------------------
 → zahajenie udalosti
-	→ burza zoznam knih a moznost ich kupi
+	→ burza zoznam knih a moznost ich kupit
 	→ beseda diskusne forum
 -------------------- NA ZÁVER --------------------
 → serializácia
 → internationalization
 → loggovanie
 → UML tried
+→ dokumentacia
 -------------------- OPTIONAL --------------------
-→ pridat do kalendarov toto: setTooltip(new Tooltip("Beware the Ides of March!"));
-→ popridavat sort do comboboxu
-→ pridat nejake statistiky napr. nevratene knihy, kt mali byt vratene
-→ pridat vyhladavanie medzi knihami
+→ skontrolovat nevratene knihy len tie, kt. su pozicane a maju po datume vratenie
+→ pridat zobrazenie kapacity pri vybere miestnosti v pridaj udalost
+→ prihlasenie sa na udalost iba ak je este volne miesto 
+kapacita = participants + volunters
+→ pridat do sellableBook ktori citatel pridal knihu
+→ pridat vyhladavanie medzi knihami GiveBooksController
 → diskusne forum k besede
-→ recenzie ku kniham
-→ posielanie sprav medzi uzivatelmi
+→ ucast sa moze zrusit len ak je pred udalostou
+→ recenzie ku kniham // asi nie
+→ posielanie sprav medzi uzivatelmi // asi nie
 
 ====================== BRANCH MANAGEMENT ======================
 git branch → zobrazi branche a zvyrazni tu v ktorej si
@@ -43,12 +46,12 @@ git merge brancha_ktoru_mergujem
 	→ rezervacia
 → vydaj knihy [knihovnik]
 → vratenie knih [knihovnik]
+→ zoznam nevratenych knihy, kt. mali byt vratene
 -------------------- KNIZNICA PREHLAD NOVINIEK --------------------
 → nahravanie kniznich noviniek [knihovnik]
 	→ pridanie knihy s popisom a vsetkym
 → historia pozicanych knih [citatel]
 → zvyraznit neskore vratenia na cerveno [knihovnik] → tie, kt. sú este u citatela, no uz je po dateTo z rezervacie knihy
--------------------- KNIZNICA PREHLAD NOVINIEK --------------------
 → odstranenie knihy z noviniek (mozno zobrazit medzi novinkami iba tie, ktore su viac ako 2 tyzdne stare (nejaky created_at datum pri knihe))
 → prezeranie kniznich noviniek/vsetkych knih [citatel] → ako prezeranie knih len su to novinky
 -------------------- UDALOSTI --------------------

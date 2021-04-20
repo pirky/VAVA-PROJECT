@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="493.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventEnrollController">
+<AnchorPane prefHeight="493.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsCalendar.EventEnrollController">
    <children>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showCalendar" text="Späť" />
       <TextArea fx:id="titleArea" editable="false" layoutX="48.0" layoutY="95.0" prefHeight="47.0" prefWidth="373.0" wrapText="true" />
@@ -28,11 +28,12 @@
             <Font name="Segoe UI Bold" size="41.0" />
          </font>
       </Label>
-      <Button fx:id="cancelBtn" layoutX="360.0" layoutY="436.0" mnemonicParsing="false" onAction="#cancelParticipation" text="Zrušiť účasť" />
+      <Button fx:id="cancelBtn" layoutX="185.0" layoutY="421.0" mnemonicParsing="false" onAction="#cancelParticipation" text="Zrušiť účasť" />
       <Label fx:id="participantLabel" alignment="CENTER" layoutX="520.0" layoutY="290.0" prefHeight="47.0" prefWidth="235.0" text="Label">
          <font>
             <Font name="Segoe UI" size="18.0" />
          </font>
       </Label>
+      <Button fx:id="forumBtn" layoutX="547.0" layoutY="421.0" mnemonicParsing="false" onAction="#showForum" text="Zobraziť diskusné fórum" />
    </children>
 </AnchorPane>

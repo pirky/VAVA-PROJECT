@@ -1,4 +1,4 @@
-package project.controller.readerControllers;
+package project.controller.readerControllers.BookReservation;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,8 +16,10 @@ import java.util.List;
 
 public class InnerTableController  extends ListCell<List<Book>> {
     ObservableList<Book> booksQuartet = FXCollections.observableArrayList();
-    @FXML private ListView<Book> listView;
-    @FXML private FXMLLoader mLLoader;
+    @FXML
+    private ListView<Book> listView;
+    @FXML
+    private FXMLLoader mLLoader;
 
     @Override
     protected void updateItem(List<Book> bookList, boolean empty) {
@@ -28,7 +30,7 @@ public class InnerTableController  extends ListCell<List<Book>> {
             setGraphic(null);
         } else {
             if (mLLoader == null) {
-                mLLoader = new FXMLLoader(getClass().getResource("/project/view/readerViews/InnerTableView.fxml"));
+                mLLoader = new FXMLLoader(getClass().getResource("/project/view/readerViews/BookReservation/InnerTableView.fxml"));
                 mLLoader.setController(this);
                 try {
                     mLLoader.load();
@@ -57,7 +59,7 @@ public class InnerTableController  extends ListCell<List<Book>> {
 
     public void showBook() throws IOException {
         Book selectedBook = listView.getSelectionModel().getSelectedItems().get(0);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/BookInfoView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/BookReservation/BookInfoView.fxml"));
         Parent root = loader.load();
         BookInfoController bookInfoController = loader.getController();
         bookInfoController.setBook(selectedBook);

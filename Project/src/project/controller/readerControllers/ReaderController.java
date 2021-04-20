@@ -12,7 +12,7 @@ import java.util.Objects;
 public class ReaderController implements menuInterface {
 
     public void bookReservation() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/BookReservationView.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/BookReservation/BookReservationView.fxml")));
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
@@ -26,7 +26,7 @@ public class ReaderController implements menuInterface {
     }
 
     public void showEvents()throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/EventsView.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/EventsCalendar/EventsView.fxml")));
         Scene scene = new Scene(root);
         Main.mainStage.setResizable(false);
         Main.mainStage.setScene(scene);

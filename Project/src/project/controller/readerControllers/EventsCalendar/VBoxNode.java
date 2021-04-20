@@ -1,4 +1,4 @@
-package project.controller.readerControllers.Calendar;
+package project.controller.readerControllers.EventsCalendar;
 
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;

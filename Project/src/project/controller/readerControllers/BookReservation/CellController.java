@@ -1,4 +1,4 @@
-package project.controller.readerControllers;
+package project.controller.readerControllers.BookReservation;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +30,7 @@ public class CellController extends ListCell<Book> {
         }
         else {
             if (mLLoader == null) {
-                mLLoader = new FXMLLoader(getClass().getResource("/project/view/readerViews/CellView.fxml"));
+                mLLoader = new FXMLLoader(getClass().getResource("/project/view/readerViews/BookReservation/CellView.fxml"));
                 mLLoader.setController(this);
                 try {
                     mLLoader.load();

@@ -1,4 +1,4 @@
-package project.controller.readerControllers;
+package project.controller.readerControllers.BookReservation;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -137,7 +137,7 @@ public class BookInfoController{
     }
 
     public void showBooks() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/project/view/readerViews/BookReservationView.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/project/view/readerViews/BookReservation/BookReservationView.fxml")));
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();

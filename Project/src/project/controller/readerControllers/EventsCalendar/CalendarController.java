@@ -1,4 +1,4 @@
-package project.controller.readerControllers.Calendar;
+package project.controller.readerControllers.EventsCalendar;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,7 +15,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import project.controller.Main;
-import project.controller.readerControllers.EventEnrollController;
 import project.model.events.Event;
 import project.model.users.Organizer;
 import project.model.users.Reader;
@@ -70,7 +69,6 @@ public class CalendarController {
     }
 
     public void populateCalendar(YearMonth yearMonth) {
-        // go back to nearest Monday
         LocalDate calendarDate = LocalDate.of(yearMonth.getYear(), yearMonth.getMonthValue(), 1);
         while (!calendarDate.getDayOfWeek().toString().equals("MONDAY") ) {
             calendarDate = calendarDate.minusDays(1);
@@ -152,7 +150,7 @@ public class CalendarController {
         if(event == null){
             return;
         }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventEnrollView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventEnrollView.fxml"));
         Parent root = loader.load();
         Main.mainStage.setResizable(false);
         EventEnrollController eventEnrollController = loader.getController();

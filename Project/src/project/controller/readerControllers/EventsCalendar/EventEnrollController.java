@@ -1,4 +1,4 @@
-package project.controller.readerControllers;
+package project.controller.readerControllers.EventsCalendar;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,6 +42,8 @@ public class EventEnrollController {
     private Button participantBtn;
     @FXML
     private Button cancelBtn;
+    @FXML
+    private Button forumBtn;
     @FXML
     private Label participantLabel;
 
@@ -133,6 +135,8 @@ public class EventEnrollController {
             hostLabel.setVisible(false);
             hostField.setVisible(false);
         }
+
+        forumBtn.setVisible(false);
         titleArea.setText(event.getName());
         noteArea.setText(event.getNote());
         datePickerFrom.setValue(event.getReservation().getDateFrom());
@@ -142,6 +146,9 @@ public class EventEnrollController {
             volunteerBtn.setVisible(false);
             cancelBtn.setVisible(true);
             participantLabel.setVisible(true);
+            if(event instanceof BookDiscussion) {
+                forumBtn.setVisible(true);
+            }
         }
         else{
             participantBtn.setVisible(true);
@@ -172,8 +179,19 @@ public class EventEnrollController {
         this.yearMonth = yearMonth;
     }
 
+    public void showForum() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/DiscussionView.fxml"));
+        Parent root = loader.load();
+        DiscussionController discussionController = loader.getController();
+        discussionController.setYearMonth(yearMonth);
+        discussionController.setEvent(event);
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
+
     public void showCalendar() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventsView.fxml"));
         Parent root = loader.load();
         Main.mainStage.setResizable(false);
         EventsController eventsController = loader.getController();

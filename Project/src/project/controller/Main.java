@@ -24,6 +24,7 @@ public class Main extends Application {
         mainStage = primaryStage;
         mainStage.setTitle("eLib");
         mainStage.getIcons().add(new Image("project/images/logo.jpg"));
+        mainStage.setResizable(false);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/MainView.fxml")));
         Scene scene = new Scene(root);
         mainStage.setScene(scene);

@@ -1,4 +1,4 @@
-package project.controller.readerControllers;
+package project.controller.readerControllers.EventsCalendar;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import project.controller.Main;
-import project.controller.readerControllers.Calendar.CalendarController;
+
 import java.io.IOException;
 import java.time.YearMonth;
 import java.util.Objects;
