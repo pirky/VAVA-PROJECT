@@ -45,6 +45,8 @@ public class EventEnrollController {
     @FXML
     private Button forumBtn;
     @FXML
+    private Button booksBtn;
+    @FXML
     private Label participantLabel;
 
     @FXML
@@ -137,6 +139,7 @@ public class EventEnrollController {
         }
 
         forumBtn.setVisible(false);
+        booksBtn.setVisible(false);
         titleArea.setText(event.getName());
         noteArea.setText(event.getNote());
         datePickerFrom.setValue(event.getReservation().getDateFrom());
@@ -148,6 +151,9 @@ public class EventEnrollController {
             participantLabel.setVisible(true);
             if(event instanceof BookDiscussion) {
                 forumBtn.setVisible(true);
+            }
+            else{
+                booksBtn.setVisible(true);
             }
         }
         else{
@@ -185,6 +191,17 @@ public class EventEnrollController {
         DiscussionController discussionController = loader.getController();
         discussionController.setYearMonth(yearMonth);
         discussionController.setEvent(event);
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
+
+    public void showBooks() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/AddExchangeBookView.fxml"));
+        Parent root = loader.load();
+        AddExchangeBookController addExchangeBookController = loader.getController();
+        addExchangeBookController.setYearMonth(yearMonth);
+        addExchangeBookController.setEvent(event);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();

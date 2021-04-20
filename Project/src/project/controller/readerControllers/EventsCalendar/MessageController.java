@@ -32,7 +32,7 @@ public class MessageController extends ListCell<Message> {
     @Override
     protected void updateItem(Message message, boolean empty) {
         super.updateItem(message, empty);
-        super.setPrefWidth(310);
+        super.setPrefWidth(670);
         if (empty || message == null) {
             setText(null);
             setGraphic(null);

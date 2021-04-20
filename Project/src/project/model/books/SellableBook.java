@@ -6,20 +6,16 @@ import java.io.Serializable;
 
 public class SellableBook extends Book implements Serializable {
     private double price;
-    private boolean sold;
+    private final String userName;
 
-    public SellableBook(int id, String name, String author, String note, CustomImage image, double price) {
+    public SellableBook(int id, String name, String author, String note, CustomImage image, double price, String userName) {
         super(id, name, author, note, image);
         this.price = price;
-        this.sold = false;
+        this.userName = userName;
     }
 
-    public boolean isSold() {
-        return sold;
-    }
-
-    public void setSold(boolean sold) {
-        this.sold = sold;
+    public String getUserName() {
+        return userName;
     }
 
     public double getPrice() {
@@ -31,8 +27,6 @@ public class SellableBook extends Book implements Serializable {
     }
 
     public Object clone(){
-        SellableBook sellableBook = new SellableBook(this.getId(), this.getTitle(), this.getAuthor(), this.getNote(), this.getImage(), this.price);
-        sellableBook.setSold(this.sold);
-        return sellableBook;
+        return new SellableBook(this.getId(), this.getTitle(), this.getAuthor(), this.getNote(), this.getImage(), this.price, this.userName);
     }
 }

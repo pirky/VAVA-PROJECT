@@ -1,7 +1,7 @@
 TODO list:
 -------------------- UDALOSTI --------------------
 → zahajenie udalosti
-	→ burza zoznam knih a moznost ich kupit
+	→ burza zoznam knih
 	→ beseda diskusne forum
 -------------------- NA ZÁVER --------------------
 → serializácia

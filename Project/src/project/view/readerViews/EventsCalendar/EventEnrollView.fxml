@@ -35,5 +35,6 @@
          </font>
       </Label>
       <Button fx:id="forumBtn" layoutX="547.0" layoutY="421.0" mnemonicParsing="false" onAction="#showForum" text="Zobraziť diskusné fórum" />
+      <Button fx:id="booksBtn" layoutX="579.0" layoutY="421.0" mnemonicParsing="false" onAction="#showBooks" text="Zobraziť knihy" />
    </children>
 </AnchorPane>
