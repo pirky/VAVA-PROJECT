@@ -10,6 +10,7 @@ public class TableBook extends Book{
     private LocalDate dateFrom;
     private LocalDate dateTo;
     private Boolean returned;
+    private double price;
 
     public TableBook(int id, String title, String author, String note, CustomImage image, LocalDate dateFrom, LocalDate dateTo, Boolean returned) {
         super(id, title, author, note, image);
@@ -55,5 +56,13 @@ public class TableBook extends Book{
 
     public Object clone(){
         return new TableBook(this.getId(), this.getTitle(), this.getAuthor(), this.getNote(), this.getImage(), this.dateFrom, this.dateTo, this.returned);
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

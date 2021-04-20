@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="800.0" maxWidth="1400.0" minHeight="800.0" minWidth="1400.0" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsController">
+<AnchorPane maxHeight="800.0" maxWidth="1400.0" minHeight="800.0" minWidth="1400.0" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsCalendar.EventsController">
     <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
    <Pane fx:id="pane" layoutX="26.0" layoutY="71.0" prefHeight="700.0" prefWidth="1347.0" />
    <HBox alignment="CENTER" layoutX="553.0" layoutY="20.0" prefHeight="51.0" prefWidth="293.0" spacing="30.0">

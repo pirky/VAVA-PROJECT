@@ -29,4 +29,6 @@ public class SellableBook extends Book implements Serializable {
     public Object clone(){
         return new SellableBook(this.getId(), this.getTitle(), this.getAuthor(), this.getNote(), this.getImage(), this.price, this.userName);
     }
+
+
 }

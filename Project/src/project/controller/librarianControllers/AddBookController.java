@@ -36,6 +36,7 @@ public class AddBookController {
             fileChooser.setTitle("Vyber fotku knihy");
             Image image = new Image(fileChooser.showOpenDialog(Main.mainStage).toURI().toString());
             bookImage = image;
+            bookImageView.setImage(image);
         }
         catch(Exception e) {
             JOptionPane.showMessageDialog(null, "Vyber obrazok");
