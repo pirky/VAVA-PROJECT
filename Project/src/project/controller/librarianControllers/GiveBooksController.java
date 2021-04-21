@@ -115,7 +115,7 @@ public class GiveBooksController {
                     for(BookReservation bookReservation: ((Reader) user).getReservations()){
                         if (book.getId() == bookReservation.getBookId() &&
                                 ((Main.booksDatabase.getDate().compareTo(bookReservation.getDateFrom()) >= 0 &&
-                                        Main.booksDatabase.getDate().compareTo(bookReservation.getDateTo()) <= 0) ||
+                                        Main.booksDatabase.getDate().compareTo(bookReservation.getDateTo()) <= 0) &&
                                         (bookReservation.isReturned() != null && !bookReservation.isReturned()))) {
                             isFree = false;
                             break;

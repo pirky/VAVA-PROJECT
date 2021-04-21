@@ -151,6 +151,13 @@ public class EventEnrollController {
             hostField.setVisible(false);
         }
 
+        int capacity = Main.roomsDatabase.getRooms().get(event.getReservation().getRoomId()).getCapacity();
+        int count = event.getParticipants().size() + event.getVolunteers().size();
+        if(count >= capacity){
+            participantBtn.setVisible(false);
+            volunteerBtn.setVisible(false);
+        }
+
         forumBtn.setVisible(false);
         booksBtn.setVisible(false);
         titleArea.setText(event.getName());
@@ -174,6 +181,10 @@ public class EventEnrollController {
             volunteerBtn.setVisible(true);
             cancelBtn.setVisible(false);
             participantLabel.setVisible(false);
+        }
+
+        if(event.getReservation().getDateFrom().compareTo(Main.booksDatabase.getDate()) <= 0){
+            cancelBtn.setVisible(false);
         }
     }
 

@@ -3,13 +3,11 @@ TODO list:
 → serializácia
 → internationalization
 → loggovanie
-→ UML tried
+→ refactoring
+→ UML tried diagram
 → dokumentacia
+→ javadoc → ak bude cas
 -------------------- OPTIONAL --------------------
-→ givebooks pridat knihy, kt. su uz vratene v den vratenia
-→ prihlasenie sa na udalost iba ak je este volne miesto 
-kapacita = participants + volunters
-→ ucast sa moze zrusit len ak je pred udalostou
 → urobit grafiku
 → recenzie ku kniham // asi nie
 → posielanie sprav medzi uzivatelmi // asi nie
