@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 import project.controller.Main;
 import project.model.CustomImage;
@@ -53,6 +54,8 @@ public class AddEventController {
     private RadioButton exchangeRB;
     @FXML
     private RadioButton discussionRB;
+    @FXML
+    private Text capacity;
 
     @FXML
     public void initialize(){
@@ -160,6 +163,7 @@ public class AddEventController {
         datePickerFrom.setValue(null);
         datePickerTo.setValue(null);
         updateDate(room.getId(), null);
+        capacity.setText(String.valueOf(room.getCapacity()));
     }
 
     public void showDatesTo(){

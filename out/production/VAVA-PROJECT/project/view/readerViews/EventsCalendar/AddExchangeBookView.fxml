@@ -9,20 +9,20 @@
 
 <AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsCalendar.AddExchangeBookController">
    <children>
-      <Button fx:id="send" layoutX="108.0" layoutY="272.0" mnemonicParsing="false" onAction="#sendIntoDatabase" text="pridat knihu" />
-      <TextField fx:id="authorName" layoutX="52.0" layoutY="84.0" promptText="meno autora" />
-      <TextField fx:id="bookName" layoutX="73.0" layoutY="127.0" promptText="meno knihy" />
-      <Button layoutX="101.0" layoutY="239.0" mnemonicParsing="false" onAction="#addImage" text="pridat obrazok" />
+      <Button fx:id="send" layoutX="108.0" layoutY="286.0" mnemonicParsing="false" onAction="#sendIntoDatabase" text="pridat knihu" />
+      <TextField fx:id="authorName" layoutX="82.0" layoutY="83.0" promptText="meno autora" />
+      <TextField fx:id="bookName" layoutX="82.0" layoutY="127.0" promptText="meno knihy" />
+      <Button layoutX="101.0" layoutY="245.0" mnemonicParsing="false" onAction="#addImage" text="pridat obrazok" />
       <TextField fx:id="bookNote" layoutX="82.0" layoutY="167.0" promptText="poznamka" />
       <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#showEvent" text="Späť" />
-      <ImageView fx:id="bookImageView" fitHeight="282.0" fitWidth="247.0" layoutX="24.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="bookImageView" fitHeight="282.0" fitWidth="247.0" layoutX="25.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true" />
       <TextField fx:id="price" layoutX="82.0" layoutY="206.0" promptText="cena" />
       <TableView fx:id="tableView" layoutX="423.0" layoutY="37.0" prefHeight="599.0" prefWidth="825.0">
          <columns>
             <TableColumn fx:id="imageColumn" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" resizable="false" text="Titulná fotka" />
             <TableColumn fx:id="authorColumn" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" resizable="false" text="Autor" />
             <TableColumn fx:id="titleColumn" maxWidth="280.0" minWidth="189.0" prefWidth="189.0" resizable="false" text="Názov knihy" />
-            <TableColumn fx:id="priceCol" prefWidth="75.0" text="Cena" />
+            <TableColumn fx:id="priceCol" prefWidth="131.0" text="Cena" />
          </columns>
       </TableView>
    </children>

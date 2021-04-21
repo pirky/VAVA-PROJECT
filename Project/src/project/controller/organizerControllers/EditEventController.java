@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import project.controller.Main;
 import project.model.Rooms.LibraryRoom;
 import project.model.Rooms.RoomReservation;
@@ -31,13 +32,13 @@ public class EditEventController {
     @FXML private Label hostLabel;
     @FXML private Label infoLabel;
     @FXML private Button btn;
-    @FXML private RadioButton exchangeRB;
-    @FXML private RadioButton discussionRB;
+
     @FXML ComboBox<Event> events;private Event globalEvent;
+    @FXML private Text capacity;
+    @FXML Text typeEvent;
 
     public void comboClicked(){
-        discussionRB.setSelected(false);
-        exchangeRB.setSelected(false);
+
         comboBox.setDisable(false);
         nameArea.setDisable(false);
         noteArea.setDisable(false);
@@ -62,7 +63,6 @@ public class EditEventController {
 
 
         if (events.getSelectionModel().getSelectedItem() instanceof BookDiscussion){
-            discussionRB.setSelected(true);
             hostLabel.setVisible(true);
             hostArea.setVisible(true);
             globalEvent = events.getSelectionModel().getSelectedItem();
@@ -74,12 +74,16 @@ public class EditEventController {
                     noteArea.setText(bookDisc.getNote());
                     hostArea.setText(bookDisc.getHost());
                     comboBox.getSelectionModel().select(bookDisc.getReservation().getRoomId());
+                    typeEvent.setText("diskusia");
+                    for(LibraryRoom room : Main.roomsDatabase.getRooms())
+                        if(room.getId() == bookDisc.getReservation().getRoomId()){
+                            capacity.setText(String.valueOf(room.getCapacity()));
+                        }
                 }
             }
 
         }
         else if (events.getSelectionModel().getSelectedItem() instanceof BookExchange){
-            exchangeRB.setSelected(true);
             hostLabel.setVisible(false);
             hostArea.setVisible(false);
             globalEvent = events.getSelectionModel().getSelectedItem();
@@ -89,9 +93,20 @@ public class EditEventController {
                     nameArea.setText(bookExch.getName());
                     noteArea.setText(bookExch.getNote());
                     comboBox.getSelectionModel().select(bookExch.getReservation().getRoomId());
+                    typeEvent.setText("burza");
+                    for(LibraryRoom room : Main.roomsDatabase.getRooms())
+                        if(room.getId() == bookExch.getReservation().getRoomId()){
+                            capacity.setText(String.valueOf(room.getCapacity()));
+                        }
                 }
             }
         }
+
+    }
+
+
+    public void onClicked(){
+        capacity.setText(String.valueOf(comboBox.getSelectionModel().getSelectedItem().getCapacity()));
     }
 
 
@@ -116,7 +131,8 @@ public class EditEventController {
         LibraryRoom room = comboBox.getValue();
         String name = nameArea.getText();
         String host;
-        if (discussionRB.isSelected()) {
+
+        if (typeEvent.getText().equals("diskusia")) {
             host = hostArea.getText();
         } else {
             host = "nothing";
@@ -129,12 +145,12 @@ public class EditEventController {
         Main.userDatabase.removeUser(Main.currUser);
         Organizer organizer = (Organizer) Main.currUser;
 
-        if (exchangeRB.isSelected()) {
+        if (typeEvent.getText().equals("burza")) {
             BookExchange bookExchange = new BookExchange(name, note, new RoomReservation(globalEvent.getReservation().getDateFrom(), globalEvent.getReservation().getDateTo(), room.getId()), (Organizer) Main.currUser);
             organizer.removeEvent(globalEvent);
             globalEvent = bookExchange;
             organizer.addEvent(bookExchange);
-        } else if (discussionRB.isSelected()) {
+        } else if (typeEvent.getText().equals("diskusia")) {
             BookDiscussion bookDiscussion = new BookDiscussion(name, note, new RoomReservation(globalEvent.getReservation().getDateFrom(), globalEvent.getReservation().getDateTo(), room.getId()), (Organizer) Main.currUser, host);
             organizer.removeEvent(globalEvent);
             globalEvent = bookDiscussion;
@@ -162,8 +178,7 @@ public class EditEventController {
     }
 
     private void deleteFields(){
-        exchangeRB.setSelected(false);
-        discussionRB.setSelected(false);
+
         comboBox.getSelectionModel().clearSelection();
         nameArea.clear();
         hostArea.clear();

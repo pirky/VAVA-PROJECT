@@ -2,6 +2,8 @@ package project.controller.librarianControllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -46,6 +48,9 @@ public class GiveBooksController {
     private TableColumn<TableBook, String> titleColumn;
     @FXML
     private TableColumn<TableBook, ImageView> imageColumn;
+    @FXML TextField filterField;
+
+
 
     @FXML
     public void initialize(){
@@ -100,6 +105,13 @@ public class GiveBooksController {
         listView.refresh();
         giveBtn.setDisable(false);
         updateTableView();
+
+
+
+
+
+
+
     }
 
     private void updateTableView(){
@@ -123,8 +135,21 @@ public class GiveBooksController {
                 freeBooks.add(new TableBook(book.getId(), book.getTitle(), book.getAuthor(), book.getNote(), book.getImage(), null, null, null));
             }
         }
-        tableView.setItems(freeBooks);
-        tableView.refresh();
+
+        FilteredList<TableBook> filteredData = new FilteredList<>(freeBooks, b-> true);
+        filterField.textProperty().addListener((observable, oldValue, newValue)-> filteredData.setPredicate(TableBook -> {
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+
+            String lowerCaseFilter = newValue.toLowerCase();
+            if (TableBook.getAuthor().toLowerCase().contains(lowerCaseFilter)) {
+                return true;
+            } else return TableBook.getTitle().toLowerCase().contains(lowerCaseFilter);
+        }));
+        SortedList<TableBook> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+        tableView.setItems(sortedData);
     }
 
     public void giveBooks(){
@@ -214,10 +239,13 @@ public class GiveBooksController {
         tableView.refresh();
     }
 
+
     public void showMenu() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
     }
+
+
 }
