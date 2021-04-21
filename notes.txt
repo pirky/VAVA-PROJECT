@@ -7,7 +7,6 @@ TODO list:
 → dokumentacia
 -------------------- OPTIONAL --------------------
 → givebooks pridat knihy, kt. su uz vratene v den vratenia
-→ search bar pridat kde sa da
 → prihlasenie sa na udalost iba ak je este volne miesto 
 kapacita = participants + volunters
 → ucast sa moze zrusit len ak je pred udalostou

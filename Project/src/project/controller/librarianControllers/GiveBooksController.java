@@ -48,9 +48,8 @@ public class GiveBooksController {
     private TableColumn<TableBook, String> titleColumn;
     @FXML
     private TableColumn<TableBook, ImageView> imageColumn;
-    @FXML TextField filterField;
-
-
+    @FXML
+    private TextField filterField;
 
     @FXML
     public void initialize(){
@@ -105,13 +104,6 @@ public class GiveBooksController {
         listView.refresh();
         giveBtn.setDisable(false);
         updateTableView();
-
-
-
-
-
-
-
     }
 
     private void updateTableView(){
@@ -235,10 +227,9 @@ public class GiveBooksController {
         addBtn.setDisable(true);
         datePicker.setDisable(true);
         datePicker.setValue(null);
-        tableView.getItems().clear();
+        freeBooks.clear();
         tableView.refresh();
     }
-
 
     public void showMenu() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));
@@ -246,6 +237,5 @@ public class GiveBooksController {
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
     }
-
 
 }
