@@ -6,14 +6,12 @@ TODO list:
 → UML tried
 → dokumentacia
 -------------------- OPTIONAL --------------------
-→ pri zruseni ucasti na burze, odstranit ucastnikove knihy 
-(userName ucastnika == userName pri SellableBook)
-→ skontrolovat nevratene knihy len tie, kt. su pozicane a maju po datume vratenie
-→ pridat zobrazenie kapacity pri vybere miestnosti v pridaj udalost
+→ givebooks pridat knihy, kt. su uz vratene v den vratenia
+→ search bar pridat kde sa da
 → prihlasenie sa na udalost iba ak je este volne miesto 
 kapacita = participants + volunters
-→ pridat vyhladavanie medzi knihami GiveBooksController
 → ucast sa moze zrusit len ak je pred udalostou
+→ urobit grafiku
 → recenzie ku kniham // asi nie
 → posielanie sprav medzi uzivatelmi // asi nie
 
@@ -27,7 +25,6 @@ git pull origin pirky → pullne z pirkyho branche veci
 git checkout peter → zmeni na peter branchu
 ------------------------------------------------------------
 git merge brancha_ktoru_mergujem
-
 
 
 ******************** DONE ********************
@@ -64,3 +61,4 @@ git merge brancha_ktoru_mergujem
 	→ beseda diskusne forum
 → zahajenie udalosti
 	→ burza zoznam knih
+→ pridat vyhladavanie medzi knihami GiveBooksController

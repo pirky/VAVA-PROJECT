@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import project.controller.Main;
+import project.model.books.SellableBook;
 import project.model.events.BookDiscussion;
 import project.model.events.BookExchange;
 import project.model.events.Event;
@@ -18,6 +19,8 @@ import project.model.users.User;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.YearMonth;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EventEnrollController {
     private YearMonth yearMonth;
@@ -69,6 +72,16 @@ public class EventEnrollController {
     public void cancelParticipation() throws IOException {
         event.removeParticipant((Reader) Main.currUser);
         event.removeVolunteer((Reader) Main.currUser);
+        if(event instanceof BookExchange){
+            List<SellableBook> books = new ArrayList<>();
+            for(SellableBook book: ((BookExchange) event).getBooks()){
+                if (book.getUserName().equals(Main.currUser.getUserName())){
+                    continue;
+                }
+                books.add(book);
+            }
+            ((BookExchange) event).setBooks(books);
+        }
         enroll(3);
     }
 

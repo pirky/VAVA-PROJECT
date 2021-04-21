@@ -17,19 +17,14 @@ import project.model.books.BookReservation;
 import project.model.books.TableBook;
 import project.model.users.Reader;
 import project.model.users.User;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class NotReturnedController {
-    ObservableList<Reader> readers = FXCollections.observableArrayList();
     ObservableList<TableBook> rentedBooks = FXCollections.observableArrayList();
-    private Reader reader;
-    private Book book;
-    @FXML
-    private ComboBox<Reader> readersBox;
+    private final List<Reader> readers = new ArrayList<>();
     @FXML
     private TableView<TableBook> tableView;
     @FXML
@@ -38,14 +33,6 @@ public class NotReturnedController {
     private TableColumn<TableBook, String> titleColumn;
     @FXML
     private TableColumn<TableBook, ImageView> imageColumn;
-    @FXML
-    private DatePicker datePicker;
-    @FXML
-    private Button returnBtn;
-    @FXML
-    private Button extendBtn;
-
-
 
     @FXML
     public void initialize(){
@@ -54,7 +41,6 @@ public class NotReturnedController {
                 readers.add((Reader) user);
             }
         }
-        //readersBox.setItems(readers);
 
         tableView.setRowFactory(tv -> new TableRow<TableBook>() {
             @Override
@@ -99,31 +85,21 @@ public class NotReturnedController {
         updateTableView();
     }
 
-
     public void updateTableView(){
-        List<Reader> readerList = new ArrayList<>();
-        for(User user: Main.userDatabase.getUserDatabase()){
-            if(user instanceof Reader){
-                readerList.add((Reader) user);
-            }
-        }
-
         tableView.getItems().clear();
-        //reader = readersBox.getValue();
-        for(Reader reader : readerList)
-        {
-        for(BookReservation bookReservation: reader.getReservations()){
-            if(bookReservation.isReturned() == null){
-                continue;
-            }
+        for(Reader reader : readers){
+            for(BookReservation bookReservation: reader.getReservations()){
+                if(bookReservation.isReturned() == null || bookReservation.isReturned()){
+                    continue;
+                }
 
-            if(bookReservation.isReturned() == false && ((bookReservation.getDateTo().compareTo(Main.booksDatabase.getDate())) <= 1)){
-                Book temp = Main.booksDatabase.getBooks().get(bookReservation.getBookId());
-                rentedBooks.add(new TableBook(temp.getId(), temp.getTitle(), temp.getAuthor(), temp.getNote(), temp.getImage(), bookReservation.getDateFrom(), bookReservation.getDateTo(), bookReservation.isReturned()));
+                if(bookReservation.getDateTo().compareTo(Main.booksDatabase.getDate()) < 0){
+                    Book temp = Main.booksDatabase.getBooks().get(bookReservation.getBookId());
+                    rentedBooks.add(new TableBook(temp.getId(), temp.getTitle(), temp.getAuthor(), temp.getNote(), temp.getImage(), bookReservation.getDateFrom(), bookReservation.getDateTo(), bookReservation.isReturned()));
+                }
             }
-        }
-        tableView.setItems(rentedBooks);
-        tableView.refresh();
+            tableView.setItems(rentedBooks);
+            tableView.refresh();
         }
     }
 
