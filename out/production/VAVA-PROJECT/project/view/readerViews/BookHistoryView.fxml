@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
@@ -14,16 +15,20 @@
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
       <ComboBox fx:id="readersBox" layoutX="68.0" layoutY="124.0" onAction="#updateTableView" prefHeight="31.0" prefWidth="289.0" />
       <Label layoutX="68.0" layoutY="96.0" text="Vyber čítateľa:" />
-      <TableView fx:id="tableView" layoutX="473.0" layoutY="30.0" prefHeight="626.0" prefWidth="800.0">
+      <TableView fx:id="tableView" layoutX="370.0" layoutY="27.0" prefHeight="626.0" prefWidth="920.0">
          <columns>
-            <TableColumn fx:id="imageColumn" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" resizable="false" text="Titulná fotka" />
-            <TableColumn fx:id="authorColumn" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" resizable="false" text="Autor" />
-            <TableColumn fx:id="titleColumn" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" resizable="false" text="Názov knihy" />
+            <TableColumn fx:id="imageColumn" maxWidth="200.0" minWidth="170.0" prefWidth="170.0" resizable="false" text="Titulná fotka" />
+            <TableColumn fx:id="authorColumn" maxWidth="330.0" minWidth="194.0" prefWidth="206.0" resizable="false" text="Autor" />
+            <TableColumn fx:id="titleColumn" maxWidth="416.0" minWidth="252.0" prefWidth="273.0" resizable="false" text="Názov knihy" />
+            <TableColumn fx:id="dateFrom" prefWidth="126.0" text="datum od" />
+            <TableColumn fx:id="dateTo" prefWidth="143.0" text="datum do" />
          </columns>
       </TableView>
       <Circle fill="#98f8b1" layoutX="84.0" layoutY="214.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
       <Text layoutX="133.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vratena" />
       <Circle fill="#ff9494" layoutX="84.0" layoutY="274.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
       <Text layoutX="129.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="pozicana" />
+      <Text layoutX="224.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vyhladaj" />
+      <TextField fx:id="filterField" layoutX="172.0" layoutY="435.0" />
    </children>
 </AnchorPane>

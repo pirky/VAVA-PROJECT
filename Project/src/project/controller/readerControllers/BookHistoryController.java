@@ -2,6 +2,8 @@ package project.controller.readerControllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,14 +12,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import javafx.util.Callback;
 import project.controller.Main;
 import project.model.books.Book;
 import project.model.books.BookReservation;
 import project.model.books.TableBook;
 import project.model.users.Reader;
 import project.model.users.User;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -26,9 +26,7 @@ public class BookHistoryController {
 
         ObservableList<Reader> readers = FXCollections.observableArrayList();
         ObservableList<TableBook> rentedBooks = FXCollections.observableArrayList();
-        private Reader reader;
-        private Book book;
-        @FXML
+    @FXML
         private ComboBox<Reader> readersBox;
         @FXML
         private TableView<TableBook> tableView;
@@ -39,11 +37,10 @@ public class BookHistoryController {
         @FXML
         private TableColumn<TableBook, ImageView> imageColumn;
         @FXML
-        private DatePicker datePicker;
+        private TableColumn<TableBook, LocalDate> dateFrom;
         @FXML
-        private Button returnBtn;
-        @FXML
-        private Button extendBtn;
+        private TableColumn<TableBook, LocalDate> dateTo;
+        @FXML TextField filterField;
 
         @FXML
         public void initialize(){
@@ -74,6 +71,8 @@ public class BookHistoryController {
                 text.textProperty().bind(cell.itemProperty());
                 return cell;
             });
+            dateFrom.setCellValueFactory(new PropertyValueFactory<>("dateFrom"));
+            dateTo.setCellValueFactory(new PropertyValueFactory<>("dateTo"));
             imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageView"));
 
         }
@@ -81,7 +80,7 @@ public class BookHistoryController {
 
         public void updateTableView(){
             tableView.getItems().clear();
-            reader = readersBox.getValue();
+            Reader reader = readersBox.getValue();
             for(BookReservation bookReservation: reader.getReservations()){
                 if(bookReservation.isReturned() == null){
                     continue;
@@ -97,7 +96,7 @@ public class BookHistoryController {
                         super.updateItem(item,empty);
                         if (empty || item == null) {
                             setStyle("");
-                        } else if (item.getReturned() == true){
+                        } else if (item.getReturned()){
                             setStyle("-fx-background-color: #98f8b1");
                         } else {
                             setStyle("-fx-background-color: #ff9494");
@@ -109,8 +108,20 @@ public class BookHistoryController {
 
 
             }
-            tableView.setItems(rentedBooks);
-            tableView.refresh();
+            FilteredList<TableBook> filteredData = new FilteredList<>(rentedBooks, b-> true);
+            filterField.textProperty().addListener((observable, oldValue, newValue)-> filteredData.setPredicate(TableBook -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (TableBook.getAuthor().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else return TableBook.getTitle().toLowerCase().contains(lowerCaseFilter);
+            }));
+            SortedList<TableBook> sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+            tableView.setItems(sortedData);
         }
 
 

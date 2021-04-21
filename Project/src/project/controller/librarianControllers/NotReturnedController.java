@@ -2,6 +2,8 @@ package project.controller.librarianControllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -33,6 +35,7 @@ public class NotReturnedController {
     private TableColumn<TableBook, String> titleColumn;
     @FXML
     private TableColumn<TableBook, ImageView> imageColumn;
+    @FXML TextField filterField;
 
     @FXML
     public void initialize(){
@@ -98,9 +101,23 @@ public class NotReturnedController {
                     rentedBooks.add(new TableBook(temp.getId(), temp.getTitle(), temp.getAuthor(), temp.getNote(), temp.getImage(), bookReservation.getDateFrom(), bookReservation.getDateTo(), bookReservation.isReturned()));
                 }
             }
-            tableView.setItems(rentedBooks);
-            tableView.refresh();
         }
+
+        FilteredList<TableBook> filteredData = new FilteredList<>(rentedBooks, b-> true);
+        filterField.textProperty().addListener((observable, oldValue, newValue)-> filteredData.setPredicate(TableBook -> {
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+
+            String lowerCaseFilter = newValue.toLowerCase();
+            if (TableBook.getAuthor().toLowerCase().contains(lowerCaseFilter)) {
+                return true;
+            } else return TableBook.getTitle().toLowerCase().contains(lowerCaseFilter);
+        }));
+        SortedList<TableBook> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+        tableView.setItems(sortedData);
+
     }
 
 
