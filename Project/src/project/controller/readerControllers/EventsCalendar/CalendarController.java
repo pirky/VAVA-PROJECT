@@ -23,6 +23,8 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class CalendarController {
     private final List<Event> events;
@@ -48,22 +50,8 @@ public class CalendarController {
             }
         }
 
-        Text[] dayNames = new Text[]{ new Text("Pondelok"), new Text("Utorok"), new Text("Streda"),
-                                        new Text("Štvrtok"), new Text("Piatok"), new Text("Sobota"),
-                                        new Text("Nedeľa") };
-        GridPane dayLabels = new GridPane();
-        dayLabels.setPrefWidth(1350);
-        int col = 0;
-        for (Text txt : dayNames) {
-            AnchorPane ap = new AnchorPane();
-            ap.setPrefSize(200, 10);
-            AnchorPane.setBottomAnchor(txt, 5.0);
-            ap.getChildren().add(txt);
-            dayLabels.add(ap, col++, 0);
-        }
-
         populateCalendar(yearMonth);
-        view = new VBox(dayLabels, calendar);
+        view = new VBox(calendar);
     }
 
     public void populateCalendar(YearMonth yearMonth) {
@@ -148,7 +136,9 @@ public class CalendarController {
         if(event == null){
             return;
         }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventEnrollView.fxml"));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventEnrollView.fxml"), bundle);
         Parent root = loader.load();
         Main.mainStage.setResizable(false);
         EventEnrollController eventEnrollController = loader.getController();

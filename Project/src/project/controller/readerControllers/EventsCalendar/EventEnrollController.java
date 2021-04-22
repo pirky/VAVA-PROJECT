@@ -20,6 +20,8 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class EventEnrollController {
     private YearMonth yearMonth;
@@ -37,6 +39,10 @@ public class EventEnrollController {
     @FXML private Button forumBtn;
     @FXML private Button booksBtn;
     @FXML private Label participantLabel;
+    @FXML private Label eventTitleLabel;
+    @FXML private Label startEventLabel;
+    @FXML private Label endEventLabel;
+    @FXML private Label eventNoteLabel;
 
     @FXML
     public void initialize(){
@@ -53,6 +59,38 @@ public class EventEnrollController {
         };
         datePickerFrom.setDayCellFactory(dayCellFactory);
         datePickerTo.setDayCellFactory(dayCellFactory);
+    }
+
+    public void languageEN(){
+        Main.currLanguage = "US";
+        if(event instanceof BookDiscussion) typeLabel.setText("Book Discussion");
+        else typeLabel.setText("Books Exchange");
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Main.currLanguage = "SK";
+        if(event instanceof BookDiscussion) typeLabel.setText("Beseda");
+        else typeLabel.setText("Burza");
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        volunteerBtn.setText(bundle.getString("volunteerBtn"));
+        participantBtn.setText(bundle.getString("participantBtn"));
+        cancelBtn.setText(bundle.getString("cancelBtn"));
+        forumBtn.setText(bundle.getString("forumBtn"));
+        booksBtn.setText(bundle.getString("booksBtn"));
+        eventTitleLabel.setText(bundle.getString("eventTitleLabel"));
+        startEventLabel.setText(bundle.getString("startEventLabel"));
+        endEventLabel.setText(bundle.getString("endEventLabel"));
+        eventNoteLabel.setText(bundle.getString("eventNoteLabel"));
+        hostLabel.setText(bundle.getString("hostLabel"));
+        findParticipation();
     }
 
     public void cancelParticipation() throws IOException {
@@ -126,13 +164,15 @@ public class EventEnrollController {
     public void setEvent(Event event) {
         this.event = event;
         if(event instanceof BookDiscussion){
-            typeLabel.setText("Beseda");
+            if(Main.currLanguage.equals("SK")) typeLabel.setText("Beseda");
+            else typeLabel.setText("Book Discussion");
             hostLabel.setVisible(true);
             hostField.setVisible(true);
             hostField.setText(((BookDiscussion) event).getHost());
         }
         else{
-            typeLabel.setText("Burza");
+            if(Main.currLanguage.equals("SK")) typeLabel.setText("Burza");
+            else typeLabel.setText("Books Exchange");
             hostLabel.setVisible(false);
             hostField.setVisible(false);
         }
@@ -177,14 +217,16 @@ public class EventEnrollController {
     private boolean findParticipation(){
         for(Reader reader: event.getParticipants()){
             if(reader.toString().equals(Main.currUser.toString())){
-                participantLabel.setText("Účastník");
+                if(Main.currLanguage.equals("SK")) participantLabel.setText("Účastník");
+                else participantLabel.setText("Participant");
                 return true;
             }
         }
 
         for(Reader reader: event.getVolunteers()){
             if(reader.toString().equals(Main.currUser.toString())){
-                participantLabel.setText("Dobrovoľník");
+                if(Main.currLanguage.equals("SK")) participantLabel.setText("Dobrovoľník");
+                else participantLabel.setText("Volunteer");
                 return true;
             }
         }
@@ -196,7 +238,9 @@ public class EventEnrollController {
     }
 
     public void showForum() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/DiscussionView.fxml"));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/DiscussionView.fxml"), bundle);
         Parent root = loader.load();
         DiscussionController discussionController = loader.getController();
         discussionController.setYearMonth(yearMonth);
@@ -207,7 +251,9 @@ public class EventEnrollController {
     }
 
     public void showBooks() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/AddExchangeBookView.fxml"));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/AddExchangeBookView.fxml"), bundle);
         Parent root = loader.load();
         AddExchangeBookController addExchangeBookController = loader.getController();
         addExchangeBookController.setYearMonth(yearMonth);
@@ -218,7 +264,9 @@ public class EventEnrollController {
     }
 
     public void showCalendar() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventsView.fxml"));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventsView.fxml"), bundle);
         Parent root = loader.load();
         Main.mainStage.setResizable(false);
         EventsController eventsController = loader.getController();

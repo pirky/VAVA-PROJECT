@@ -1,4 +1,5 @@
 package project.controller.readerControllers.EventsCalendar;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,6 +16,8 @@ import project.model.users.Organizer;
 import project.model.users.User;
 import java.io.IOException;
 import java.time.YearMonth;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class DiscussionController {
     ObservableList<Message> messages = FXCollections.observableArrayList();
@@ -66,7 +69,9 @@ public class DiscussionController {
     }
 
     public void showEvent() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventEnrollView.fxml"));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventEnrollView.fxml"), bundle);
         Parent root = loader.load();
         Main.mainStage.setResizable(false);
         EventEnrollController eventEnrollController = loader.getController();

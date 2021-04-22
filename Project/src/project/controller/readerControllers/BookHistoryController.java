@@ -19,10 +19,11 @@ import project.model.users.Reader;
 import project.model.users.User;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class BookHistoryController {
-
     ObservableList<Reader> readers = FXCollections.observableArrayList();
     ObservableList<TableBook> rentedBooks = FXCollections.observableArrayList();
     @FXML private ComboBox<Reader> readersBox;
@@ -32,10 +33,14 @@ public class BookHistoryController {
     @FXML private TableColumn<TableBook, ImageView> imageColumn;
     @FXML private TableColumn<TableBook, LocalDate> dateFrom;
     @FXML private TableColumn<TableBook, LocalDate> dateTo;
-    @FXML TextField filterField;
+    @FXML private TextField filterField;
+    @FXML private Label chooseReaderLabel;
+    @FXML private Text returnLabel;
+    @FXML private Text rentedLabel;
 
     @FXML
     public void initialize(){
+        languageSK();
         for(User user: Main.userDatabase.getUserDatabase()){
             if(user instanceof Reader){
                 readers.add((Reader) user);
@@ -67,6 +72,30 @@ public class BookHistoryController {
         dateTo.setCellValueFactory(new PropertyValueFactory<>("dateTo"));
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageView"));
 
+    }
+
+    public void languageEN(){
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        filterField.setPromptText(bundle.getString("search"));
+        chooseReaderLabel.setText(bundle.getString("chooseReaderLabel"));
+        returnLabel.setText(bundle.getString("returnLabel"));
+        rentedLabel.setText(bundle.getString("rentedLabel"));
+        authorColumn.setText(bundle.getString("authorColumn"));
+        titleColumn.setText(bundle.getString("titleColumn"));
+        imageColumn.setText(bundle.getString("imageColumn"));
+        dateFrom.setText(bundle.getString("dateFromColumn"));
+        dateTo.setText(bundle.getString("dateToColumn"));
     }
 
     public void updateTableView(){
@@ -112,7 +141,9 @@ public class BookHistoryController {
     }
 
     public void showMenu() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/ReaderView.fxml")));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/ReaderView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();

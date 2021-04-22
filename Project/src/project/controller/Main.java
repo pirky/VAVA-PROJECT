@@ -21,9 +21,11 @@ public class Main extends Application {
     public static UserDatabase userDatabase = new UserDatabase();
     public static RoomsDatabase roomsDatabase = new RoomsDatabase();
     public static User currUser;
+    public static String currLanguage;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        currLanguage = "SK";
         Locale skLocale = new Locale("sk_SK");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.mainView", skLocale);
         mainStage = primaryStage;

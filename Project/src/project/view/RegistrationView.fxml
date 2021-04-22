@@ -5,23 +5,50 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.RegistrationController">
-   <TextField fx:id="username" layoutX="210.0" layoutY="67.0" promptText="meno"/>
-   <Button layoutX="252.0" layoutY="342.0" mnemonicParsing="false" onAction="#registerUser" text="registrovat"/>
-   <RadioButton layoutX="252.0" layoutY="272.0" mnemonicParsing="false" text="čitateľ">
+<AnchorPane prefHeight="501.0" prefWidth="801.0" stylesheets="@Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.RegistrationController">
+   <TextField fx:id="username" layoutX="310.0" layoutY="105.0" promptText="%username" />
+   <Button fx:id="registerBtn" layoutX="352.0" layoutY="380.0" mnemonicParsing="false" onAction="#registerUser" text="%registerBtn" />
+   <RadioButton fx:id="readerRB" layoutX="344.0" layoutY="308.0" mnemonicParsing="false" text="%readerRB">
       <toggleGroup>
-         <ToggleGroup fx:id="group"/>
+         <ToggleGroup fx:id="group" />
       </toggleGroup>
    </RadioButton>
-   <RadioButton layoutX="252.0" layoutY="240.0" mnemonicParsing="false" text="organizátor" toggleGroup="$group"/>
-   <RadioButton layoutX="252.0" layoutY="207.0" mnemonicParsing="false" selected="true" text="knihovník"
-                toggleGroup="$group"/>
-   <PasswordField fx:id="password" layoutX="210.0" layoutY="110.0" promptText="heslo"/>
-   <PasswordField fx:id="password1" layoutX="210.0" layoutY="160.0" promptText="potvrd heslo"/>
-   <AnchorPane prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: #0598ff;"/>
-   <AnchorPane layoutX="450.0" prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: #0598ff;"/>
-   <Button layoutX="272.0" layoutY="392.0" mnemonicParsing="false" onAction="#showMain" text="Späť"/>
+   <RadioButton fx:id="organizerRB" layoutX="344.0" layoutY="276.0" mnemonicParsing="false" text="%organizerRB" toggleGroup="$group" />
+   <RadioButton fx:id="librarianRB" layoutX="344.0" layoutY="243.0" mnemonicParsing="false" selected="true" text="%librarianRB" toggleGroup="$group" />
+   <PasswordField fx:id="password" layoutX="310.0" layoutY="148.0" promptText="%password" />
+   <PasswordField fx:id="password1" layoutX="310.0" layoutY="198.0" promptText="%confirm_password" />
+   <AnchorPane prefHeight="501.0" prefWidth="209.0" style="-fx-background-color: #0598ff;" />
+   <AnchorPane layoutX="562.0" prefHeight="501.0" prefWidth="239.0" style="-fx-background-color: #0598ff;" />
+   <Button layoutX="372.0" layoutY="430.0" mnemonicParsing="false" onAction="#showMain" styleClass="button_lg" />
+   <Button layoutX="341.0" layoutY="24.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../images/other/sk.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
+   <Button layoutX="413.0" layoutY="24.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="36.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../images/other/us.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
+   <Button layoutX="218.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMain" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../images/other/back_button.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
 </AnchorPane>

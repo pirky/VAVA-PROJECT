@@ -2,17 +2,62 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane maxHeight="800.0" maxWidth="1400.0" minHeight="800.0" minWidth="1400.0" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsCalendar.EventsController">
     <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
-   <Pane fx:id="pane" layoutX="26.0" layoutY="71.0" prefHeight="700.0" prefWidth="1347.0" />
+   <Pane fx:id="pane" layoutX="27.0" layoutY="96.0" prefHeight="690.0" prefWidth="1347.0" />
    <HBox alignment="CENTER" layoutX="553.0" layoutY="20.0" prefHeight="51.0" prefWidth="293.0" spacing="30.0">
-      <Button mnemonicParsing="false" onAction="#previousMonth" prefHeight="31.0" prefWidth="45.0" text="←"/>
-      <Label fx:id="yearMonthLabel" alignment="CENTER" prefHeight="21.0" prefWidth="170.0" text="SEPTEMBER 2021"
-             textAlignment="CENTER"/>
-      <Button mnemonicParsing="false" onAction="#nextMonth" prefHeight="31.0" prefWidth="45.0" text="→"/>
+      <Button mnemonicParsing="false" onAction="#previousMonth" prefHeight="31.0" prefWidth="45.0" text="←" />
+      <Label fx:id="yearMonthLabel" alignment="CENTER" prefHeight="21.0" prefWidth="170.0" text="SEPTEMBER 2021" textAlignment="CENTER" />
+      <Button mnemonicParsing="false" onAction="#nextMonth" prefHeight="31.0" prefWidth="45.0" text="→" />
    </HBox>
+   <Button layoutX="1271.0" layoutY="20.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg" stylesheets="@../../Grafic/style_sheet.css">
+      <graphic>
+         <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../images/other/sk.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
+   <Button layoutX="1331.0" layoutY="20.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg" stylesheets="@../../Grafic/style_sheet.css">
+      <graphic>
+         <ImageView fitHeight="36.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../images/other/us.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
+   <GridPane layoutX="26.0" layoutY="79.0" prefHeight="10.0" prefWidth="1347.0">
+     <columnConstraints>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <Label fx:id="monday" text="%monday" />
+         <Label fx:id="tuesday" text="%tuesday" GridPane.columnIndex="1" />
+         <Label fx:id="wednesday" text="%wednesday" GridPane.columnIndex="2" />
+         <Label fx:id="thursday" text="%thursday" GridPane.columnIndex="3" />
+         <Label fx:id="friday" text="%friday" GridPane.columnIndex="4" />
+         <Label fx:id="saturday" text="%saturday" GridPane.columnIndex="5" />
+         <Label fx:id="sunday" text="%sunday" GridPane.columnIndex="6" />
+      </children>
+   </GridPane>
 </AnchorPane>

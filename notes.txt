@@ -1,6 +1,6 @@
 TODO list:
 -------------------- NA ZÁVER --------------------
-→ internationalization
+→ internationalization → zapamatat si jazyk v maine a ten nastavit
 → serializácia
 → urobit grafiku
 → refactoring

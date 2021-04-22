@@ -1,4 +1,5 @@
 package project.controller.readerControllers.BookReservation;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -6,30 +7,53 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import project.controller.Main;
 import project.model.books.Book;
 import java.io.IOException;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class BookReservationController{
     ObservableList<List<Book>> booksQuartet = FXCollections.observableArrayList();
     ObservableList<String> choices = FXCollections.observableArrayList();
-    @FXML private ListView<List<Book>> listView;
-    @FXML private ComboBox<String> comboBox;
+    @FXML
+    private ListView<List<Book>> listView;
+    @FXML
+    private ComboBox<String> comboBox;
+    @FXML
+    private Label showOptionsLabel;
 
     @FXML
     public void initialize(){
+        languageSK();
         listView.setCellFactory(ListView -> new InnerTableController());
         listView.setItems(booksQuartet);
         allBooks();
-        choices.add("Všetky knihy");
-        choices.add("Nové knihy");
-        comboBox.setItems(choices);
         comboBox.getSelectionModel().select(0);
+    }
+
+    public void languageEN(){
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        showOptionsLabel.setText(bundle.getString("showOptionsLabel"));
+        int index = comboBox.getSelectionModel().getSelectedIndex();
+        choices.clear();
+        choices.add(bundle.getString("allBooksOption"));
+        choices.add(bundle.getString("newBooksOption"));
+        comboBox.setItems(choices);
+        comboBox.getSelectionModel().select(index);
     }
 
     private void allBooks(){
@@ -64,6 +88,9 @@ public class BookReservationController{
 
     public void changeBooks(){
         String option = comboBox.getSelectionModel().getSelectedItem();
+        if(option == null){
+            return;
+        }
         if(option.equals(choices.get(0))){
             allBooks();
         }
@@ -73,7 +100,9 @@ public class BookReservationController{
     }
 
     public void showMenu() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/project/view/readerViews/ReaderView.fxml")));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/project/view/readerViews/ReaderView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();

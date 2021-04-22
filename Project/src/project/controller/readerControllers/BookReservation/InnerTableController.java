@@ -12,6 +12,8 @@ import project.controller.Main;
 import project.model.books.Book;
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class InnerTableController  extends ListCell<List<Book>> {
     ObservableList<Book> booksQuartet = FXCollections.observableArrayList();
@@ -56,7 +58,9 @@ public class InnerTableController  extends ListCell<List<Book>> {
 
     public void showBook() throws IOException {
         Book selectedBook = listView.getSelectionModel().getSelectedItems().get(0);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/BookReservation/BookInfoView.fxml"));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/BookReservation/BookInfoView.fxml"), bundle);
         Parent root = loader.load();
         BookInfoController bookInfoController = loader.getController();
         bookInfoController.setBook(selectedBook);

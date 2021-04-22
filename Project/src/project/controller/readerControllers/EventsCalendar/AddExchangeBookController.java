@@ -25,6 +25,8 @@ import javax.swing.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.YearMonth;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -43,10 +45,50 @@ public class AddExchangeBookController{
     @FXML private TableColumn<TableBook, String> titleColumn;
     @FXML private TableColumn<TableBook, ImageView> imageColumn;
     @FXML private TableColumn<TableBook, Double> priceCol;
+    @FXML private Button addImageBtn;
+    @FXML private Button addBookBtn;
+    private String choosePhoto;
+    private String existingBook;
+    private String error;
+    private String successfulAdd;
+    private String requiredError;
+    private String wrongNumber;
 
     @FXML
     public void initialize(){
         bookImageView.setImage(new Image("project/images/other/noImage.jpg"));
+        languageSK();
+    }
+
+    public void languageEN(){
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        authorName.setPromptText(bundle.getString("authorName"));
+        bookName.setPromptText(bundle.getString("bookName"));
+        bookNote.setPromptText(bundle.getString("bookNote"));
+        price.setPromptText(bundle.getString("price"));
+        authorColumn.setText(bundle.getString("authorColumn"));
+        titleColumn.setText(bundle.getString("titleColumn"));
+        imageColumn.setText(bundle.getString("imageColumn"));
+        priceCol.setText(bundle.getString("priceCol"));
+        addImageBtn.setText(bundle.getString("addImageBtn"));
+        addBookBtn.setText(bundle.getString("addBookBtn"));
+        choosePhoto = bundle.getString("choosePhoto");
+        existingBook = bundle.getString("existingBook");
+        error = bundle.getString("error");
+        successfulAdd = bundle.getString("successfulAdd");
+        requiredError = bundle.getString("requiredError");
+        wrongNumber = bundle.getString("wrongNumber");
     }
 
     public void setEvent(Event event) {
@@ -85,14 +127,14 @@ public class AddExchangeBookController{
             FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png");
             FileChooser fileChooser = new FileChooser();
             fileChooser.getExtensionFilters().add(imageFilter);
-            fileChooser.setTitle("Vyber fotku knihy");
+            fileChooser.setTitle(choosePhoto);
             Image image = new Image(fileChooser.showOpenDialog(Main.mainStage).toURI().toString());
             bookImage = image;
             bookImageView.setImage(image);
         }
         catch(Exception e) {
             if(bookImage == null){
-                JOptionPane.showMessageDialog(null, "Vyber obrazok");
+                JOptionPane.showMessageDialog(null, choosePhoto);
                 LOG.log(Level.SEVERE, "User did not choose a picture");
             }
         }
@@ -104,14 +146,12 @@ public class AddExchangeBookController{
         }
 
         SellableBook sellableBook = new SellableBook(Main.booksDatabase.getBookId(), bookName.getText(), authorName.getText(), bookNote.getText(), new CustomImage(bookImage), Double.parseDouble(price.getText()), Main.currUser.getUserName());
-
         if (event instanceof BookExchange){
             for(Book i : ((BookExchange) event).getBooks()) {
                 if (i.getTitle().equals(bookName.getText())){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error Dialog");
-                    alert.setHeaderText("Nastala chyba");
-                    alert.setContentText("Takato kniha sa uz v databaze nachadza");
+                    alert.setTitle(error);
+                    alert.setHeaderText(existingBook);
                     alert.showAndWait();
                     LOG.log(Level.INFO, "User tried to add the same book twice");
                     return;
@@ -134,7 +174,7 @@ public class AddExchangeBookController{
                     Main.userDatabase.removeUser(organizer);
                     Main.userDatabase.addUser(organizer);
 
-                    JOptionPane.showMessageDialog(null, "Kniha bola uspesne pridana");
+                    JOptionPane.showMessageDialog(null, successfulAdd);
                     bookImageView.setImage(bookImage);
                     updateTable();
                     deleteFields();
@@ -175,9 +215,8 @@ public class AddExchangeBookController{
     private boolean testRequired(){
         if(bookName.getText().equals("") || authorName.getText().equals("") || bookNote.getText().equals("") || bookImage == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            alert.setHeaderText("Nastala chyba");
-            alert.setContentText("Nezadal si všetky potrebné údaje");
+            alert.setTitle(error);
+            alert.setHeaderText(requiredError);
             alert.showAndWait();
             LOG.log(Level.INFO, "User did not enter all required information");
             return true;
@@ -191,9 +230,8 @@ public class AddExchangeBookController{
         }
         catch(Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            alert.setHeaderText("Nastala chyba");
-            alert.setContentText("Nezadal si číslo v správnom tvare");
+            alert.setTitle(error);
+            alert.setHeaderText(wrongNumber);
             alert.showAndWait();
             LOG.log(Level.SEVERE, "User entered price at invalid format");
             return true;
@@ -202,7 +240,9 @@ public class AddExchangeBookController{
     }
 
     public void showEvent() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventEnrollView.fxml"));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventEnrollView.fxml"), bundle);
         Parent root = loader.load();
         Main.mainStage.setResizable(false);
         EventEnrollController eventEnrollController = loader.getController();

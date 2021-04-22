@@ -15,7 +15,9 @@ import project.model.users.Reader;
 import project.model.users.User;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class BookInfoController{
     private Book book;
@@ -26,6 +28,35 @@ public class BookInfoController{
     @FXML private TextArea noteArea;
     @FXML private ImageView imageView;
     @FXML private Button btn;
+    @FXML private Label dateFromLabel;
+    @FXML private Label dateToLabel;
+    private String successfulReservation;
+    private String successfulReservationMsg;
+
+    @FXML
+    public void initialize(){
+        languageSK();
+    }
+
+    public void languageEN(){
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        dateFromLabel.setText(bundle.getString("dateFromLabel"));
+        dateToLabel.setText(bundle.getString("dateToLabel"));
+        btn.setText(bundle.getString("reserveBookBtn"));
+        successfulReservation = bundle.getString("successfulReservation");
+        successfulReservationMsg = bundle.getString("successfulReservationMsg");
+    }
 
     public void updateDateFrom(LocalDate dateSelected){
 
@@ -105,8 +136,8 @@ public class BookInfoController{
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image("project/images/other/logo.jpg"));
-        alert.setTitle("Úspešná Rezervácia");
-        alert.setHeaderText("Kniha bola úspešne rezervovaná");
+        alert.setTitle(successfulReservation);
+        alert.setHeaderText(successfulReservationMsg);
         ImageView imageView = new ImageView(book.getImage().getImage());
         imageView.setPreserveRatio(true);
         imageView.setFitHeight(200);
@@ -129,7 +160,9 @@ public class BookInfoController{
     }
 
     public void showBooks() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/project/view/readerViews/BookReservation/BookReservationView.fxml")));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/project/view/readerViews/BookReservation/BookReservationView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
