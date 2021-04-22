@@ -9,17 +9,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane prefHeight="620.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.BookReservation.BookInfoController">
-   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showBooks" text="Späť" />
+<AnchorPane prefHeight="620.0" prefWidth="869.0" stylesheets="@../../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.BookReservation.BookInfoController">
+   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showBooks" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../images/other/back_button.png" />
+            </image>
+         </ImageView>
+      </graphic></Button>
    <DatePicker fx:id="datePickerFrom" layoutX="467.0" layoutY="123.0" onAction="#updateDateTo" prefHeight="31.0" prefWidth="286.0" />
    <TextArea fx:id="noteArea" editable="false" layoutX="59.0" layoutY="371.0" prefHeight="222.0" prefWidth="758.0" wrapText="true" />
-   <Label fx:id="authorLabel" alignment="CENTER" layoutX="54.0" layoutY="271.0" prefHeight="39.0" prefWidth="262.0" text="Author" textAlignment="CENTER" wrapText="true" />
-   <Label fx:id="titleLabel" alignment="TOP_CENTER" layoutX="54.0" layoutY="320.0" prefHeight="39.0" prefWidth="262.0" text="Title" textAlignment="CENTER" wrapText="true" />
-   <Button fx:id="btn" layoutX="534.0" layoutY="305.0" mnemonicParsing="false" onAction="#reserveBook" prefHeight="31.0" prefWidth="151.0" text="%reserveBookBtn" />
+   <Label fx:id="authorLabel" alignment="CENTER" layoutX="98.0" layoutY="272.0" prefHeight="39.0" prefWidth="262.0" text="Author" textAlignment="CENTER" wrapText="true" />
+   <Label fx:id="titleLabel" alignment="TOP_CENTER" layoutX="98.0" layoutY="321.0" prefHeight="39.0" prefWidth="262.0" text="Title" textAlignment="CENTER" wrapText="true" />
+   <Button fx:id="btn" layoutX="510.0" layoutY="281.0" mnemonicParsing="false" onAction="#reserveBook" prefHeight="60.0" prefWidth="200.0" text="%reserveBookBtn" textAlignment="CENTER" wrapText="true" />
    <DatePicker fx:id="datePickerTo" layoutX="467.0" layoutY="196.0" onAction="#enableBtn" prefHeight="31.0" prefWidth="286.0" />
    <Label fx:id="dateFromLabel" layoutX="467.0" layoutY="93.0" text="%dateFromLabel" />
    <Label fx:id="dateToLabel" layoutX="467.0" layoutY="169.0" text="%dateToLabel" />
-   <BorderPane layoutX="85.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0">
+   <BorderPane layoutX="129.0" layoutY="33.0" prefHeight="200.0" prefWidth="200.0">
       <center>
          <ImageView fx:id="imageView" fitHeight="233.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
       </center>

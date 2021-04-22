@@ -6,15 +6,22 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.librarianControllers.AddBookController">
-   <Button fx:id="send" layoutX="538.0" layoutY="548.0" mnemonicParsing="false" onAction="#sendIntoDatabase" text="%addBookAddBook" />
-   <TextField fx:id="authorName" layoutX="524.0" layoutY="278.0" promptText="%authorNameAddBook" />
-   <TextField fx:id="bookName" layoutX="524.0" layoutY="338.0" promptText="%bookNameAddBook" />
-   <Button fx:id="addImageButton" layoutX="535.0" layoutY="479.0" mnemonicParsing="false" onAction="#addImage" text="%addImageAddBook" />
-   <TextField fx:id="bookNote" layoutX="524.0" layoutY="403.0" promptText="%noteAddBook" />
-   <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
+<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" stylesheets="@../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.librarianControllers.AddBookController">
+   <Button fx:id="send" layoutX="538.0" layoutY="548.0" mnemonicParsing="false" onAction="#sendIntoDatabase" text="%addBookBtn" />
+   <TextField fx:id="authorName" layoutX="524.0" layoutY="278.0" promptText="%authorName" />
+   <TextField fx:id="bookName" layoutX="524.0" layoutY="338.0" promptText="%bookName" />
+   <Button fx:id="addImageButton" layoutX="535.0" layoutY="479.0" mnemonicParsing="false" onAction="#addImage" text="%addImageBtn" />
+   <TextField fx:id="bookNote" layoutX="524.0" layoutY="403.0" promptText="%note" />
+   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="60.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../images/other/back_button.png" />
+            </image>
+         </ImageView>
+      </graphic></Button>
    <ImageView fx:id="bookImageView" fitHeight="282.0" fitWidth="247.0" layoutX="114.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" />
-   <Button layoutX="1131.0" layoutY="15.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
+   <Button layoutX="1141.0" layoutY="15.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
             <image>

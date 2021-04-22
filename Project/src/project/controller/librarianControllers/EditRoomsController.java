@@ -58,7 +58,7 @@ public class EditRoomsController implements Initializable {
     public void changeSigns(ResourceBundle bundle){
         titleLanguage = bundle.getString("titleLanguage");
         error = bundle.getString("error");
-        addPictureButton.setText(bundle.getString("addImageAddBook"));
+        addPictureButton.setText(bundle.getString("addImageBtn"));
         deletePictureButton.setText(bundle.getString("deletePicture"));
         titleLanguageAddBook = bundle.getString("errorMsg");
     }

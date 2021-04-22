@@ -57,16 +57,16 @@ public class AddBookController {
     }
 
     public void changeSigns(ResourceBundle bundle){
-        authorName.setPromptText(bundle.getString("authorNameAddBook"));
-        bookName.setPromptText(bundle.getString("bookNameAddBook"));
-        bookNote.setPromptText(bundle.getString("noteAddBook"));
-        addImageButton.setText(bundle.getString("addImageAddBook"));
-        send.setText(bundle.getString("addBookAddBook"));
+        authorName.setPromptText(bundle.getString("authorName"));
+        bookName.setPromptText(bundle.getString("bookName"));
+        bookNote.setPromptText(bundle.getString("note"));
+        addImageButton.setText(bundle.getString("addImageBtn"));
+        send.setText(bundle.getString("addBookBtn"));
         error = bundle.getString("error");
         errorMessage1 = bundle.getString("errorMessage1");
         errorMessage2 = bundle.getString("errorMessage2");
         titleLanguage = bundle.getString("titleLanguage");
-        success = bundle.getString("deletePicture");
+        success = bundle.getString("success");
     }
 
     public void addImage(){
@@ -84,16 +84,14 @@ public class AddBookController {
             JOptionPane.showMessageDialog(null, titleLanguage);
             LOG.log(Level.SEVERE, "User did not choose a picture");
         }
-
     }
 
     public void sendIntoDatabase(){
         boolean flag = true;
         if(bookName.getText().equals("") || authorName.getText().equals("") || bookNote.getText().equals("") || bookImage == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(error);
-            alert.setContentText(errorMessage1);
+            alert.setTitle(error);
+            alert.setHeaderText(errorMessage1);
             alert.showAndWait();
             flag = false;
             LOG.log(Level.INFO, "User did not enter all required information");
