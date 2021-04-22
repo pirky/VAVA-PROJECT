@@ -112,7 +112,7 @@ public class BookInfoController{
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("project/images/logo.jpg"));
+        stage.getIcons().add(new Image("project/images/other/logo.jpg"));
         alert.setTitle("Úspešná Rezervácia");
         alert.setHeaderText("Kniha bola úspešne rezervovaná");
         ImageView imageView = new ImageView(book.getImage().getImage());

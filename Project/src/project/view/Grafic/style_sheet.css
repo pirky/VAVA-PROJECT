@@ -1,7 +1,6 @@
-.list-view .scroll-bar:vertical {
-    -fx-scale-x: 0;
-}
-
-.list-view .scroll-bar:horizontal {
-    -fx-scale-x: 0;
+.button_lg {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-font-size: 0px;
+    -fx-padding: 0 0;
 }

@@ -1,16 +1,13 @@
 TODO list:
 -------------------- NA ZÁVER --------------------
-→ serializácia
-→ internationalization
 → loggovanie
+→ internationalization
+→ serializácia
+→ urobit grafiku
 → refactoring
 → UML tried diagram
-→ dokumentacia
+→ dokumentacia → git vision Template
 → javadoc → ak bude cas
--------------------- OPTIONAL --------------------
-→ urobit grafiku
-→ recenzie ku kniham // asi nie
-→ posielanie sprav medzi uzivatelmi // asi nie
 
 ====================== BRANCH MANAGEMENT ======================
 git branch → zobrazi branche a zvyrazni tu v ktorej si

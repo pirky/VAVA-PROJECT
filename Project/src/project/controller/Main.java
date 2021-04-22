@@ -23,7 +23,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
         mainStage.setTitle("eLib");
-        mainStage.getIcons().add(new Image("project/images/logo.jpg"));
+        mainStage.getIcons().add(new Image("project/images/other/logo.jpg"));
         mainStage.setResizable(false);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/MainView.fxml")));
         Scene scene = new Scene(root);

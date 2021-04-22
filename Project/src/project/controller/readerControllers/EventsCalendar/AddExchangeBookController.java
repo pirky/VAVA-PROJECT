@@ -18,7 +18,6 @@ import project.model.CustomImage;
 import project.model.books.Book;
 import project.model.books.SellableBook;
 import project.model.books.TableBook;
-import project.model.events.BookDiscussion;
 import project.model.events.BookExchange;
 import project.model.events.Event;
 import project.model.users.Organizer;
@@ -58,7 +57,7 @@ public class AddExchangeBookController{
 
     @FXML
     public void initialize(){
-        bookImageView.setImage(new Image("project/images/noImage.jpg"));
+        bookImageView.setImage(new Image("project/images/other/noImage.jpg"));
     }
 
     public void setEvent(Event event) {
@@ -179,7 +178,7 @@ public class AddExchangeBookController{
         bookName.clear();
         bookNote.clear();
         price.clear();
-        bookImageView.setImage(new Image("project/images/noImage.jpg"));
+        bookImageView.setImage(new Image("project/images/other/noImage.jpg"));
         bookImage = null;
     }
 

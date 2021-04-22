@@ -4,9 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import project.model.databases.UserDatabase;
 import project.model.users.Librarian;
 import project.model.users.Organizer;
@@ -19,6 +17,9 @@ public class MainController {
     @FXML private TextField username;
     @FXML private TextField password;
     @FXML private DatePicker datePicker;
+    @FXML private Label sign;
+    @FXML private Button engBtn;
+    @FXML private Button skBtn;
 
     @FXML
     public void initialize(){
