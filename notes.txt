@@ -1,6 +1,5 @@
 TODO list:
 -------------------- NA ZÁVER --------------------
-→ loggovanie
 → internationalization
 → serializácia
 → urobit grafiku
