@@ -7,20 +7,21 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.RegistrationController">
-   <children>
-      <TextField fx:id="username" layoutX="226.0" layoutY="64.0" promptText="meno" />
-      <Button layoutX="256.0" layoutY="351.0" mnemonicParsing="false" onAction="#registerUser" text="registrovat" />
-      <RadioButton layoutX="251.0" layoutY="274.0" mnemonicParsing="false" text="čitateľ">
-         <toggleGroup>
-            <ToggleGroup fx:id="group" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton layoutX="251.0" layoutY="242.0" mnemonicParsing="false" text="organizátor" toggleGroup="$group" />
-      <RadioButton layoutX="251.0" layoutY="209.0" mnemonicParsing="false" selected="true" text="knihovník" toggleGroup="$group" />
-      <PasswordField fx:id="password" layoutX="226.0" layoutY="107.0" promptText="heslo" />
-      <PasswordField fx:id="password1" layoutX="226.0" layoutY="157.0" promptText="potvrd heslo" />
-      <AnchorPane prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: #0598ff;" />
-      <AnchorPane layoutX="450.0" prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: #0598ff;" />
-   </children>
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.RegistrationController">
+   <TextField fx:id="username" layoutX="210.0" layoutY="67.0" promptText="meno"/>
+   <Button layoutX="252.0" layoutY="342.0" mnemonicParsing="false" onAction="#registerUser" text="registrovat"/>
+   <RadioButton layoutX="252.0" layoutY="272.0" mnemonicParsing="false" text="čitateľ">
+      <toggleGroup>
+         <ToggleGroup fx:id="group"/>
+      </toggleGroup>
+   </RadioButton>
+   <RadioButton layoutX="252.0" layoutY="240.0" mnemonicParsing="false" text="organizátor" toggleGroup="$group"/>
+   <RadioButton layoutX="252.0" layoutY="207.0" mnemonicParsing="false" selected="true" text="knihovník"
+                toggleGroup="$group"/>
+   <PasswordField fx:id="password" layoutX="210.0" layoutY="110.0" promptText="heslo"/>
+   <PasswordField fx:id="password1" layoutX="210.0" layoutY="160.0" promptText="potvrd heslo"/>
+   <AnchorPane prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: #0598ff;"/>
+   <AnchorPane layoutX="450.0" prefHeight="500.0" prefWidth="150.0" style="-fx-background-color: #0598ff;"/>
+   <Button layoutX="272.0" layoutY="392.0" mnemonicParsing="false" onAction="#showMain" text="Späť"/>
 </AnchorPane>

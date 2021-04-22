@@ -1,5 +1,4 @@
 package project.model.events;
-
 import project.model.Rooms.RoomReservation;
 import project.model.users.Organizer;
 import project.model.users.Reader;
@@ -8,8 +7,8 @@ import java.util.List;
 
 public class Event {
     private String name;
-    private String note;
-    private RoomReservation roomReservation;
+    private final String note;
+    private final RoomReservation roomReservation;
     private Organizer organizer;
     private List<Reader> volunteers;
     private List<Reader> participants;
@@ -75,10 +74,6 @@ public class Event {
         return note;
     }
 
-    public void setNote(String note) {
-        this.note = note;
-    }
-
     public Organizer getOrganizer() {
         return organizer;
     }
@@ -97,10 +92,6 @@ public class Event {
 
     public RoomReservation getReservation() {
         return (RoomReservation) roomReservation.clone();
-    }
-
-    public void setReservation(RoomReservation roomReservation) {
-        this.roomReservation = (RoomReservation) roomReservation.clone();
     }
 
     public String toString(){

@@ -1,15 +1,13 @@
 package project.model.books;
-
 import project.model.CustomImage;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-
 public class Book implements Serializable {
     private int id;
     private String title;
-    private String author;
-    private String note;
+    private final String author;
+    private final String note;
     private CustomImage image;
     private LocalDate createdAt;
 
@@ -33,10 +31,6 @@ public class Book implements Serializable {
         return author;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -47,10 +41,6 @@ public class Book implements Serializable {
 
     public String getNote() {
         return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
     }
 
     public CustomImage getImage() {

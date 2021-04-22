@@ -18,6 +18,8 @@ import project.model.Rooms.LibraryRoom;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class EditRoomsController implements Initializable {
     ObservableList<ImageView> imageViews = FXCollections.observableArrayList();
@@ -25,13 +27,11 @@ public class EditRoomsController implements Initializable {
     @FXML ComboBox<LibraryRoom> roomComboBox;
     @FXML ListView<ImageView> roomPictures;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         allRooms.addAll(Main.roomsDatabase.getRooms());
         roomComboBox.setItems(allRooms);
     }
-
 
     public void showMenu() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));
@@ -39,7 +39,6 @@ public class EditRoomsController implements Initializable {
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
     }
-
 
     public void comboClick(){
         LibraryRoom libraryRoom = roomComboBox.getValue();
@@ -65,9 +64,7 @@ public class EditRoomsController implements Initializable {
         roomPictures.refresh();
     }
 
-
     public void addImage() {
-
         try {
             FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png");
             FileChooser fileChooser = new FileChooser();
@@ -85,8 +82,8 @@ public class EditRoomsController implements Initializable {
                 Main.roomsDatabase.removeRoom(roomFor);
                 Main.roomsDatabase.addRoom(roomFor);
             }
-
             comboClick();
+
         } catch (Exception e) {
             if (roomComboBox.getSelectionModel().getSelectedItem() == null) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -94,20 +91,20 @@ public class EditRoomsController implements Initializable {
                 alert.setHeaderText("Nastala chyba");
                 alert.setContentText("nevybral si miestnost");
                 alert.showAndWait();
+                LOG.log(Level.SEVERE, "User did not choose room");
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Dialog");
                 alert.setHeaderText("Nastala chyba");
                 alert.setContentText("nevybral si obrazok");
                 alert.showAndWait();
+                LOG.log(Level.SEVERE, "User did not choose picture");
             }
         }
     }
 
-
     public void deletePhoto(){
         try {
-
             Image imageToDel = roomPictures.getSelectionModel().getSelectedItem().getImage();
             List<LibraryRoom> rooms = Main.roomsDatabase.getRooms();
 
@@ -145,7 +142,6 @@ public class EditRoomsController implements Initializable {
                     }
                 }
             }
-
         }
         catch(Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -153,6 +149,9 @@ public class EditRoomsController implements Initializable {
             alert.setHeaderText("Nastala chyba");
             alert.setContentText("Vyber ktory obrazok chces zmazat");
             alert.showAndWait();
+            LOG.log(Level.SEVERE, "User did not choose picture to be deleted");
         }
     }
+
+    private static final Logger LOG = Logger.getLogger(EditRoomsController.class.getName());
 }

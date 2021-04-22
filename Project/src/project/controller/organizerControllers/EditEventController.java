@@ -1,5 +1,4 @@
 package project.controller.organizerControllers;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,6 +19,8 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class EditEventController {
     ObservableList<LibraryRoom> allRooms = FXCollections.observableArrayList();
@@ -32,13 +33,11 @@ public class EditEventController {
     @FXML private Label hostLabel;
     @FXML private Label infoLabel;
     @FXML private Button btn;
-
     @FXML ComboBox<Event> events;private Event globalEvent;
     @FXML private Text capacity;
     @FXML Text typeEvent;
 
     public void comboClicked(){
-
         comboBox.setDisable(false);
         nameArea.setDisable(false);
         noteArea.setDisable(false);
@@ -60,7 +59,6 @@ public class EditEventController {
 
             }
         }
-
 
         if (events.getSelectionModel().getSelectedItem() instanceof BookDiscussion){
             hostLabel.setVisible(true);
@@ -101,14 +99,11 @@ public class EditEventController {
                 }
             }
         }
-
     }
-
 
     public void onClicked(){
         capacity.setText(String.valueOf(comboBox.getSelectionModel().getSelectedItem().getCapacity()));
     }
-
 
     @FXML
     public void initialize(){
@@ -125,7 +120,6 @@ public class EditEventController {
         allRooms.addAll(Main.roomsDatabase.getRooms());
         comboBox.setItems(allRooms);
     }
-
 
     public void createEvent() {
         LibraryRoom room = comboBox.getValue();
@@ -165,10 +159,10 @@ public class EditEventController {
         deleteFields();
     }
 
-
     private boolean testRequired(String name, String host, String note){
         if(name.isEmpty() || host.isEmpty() || note.isEmpty()){
             infoLabel.setText("Vyplň všetky polia");
+            LOG.log(Level.INFO, "User did not enter all required fields");
             infoLabel.setVisible(true);
             return true;
         }
@@ -178,7 +172,6 @@ public class EditEventController {
     }
 
     private void deleteFields(){
-
         comboBox.getSelectionModel().clearSelection();
         nameArea.clear();
         hostArea.clear();
@@ -192,7 +185,6 @@ public class EditEventController {
         noteArea.setDisable(true);
     }
 
-
     public void deleteEvent(){
         Organizer organizer = (Organizer) Main.currUser;
         organizer.removeEvent(globalEvent);
@@ -204,12 +196,13 @@ public class EditEventController {
 
     }
 
-
-
     public void showMenu() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")));
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
     }
+
+    private static final Logger LOG = Logger.getLogger(EditEventController.class.getName());
+
 }

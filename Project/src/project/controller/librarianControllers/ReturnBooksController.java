@@ -1,5 +1,4 @@
 package project.controller.librarianControllers;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -27,22 +26,14 @@ public class ReturnBooksController {
     ObservableList<TableBook> rentedBooks = FXCollections.observableArrayList();
     private Reader reader;
     private Book book;
-    @FXML
-    private ComboBox<Reader> readersBox;
-    @FXML
-    private TableView<TableBook> tableView;
-    @FXML
-    private TableColumn<TableBook, String> authorColumn;
-    @FXML
-    private TableColumn<TableBook, String> titleColumn;
-    @FXML
-    private TableColumn<TableBook, ImageView> imageColumn;
-    @FXML
-    private DatePicker datePicker;
-    @FXML
-    private Button returnBtn;
-    @FXML
-    private Button extendBtn;
+    @FXML private ComboBox<Reader> readersBox;
+    @FXML private TableView<TableBook> tableView;
+    @FXML private TableColumn<TableBook, String> authorColumn;
+    @FXML private TableColumn<TableBook, String> titleColumn;
+    @FXML private TableColumn<TableBook, ImageView> imageColumn;
+    @FXML private DatePicker datePicker;
+    @FXML private Button returnBtn;
+    @FXML private Button extendBtn;
 
     @FXML
     public void initialize(){

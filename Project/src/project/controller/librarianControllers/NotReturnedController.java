@@ -1,5 +1,4 @@
 package project.controller.librarianControllers;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -27,14 +26,10 @@ import java.util.Objects;
 public class NotReturnedController {
     ObservableList<TableBook> rentedBooks = FXCollections.observableArrayList();
     private final List<Reader> readers = new ArrayList<>();
-    @FXML
-    private TableView<TableBook> tableView;
-    @FXML
-    private TableColumn<TableBook, String> authorColumn;
-    @FXML
-    private TableColumn<TableBook, String> titleColumn;
-    @FXML
-    private TableColumn<TableBook, ImageView> imageColumn;
+    @FXML private TableView<TableBook> tableView;
+    @FXML private TableColumn<TableBook, String> authorColumn;
+    @FXML private TableColumn<TableBook, String> titleColumn;
+    @FXML private TableColumn<TableBook, ImageView> imageColumn;
     @FXML TextField filterField;
 
     @FXML
@@ -84,7 +79,6 @@ public class NotReturnedController {
             return cell;
         });
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageView"));
-
         updateTableView();
     }
 
@@ -119,7 +113,6 @@ public class NotReturnedController {
         tableView.setItems(sortedData);
 
     }
-
 
     public void showMenu() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));

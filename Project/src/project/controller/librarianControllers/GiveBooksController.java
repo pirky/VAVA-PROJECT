@@ -1,5 +1,4 @@
 package project.controller.librarianControllers;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -28,28 +27,17 @@ public class GiveBooksController {
     ObservableList<BookReservation> bookReservations = FXCollections.observableArrayList();
     ObservableList<TableBook> freeBooks = FXCollections.observableArrayList();
     private Reader reader;
-    @FXML
-    private ComboBox<Reader> readersBox;
-    @FXML
-    private ListView<BookReservation> listView;
-    @FXML
-    private Label infoLabel;
-    @FXML
-    private Button giveBtn;
-    @FXML
-    private Button addBtn;
-    @FXML
-    private DatePicker datePicker;
-    @FXML
-    private TableView<TableBook> tableView;
-    @FXML
-    private TableColumn<TableBook, String> authorColumn;
-    @FXML
-    private TableColumn<TableBook, String> titleColumn;
-    @FXML
-    private TableColumn<TableBook, ImageView> imageColumn;
-    @FXML
-    private TextField filterField;
+    @FXML private ComboBox<Reader> readersBox;
+    @FXML private ListView<BookReservation> listView;
+    @FXML private Label infoLabel;
+    @FXML private Button giveBtn;
+    @FXML private Button addBtn;
+    @FXML private DatePicker datePicker;
+    @FXML private TableView<TableBook> tableView;
+    @FXML private TableColumn<TableBook, String> authorColumn;
+    @FXML private TableColumn<TableBook, String> titleColumn;
+    @FXML private TableColumn<TableBook, ImageView> imageColumn;
+    @FXML private TextField filterField;
 
     @FXML
     public void initialize(){
@@ -237,5 +225,4 @@ public class GiveBooksController {
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
     }
-
 }

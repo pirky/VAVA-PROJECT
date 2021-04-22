@@ -1,5 +1,4 @@
 package project.controller.readerControllers.EventsCalendar;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,32 +24,19 @@ import java.util.List;
 public class EventEnrollController {
     private YearMonth yearMonth;
     private Event event;
-    @FXML
-    private Label typeLabel;
-    @FXML
-    private Label hostLabel;
-    @FXML
-    private TextArea titleArea;
-    @FXML
-    private TextArea noteArea;
-    @FXML
-    private TextField hostField;
-    @FXML
-    private DatePicker datePickerFrom;
-    @FXML
-    private DatePicker datePickerTo;
-    @FXML
-    private Button volunteerBtn;
-    @FXML
-    private Button participantBtn;
-    @FXML
-    private Button cancelBtn;
-    @FXML
-    private Button forumBtn;
-    @FXML
-    private Button booksBtn;
-    @FXML
-    private Label participantLabel;
+    @FXML private Label typeLabel;
+    @FXML private Label hostLabel;
+    @FXML private TextArea titleArea;
+    @FXML private TextArea noteArea;
+    @FXML private TextField hostField;
+    @FXML private DatePicker datePickerFrom;
+    @FXML private DatePicker datePickerTo;
+    @FXML private Button volunteerBtn;
+    @FXML private Button participantBtn;
+    @FXML private Button cancelBtn;
+    @FXML private Button forumBtn;
+    @FXML private Button booksBtn;
+    @FXML private Label participantLabel;
 
     @FXML
     public void initialize(){

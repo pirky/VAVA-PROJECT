@@ -1,5 +1,4 @@
 package project.controller.readerControllers.EventsCalendar;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,19 +13,15 @@ import project.model.events.Event;
 import project.model.events.Message;
 import project.model.users.Organizer;
 import project.model.users.User;
-
 import java.io.IOException;
 import java.time.YearMonth;
-
 
 public class DiscussionController {
     ObservableList<Message> messages = FXCollections.observableArrayList();
     private YearMonth yearMonth;
     private Event event;
-    @FXML
-    private ListView<Message> listView;
-    @FXML
-    private TextArea textArea;
+    @FXML private ListView<Message> listView;
+    @FXML private TextArea textArea;
 
     public void setEvent(Event event) {
         this.event = event;

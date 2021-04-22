@@ -1,5 +1,4 @@
 package project.controller.readerControllers.EventsCalendar;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +23,6 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class CalendarController {
     private final List<Event> events;

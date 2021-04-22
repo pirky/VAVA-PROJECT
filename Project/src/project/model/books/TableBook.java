@@ -1,15 +1,13 @@
 package project.model.books;
-
 import javafx.scene.image.ImageView;
 import project.model.CustomImage;
-
 import java.time.LocalDate;
 
 public class TableBook extends Book{
     private ImageView imageView = new ImageView();
-    private LocalDate dateFrom;
-    private LocalDate dateTo;
-    private Boolean returned;
+    private final LocalDate dateFrom;
+    private final LocalDate dateTo;
+    private final Boolean returned;
     private double price;
 
     public TableBook(int id, String title, String author, String note, CustomImage image, LocalDate dateFrom, LocalDate dateTo, Boolean returned) {
@@ -26,24 +24,12 @@ public class TableBook extends Book{
         return returned;
     }
 
-    public void setReturned(Boolean returned) {
-        this.returned = returned;
-    }
-
     public LocalDate getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(LocalDate dateFrom) {
-        this.dateFrom = dateFrom;
-    }
-
     public LocalDate getDateTo() {
         return dateTo;
-    }
-
-    public void setDateTo(LocalDate dateTo) {
-        this.dateTo = dateTo;
     }
 
     public ImageView getImageView() {

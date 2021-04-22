@@ -1,5 +1,4 @@
 package project.model.events;
-
 import project.model.Rooms.RoomReservation;
 import project.model.users.Organizer;
 import java.util.ArrayList;
@@ -37,10 +36,6 @@ public class BookDiscussion extends Event{
 
     public String getHost() {
         return host;
-    }
-
-    public void setHost(String host) {
-        this.host = host;
     }
 
     public Object clone(){

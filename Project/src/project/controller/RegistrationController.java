@@ -1,12 +1,8 @@
 package project.controller;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import project.model.databases.UserDatabase;
-
-import javax.xml.soap.Text;
 import java.io.IOException;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class RegistrationController implements menuInterface{
     @FXML private TextField username;
@@ -47,12 +43,9 @@ public class RegistrationController implements menuInterface{
             alert.setContentText("Uzivatel s takymto menom uz existuje");
             alert.showAndWait();
         }
-
-
     }
 
     public void showMain() throws IOException {
         this.changeMainView();
     }
-
 }

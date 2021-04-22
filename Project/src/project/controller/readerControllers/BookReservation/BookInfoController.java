@@ -1,5 +1,4 @@
 package project.controller.readerControllers.BookReservation;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,20 +19,13 @@ import java.util.Objects;
 
 public class BookInfoController{
     private Book book;
-    @FXML
-    private DatePicker datePickerFrom;
-    @FXML
-    private DatePicker datePickerTo;
-    @FXML
-    private Label authorLabel;
-    @FXML
-    private Label titleLabel;
-    @FXML
-    private TextArea noteArea;
-    @FXML
-    private ImageView imageView;
-    @FXML
-    private Button btn;
+    @FXML private DatePicker datePickerFrom;
+    @FXML private DatePicker datePickerTo;
+    @FXML private Label authorLabel;
+    @FXML private Label titleLabel;
+    @FXML private TextArea noteArea;
+    @FXML private ImageView imageView;
+    @FXML private Button btn;
 
     public void updateDateFrom(LocalDate dateSelected){
 

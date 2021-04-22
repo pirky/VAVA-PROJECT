@@ -1,5 +1,4 @@
 package project.controller.readerControllers.BookReservation;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -10,16 +9,11 @@ import project.model.books.Book;
 import java.io.IOException;
 
 public class CellController extends ListCell<Book> {
-    @FXML
-    private ImageView imageView;
-    @FXML
-    private Label authorLabel;
-    @FXML
-    private Label titleLabel;
-    @FXML
-    private FXMLLoader mLLoader;
-    @FXML
-    private VBox vBox;
+    @FXML private ImageView imageView;
+    @FXML private Label authorLabel;
+    @FXML private Label titleLabel;
+    @FXML private FXMLLoader mLLoader;
+    @FXML private VBox vBox;
 
     @Override
     protected void updateItem(Book book, boolean empty) {
@@ -45,6 +39,5 @@ public class CellController extends ListCell<Book> {
             setText(null);
             setGraphic(vBox);
         }
-
     }
 }

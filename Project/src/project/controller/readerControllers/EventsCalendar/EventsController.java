@@ -1,5 +1,4 @@
 package project.controller.readerControllers.EventsCalendar;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,17 +6,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import project.controller.Main;
-
 import java.io.IOException;
 import java.time.YearMonth;
 import java.util.Objects;
 
 public class EventsController {
     private YearMonth currYearMonth;
-    @FXML
-    private Pane pane;
-    @FXML
-    private Label yearMonthLabel;
+    @FXML private Pane pane;
+    @FXML private Label yearMonthLabel;
 
     @FXML
     public void initialize(){

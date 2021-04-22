@@ -1,6 +1,5 @@
 package project.model.databases;
 import project.controller.Main;
-import project.model.Rooms.LibraryRoom;
 import project.model.Rooms.RoomReservation;
 import project.model.books.BookReservation;
 import project.model.events.BookDiscussion;
@@ -13,7 +12,6 @@ import project.model.users.User;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class UserDatabase {
     private List<User> userDatabase;

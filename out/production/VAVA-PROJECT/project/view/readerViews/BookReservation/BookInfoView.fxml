@@ -8,21 +8,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane prefHeight="620.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.BookReservation.BookInfoController">
-   <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showBooks" text="Späť" />
-      <DatePicker fx:id="datePickerFrom" layoutX="466.0" layoutY="75.0" onAction="#updateDateTo" prefHeight="31.0" prefWidth="286.0" />
-      <TextArea fx:id="noteArea" editable="false" layoutX="59.0" layoutY="371.0" prefHeight="222.0" prefWidth="758.0" />
-      <Label fx:id="authorLabel" alignment="CENTER" layoutX="54.0" layoutY="271.0" prefHeight="39.0" prefWidth="262.0" text="Author" textAlignment="CENTER" wrapText="true" />
-      <Label fx:id="titleLabel" alignment="TOP_CENTER" layoutX="54.0" layoutY="320.0" prefHeight="39.0" prefWidth="262.0" text="Title" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="btn" layoutX="541.0" layoutY="310.0" mnemonicParsing="false" onAction="#reserveBook" text="Rezervovať knihu" />
-      <DatePicker fx:id="datePickerTo" layoutX="466.0" layoutY="148.0" onAction="#enableBtn" prefHeight="31.0" prefWidth="286.0" />
-      <Label layoutX="466.0" layoutY="45.0" text="Vyber dátum rezervácie od:" />
-      <Label layoutX="466.0" layoutY="121.0" text="Vyber dátum rezervácie do:" />
-      <BorderPane layoutX="85.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0">
-         <center>
-            <ImageView fx:id="imageView" fitHeight="233.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-         </center>
-      </BorderPane>
-   </children>
+<AnchorPane prefHeight="620.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="project.controller.readerControllers.BookReservation.BookInfoController">
+   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showBooks" text="Späť"/>
+   <DatePicker fx:id="datePickerFrom" layoutX="466.0" layoutY="75.0" onAction="#updateDateTo" prefHeight="31.0"
+               prefWidth="286.0"/>
+   <TextArea fx:id="noteArea" editable="false" layoutX="59.0" layoutY="371.0" prefHeight="222.0" prefWidth="758.0"/>
+   <Label fx:id="authorLabel" alignment="CENTER" layoutX="54.0" layoutY="271.0" prefHeight="39.0" prefWidth="262.0"
+          text="Author" textAlignment="CENTER" wrapText="true"/>
+   <Label fx:id="titleLabel" alignment="TOP_CENTER" layoutX="54.0" layoutY="320.0" prefHeight="39.0" prefWidth="262.0"
+          text="Title" textAlignment="CENTER" wrapText="true"/>
+   <Button fx:id="btn" layoutX="541.0" layoutY="310.0" mnemonicParsing="false" onAction="#reserveBook"
+           text="Rezervovať knihu"/>
+   <DatePicker fx:id="datePickerTo" layoutX="466.0" layoutY="148.0" onAction="#enableBtn" prefHeight="31.0"
+               prefWidth="286.0"/>
+   <Label layoutX="466.0" layoutY="45.0" text="Vyber dátum rezervácie od:"/>
+   <Label layoutX="466.0" layoutY="121.0" text="Vyber dátum rezervácie do:"/>
+   <BorderPane layoutX="85.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0">
+      <center>
+         <ImageView fx:id="imageView" fitHeight="233.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+                    BorderPane.alignment="CENTER"/>
+      </center>
+   </BorderPane>
 </AnchorPane>

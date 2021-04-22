@@ -10,10 +10,9 @@
     <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
    <Pane fx:id="pane" layoutX="26.0" layoutY="71.0" prefHeight="700.0" prefWidth="1347.0" />
    <HBox alignment="CENTER" layoutX="553.0" layoutY="20.0" prefHeight="51.0" prefWidth="293.0" spacing="30.0">
-      <children>
-         <Button mnemonicParsing="false" onAction="#previousMonth" prefHeight="31.0" prefWidth="45.0" text="←" />
-         <Label fx:id="yearMonthLabel" alignment="CENTER" prefHeight="21.0" prefWidth="170.0" text="SEPTEMBER 2021" textAlignment="CENTER" />
-         <Button mnemonicParsing="false" onAction="#nextMonth" prefHeight="31.0" prefWidth="45.0" text="→" />
-      </children>
+      <Button mnemonicParsing="false" onAction="#previousMonth" prefHeight="31.0" prefWidth="45.0" text="←"/>
+      <Label fx:id="yearMonthLabel" alignment="CENTER" prefHeight="21.0" prefWidth="170.0" text="SEPTEMBER 2021"
+             textAlignment="CENTER"/>
+      <Button mnemonicParsing="false" onAction="#nextMonth" prefHeight="31.0" prefWidth="45.0" text="→"/>
    </HBox>
 </AnchorPane>

@@ -1,5 +1,4 @@
 package project.model.databases;
-
 import javafx.scene.image.Image;
 import project.model.CustomImage;
 import project.model.books.Book;
@@ -83,6 +82,4 @@ public class BooksDatabase {
         book.setCreatedAt(LocalDate.parse("2007-11-11"));
         books.add(book);
     }
-
-
 }

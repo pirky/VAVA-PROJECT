@@ -1,5 +1,4 @@
 package project.model.users;
-
 import project.model.events.BookDiscussion;
 import project.model.events.BookExchange;
 import project.model.events.Event;

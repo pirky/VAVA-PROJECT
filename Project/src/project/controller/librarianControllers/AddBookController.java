@@ -16,7 +16,8 @@ import javax.swing.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Objects;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AddBookController {
     @FXML TextField authorName;
@@ -40,6 +41,7 @@ public class AddBookController {
         }
         catch(Exception e) {
             JOptionPane.showMessageDialog(null, "Vyber obrazok");
+            LOG.log(Level.SEVERE, "User did not choose a picture");
         }
 
     }
@@ -54,6 +56,7 @@ public class AddBookController {
             alert.setContentText("nezadal si vsetky potrebne udaje");
             alert.showAndWait();
             flag = false;
+            LOG.log(Level.INFO, "User did not enter all required information");
         }
 
         if (flag) {
@@ -73,6 +76,7 @@ public class AddBookController {
                 alert.setHeaderText("Nastala chyba");
                 alert.setContentText("Takato kniha sa uz v databaze nachadza");
                 alert.showAndWait();
+                LOG.log(Level.INFO, "User tried to add the same book twice");
             }
 
             if (flag2) {
@@ -81,12 +85,8 @@ public class AddBookController {
                 JOptionPane.showMessageDialog(null, "Kniha bola uspesne pridana");
                 bookImageView.setImage(bookImage);
             }
-
         }
-
-
     }
-
 
     public void showMenu() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));
@@ -95,4 +95,5 @@ public class AddBookController {
         Main.mainStage.show();
     }
 
+    private static final Logger LOG = Logger.getLogger(AddBookController.class.getName());
 }

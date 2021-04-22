@@ -5,14 +5,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.librarianControllers.AddBookController">
-   <children>
-      <Button fx:id="send" layoutX="558.0" layoutY="599.0" mnemonicParsing="false" onAction="#sendIntoDatabase" text="pridat knihu" />
-      <TextField fx:id="authorName" layoutX="524.0" layoutY="278.0" promptText="meno autora" />
-      <TextField fx:id="bookName" layoutX="524.0" layoutY="338.0" promptText="meno knihy" />
-      <Button layoutX="552.0" layoutY="479.0" mnemonicParsing="false" onAction="#addImage" text="pridat obrazok" />
-      <TextField fx:id="bookNote" layoutX="524.0" layoutY="403.0" promptText="poznamka" />
-      <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
-      <ImageView fx:id="bookImageView" fitHeight="282.0" fitWidth="247.0" layoutX="114.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" />
-   </children>
+<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0"
+            prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="project.controller.librarianControllers.AddBookController">
+   <Button fx:id="send" layoutX="558.0" layoutY="599.0" mnemonicParsing="false" onAction="#sendIntoDatabase"
+           text="pridat knihu"/>
+   <TextField fx:id="authorName" layoutX="524.0" layoutY="278.0" promptText="meno autora"/>
+   <TextField fx:id="bookName" layoutX="524.0" layoutY="338.0" promptText="meno knihy"/>
+   <Button layoutX="552.0" layoutY="479.0" mnemonicParsing="false" onAction="#addImage" text="pridat obrazok"/>
+   <TextField fx:id="bookNote" layoutX="524.0" layoutY="403.0" promptText="poznamka"/>
+   <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#showMenu" text="Späť"/>
+   <ImageView fx:id="bookImageView" fitHeight="282.0" fitWidth="247.0" layoutX="114.0" layoutY="209.0"
+              pickOnBounds="true" preserveRatio="true"/>
 </AnchorPane>

@@ -1,12 +1,10 @@
 package project.model.books;
-
 import project.controller.Main;
-
 import java.time.LocalDate;
 
 public class BookReservation {
-    private int bookId;
-    private LocalDate dateFrom;
+    private final int bookId;
+    private final LocalDate dateFrom;
     private LocalDate dateTo;
     private Boolean returned;
 
@@ -20,16 +18,8 @@ public class BookReservation {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
-    }
-
     public LocalDate getDateFrom() {
         return dateFrom;
-    }
-
-    public void setDateFrom(LocalDate dateFrom) {
-        this.dateFrom = dateFrom;
     }
 
     public LocalDate getDateTo() {

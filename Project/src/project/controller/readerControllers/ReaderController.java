@@ -1,11 +1,9 @@
 package project.controller.readerControllers;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import project.controller.Main;
 import project.controller.menuInterface;
-
 import java.io.IOException;
 import java.util.Objects;
 

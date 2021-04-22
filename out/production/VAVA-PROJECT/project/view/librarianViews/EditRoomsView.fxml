@@ -5,12 +5,12 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.librarianControllers.EditRoomsController">
-   <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
-      <ListView fx:id="roomPictures" layoutX="640.0" layoutY="14.0" prefHeight="672.0" prefWidth="530.0" />
-      <ComboBox fx:id="roomComboBox" layoutX="181.0" layoutY="138.0" onAction="#comboClick" prefWidth="150.0" />
-      <Button layoutX="181.0" layoutY="196.0" mnemonicParsing="false" onAction="#addImage" text="pridaj fotku" />
-      <Button layoutX="181.0" layoutY="245.0" mnemonicParsing="false" onAction="#deletePhoto" text="odstran fotku" />
-   </children>
+<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0"
+            prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="project.controller.librarianControllers.EditRoomsController">
+   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť"/>
+   <ListView fx:id="roomPictures" layoutX="640.0" layoutY="14.0" prefHeight="672.0" prefWidth="530.0"/>
+   <ComboBox fx:id="roomComboBox" layoutX="181.0" layoutY="138.0" onAction="#comboClick" prefWidth="150.0"/>
+   <Button layoutX="181.0" layoutY="196.0" mnemonicParsing="false" onAction="#addImage" text="pridaj fotku"/>
+   <Button layoutX="181.0" layoutY="245.0" mnemonicParsing="false" onAction="#deletePhoto" text="odstran fotku"/>
 </AnchorPane>

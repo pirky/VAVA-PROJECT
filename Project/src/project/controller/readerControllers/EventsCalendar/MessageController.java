@@ -1,5 +1,4 @@
 package project.controller.readerControllers.EventsCalendar;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -14,16 +13,11 @@ import project.model.events.Message;
 import java.io.IOException;
 
 public class MessageController extends ListCell<Message> {
-    @FXML
-    private Label label;
-    @FXML
-    private TextArea textArea;
-    @FXML
-    private HBox hBox;
-    @FXML
-    private VBox vBox;
-    @FXML
-    private FXMLLoader mLLoader;
+    @FXML private Label label;
+    @FXML private TextArea textArea;
+    @FXML private HBox hBox;
+    @FXML private VBox vBox;
+    @FXML private FXMLLoader mLLoader;
 
     @Override
     protected void updateItem(Message message, boolean empty) {
@@ -72,5 +66,4 @@ public class MessageController extends ListCell<Message> {
             setGraphic(vBox);
         }
     }
-
 }

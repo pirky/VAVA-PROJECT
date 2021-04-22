@@ -1,5 +1,4 @@
 package project.controller.readerControllers.BookReservation;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,10 +15,8 @@ import java.util.List;
 
 public class InnerTableController  extends ListCell<List<Book>> {
     ObservableList<Book> booksQuartet = FXCollections.observableArrayList();
-    @FXML
-    private ListView<Book> listView;
-    @FXML
-    private FXMLLoader mLLoader;
+    @FXML private ListView<Book> listView;
+    @FXML private FXMLLoader mLLoader;
 
     @Override
     protected void updateItem(List<Book> bookList, boolean empty) {

@@ -1,5 +1,4 @@
 package project.model.users;
-
 import project.model.books.BookReservation;
 import java.util.ArrayList;
 import java.util.List;

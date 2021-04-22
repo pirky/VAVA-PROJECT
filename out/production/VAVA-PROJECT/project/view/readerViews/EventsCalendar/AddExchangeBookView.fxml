@@ -7,23 +7,27 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsCalendar.AddExchangeBookController">
-   <children>
-      <Button layoutX="108.0" layoutY="286.0" mnemonicParsing="false" onAction="#sendIntoDatabase" text="pridat knihu" />
-      <TextField fx:id="authorName" layoutX="82.0" layoutY="83.0" promptText="meno autora" />
-      <TextField fx:id="bookName" layoutX="82.0" layoutY="127.0" promptText="meno knihy" />
-      <Button layoutX="101.0" layoutY="245.0" mnemonicParsing="false" onAction="#addImage" text="pridat obrazok" />
-      <TextField fx:id="bookNote" layoutX="82.0" layoutY="167.0" promptText="poznamka" />
-      <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#showEvent" text="Späť" />
-      <ImageView fx:id="bookImageView" fitHeight="282.0" fitWidth="247.0" layoutX="52.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="price" layoutX="82.0" layoutY="206.0" promptText="cena" />
-      <TableView fx:id="tableView" layoutX="367.0" layoutY="37.0" prefHeight="599.0" prefWidth="921.0">
-         <columns>
-            <TableColumn fx:id="imageColumn" maxWidth="282.0" minWidth="200.0" prefWidth="250.0" resizable="false" text="Titulná fotka" />
-            <TableColumn fx:id="authorColumn" maxWidth="300.0" minWidth="218.0" prefWidth="250.0" resizable="false" text="Autor" />
-            <TableColumn fx:id="titleColumn" maxWidth="280.0" minWidth="189.0" prefWidth="270.0" resizable="false" text="Názov knihy" />
-            <TableColumn fx:id="priceCol" prefWidth="129.0" text="Cena" />
-         </columns>
-      </TableView>
-   </children>
+<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0"
+            prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="project.controller.readerControllers.EventsCalendar.AddExchangeBookController">
+   <Button layoutX="108.0" layoutY="286.0" mnemonicParsing="false" onAction="#sendIntoDatabase" text="pridat knihu"/>
+   <TextField fx:id="authorName" layoutX="82.0" layoutY="83.0" promptText="meno autora"/>
+   <TextField fx:id="bookName" layoutX="82.0" layoutY="127.0" promptText="meno knihy"/>
+   <Button layoutX="101.0" layoutY="245.0" mnemonicParsing="false" onAction="#addImage" text="pridat obrazok"/>
+   <TextField fx:id="bookNote" layoutX="82.0" layoutY="167.0" promptText="poznamka"/>
+   <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#showEvent" text="Späť"/>
+   <ImageView fx:id="bookImageView" fitHeight="282.0" fitWidth="247.0" layoutX="52.0" layoutY="350.0"
+              pickOnBounds="true" preserveRatio="true"/>
+   <TextField fx:id="price" layoutX="82.0" layoutY="206.0" promptText="cena"/>
+   <TableView fx:id="tableView" layoutX="367.0" layoutY="37.0" prefHeight="599.0" prefWidth="921.0">
+      <columns>
+         <TableColumn fx:id="imageColumn" maxWidth="282.0" minWidth="200.0" prefWidth="250.0" resizable="false"
+                      text="Titulná fotka"/>
+         <TableColumn fx:id="authorColumn" maxWidth="300.0" minWidth="218.0" prefWidth="250.0" resizable="false"
+                      text="Autor"/>
+         <TableColumn fx:id="titleColumn" maxWidth="280.0" minWidth="189.0" prefWidth="270.0" resizable="false"
+                      text="Názov knihy"/>
+         <TableColumn fx:id="priceCol" prefWidth="129.0" text="Cena"/>
+      </columns>
+   </TableView>
 </AnchorPane>

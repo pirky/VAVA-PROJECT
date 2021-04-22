@@ -1,5 +1,4 @@
 package project.controller.organizerControllers;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,48 +13,33 @@ import project.controller.Main;
 import project.model.CustomImage;
 import project.model.Rooms.LibraryRoom;
 import project.model.Rooms.RoomReservation;
-import project.model.books.BookReservation;
 import project.model.events.BookDiscussion;
 import project.model.events.BookExchange;
 import project.model.events.Event;
 import project.model.users.Organizer;
-import project.model.users.Reader;
 import project.model.users.User;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AddEventController {
     ObservableList<LibraryRoom> allRooms = FXCollections.observableArrayList();
     ObservableList<ImageView> roomImages = FXCollections.observableArrayList();
-    @FXML
-    private ListView<ImageView> listView;
-    @FXML
-    private ToggleGroup group;
-    @FXML
-    private ComboBox<LibraryRoom> comboBox;
-    @FXML
-    private TextArea hostArea;
-    @FXML
-    private TextArea nameArea;
-    @FXML
-    private TextArea noteArea;
-    @FXML
-    private DatePicker datePickerFrom;
-    @FXML
-    private DatePicker datePickerTo;
-    @FXML
-    private Label hostLabel;
-    @FXML
-    private Label infoLabel;
-    @FXML
-    private Button btn;
-    @FXML
-    private RadioButton exchangeRB;
-    @FXML
-    private RadioButton discussionRB;
-    @FXML
-    private Text capacity;
+    @FXML private ListView<ImageView> listView;
+    @FXML private ComboBox<LibraryRoom> comboBox;
+    @FXML private TextArea hostArea;
+    @FXML private TextArea nameArea;
+    @FXML private TextArea noteArea;
+    @FXML private DatePicker datePickerFrom;
+    @FXML private DatePicker datePickerTo;
+    @FXML private Label hostLabel;
+    @FXML private Label infoLabel;
+    @FXML private Button btn;
+    @FXML private RadioButton exchangeRB;
+    @FXML private RadioButton discussionRB;
+    @FXML private Text capacity;
 
     @FXML
     public void initialize(){
@@ -216,6 +200,7 @@ public class AddEventController {
     private boolean testRequired(String name, String host, String note){
         if(name.isEmpty() || host.isEmpty() || note.isEmpty()){
             infoLabel.setText("Vyplň všetky polia");
+            LOG.log(Level.INFO, "User did not enter all required fields");
             infoLabel.setVisible(true);
             return true;
         }
@@ -252,4 +237,7 @@ public class AddEventController {
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
     }
+
+    private static final Logger LOG = Logger.getLogger(AddEventController.class.getName());
 }
+

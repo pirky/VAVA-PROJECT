@@ -1,5 +1,4 @@
 package project.controller.readerControllers.EventsCalendar;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -22,38 +21,28 @@ import project.model.events.BookExchange;
 import project.model.events.Event;
 import project.model.users.Organizer;
 import project.model.users.User;
-
 import javax.swing.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.YearMonth;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AddExchangeBookController{
     ObservableList<TableBook> tableBooks = FXCollections.observableArrayList();
     private YearMonth yearMonth;
     private Event event;
     private Image bookImage;
-    @FXML
-    private TextField authorName;
-    @FXML
-    private TextField bookName;
-    @FXML
-    private TextField bookNote;
-    @FXML
-    private ImageView bookImageView;
-    @FXML
-    private TextField price;
-    @FXML
-    private TableView<TableBook> tableView;
-    @FXML
-    private TableColumn<TableBook, String> authorColumn;
-    @FXML
-    private TableColumn<TableBook, String> titleColumn;
-    @FXML
-    private TableColumn<TableBook, ImageView> imageColumn;
-    @FXML
-    private TableColumn<TableBook, Double> priceCol;
+    @FXML private TextField authorName;
+    @FXML private TextField bookName;
+    @FXML private TextField bookNote;
+    @FXML private ImageView bookImageView;
+    @FXML private TextField price;
+    @FXML private TableView<TableBook> tableView;
+    @FXML private TableColumn<TableBook, String> authorColumn;
+    @FXML private TableColumn<TableBook, String> titleColumn;
+    @FXML private TableColumn<TableBook, ImageView> imageColumn;
+    @FXML private TableColumn<TableBook, Double> priceCol;
 
     @FXML
     public void initialize(){
@@ -62,7 +51,6 @@ public class AddExchangeBookController{
 
     public void setEvent(Event event) {
         this.event = event;
-
         authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
         authorColumn.setCellFactory(param -> {
             TableCell<TableBook, String> cell = new TableCell<>();
@@ -105,6 +93,7 @@ public class AddExchangeBookController{
         catch(Exception e) {
             if(bookImage == null){
                 JOptionPane.showMessageDialog(null, "Vyber obrazok");
+                LOG.log(Level.SEVERE, "User did not choose a picture");
             }
         }
     }
@@ -124,6 +113,7 @@ public class AddExchangeBookController{
                     alert.setHeaderText("Nastala chyba");
                     alert.setContentText("Takato kniha sa uz v databaze nachadza");
                     alert.showAndWait();
+                    LOG.log(Level.INFO, "User tried to add the same book twice");
                     return;
                 }
             }
@@ -189,6 +179,7 @@ public class AddExchangeBookController{
             alert.setHeaderText("Nastala chyba");
             alert.setContentText("Nezadal si všetky potrebné údaje");
             alert.showAndWait();
+            LOG.log(Level.INFO, "User did not enter all required information");
             return true;
         }
         return false;
@@ -204,6 +195,7 @@ public class AddExchangeBookController{
             alert.setHeaderText("Nastala chyba");
             alert.setContentText("Nezadal si číslo v správnom tvare");
             alert.showAndWait();
+            LOG.log(Level.SEVERE, "User entered price at invalid format");
             return true;
         }
         return false;
@@ -220,4 +212,6 @@ public class AddExchangeBookController{
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
     }
+
+    private static final Logger LOG = Logger.getLogger(AddExchangeBookController.class.getName());
 }

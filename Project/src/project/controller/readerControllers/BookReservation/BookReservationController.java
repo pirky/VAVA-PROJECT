@@ -1,5 +1,4 @@
 package project.controller.readerControllers.BookReservation;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,10 +18,8 @@ import java.util.Objects;
 public class BookReservationController{
     ObservableList<List<Book>> booksQuartet = FXCollections.observableArrayList();
     ObservableList<String> choices = FXCollections.observableArrayList();
-    @FXML
-    private ListView<List<Book>> listView;
-    @FXML
-    private ComboBox<String> comboBox;
+    @FXML private ListView<List<Book>> listView;
+    @FXML private ComboBox<String> comboBox;
 
     @FXML
     public void initialize(){
