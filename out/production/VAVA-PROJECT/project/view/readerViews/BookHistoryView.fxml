@@ -6,33 +6,46 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0"
-            prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="project.controller.readerControllers.BookHistoryController">
-   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť"/>
-   <ComboBox fx:id="readersBox" layoutX="68.0" layoutY="124.0" onAction="#updateTableView" prefHeight="31.0"
-             prefWidth="289.0"/>
-   <Label layoutX="68.0" layoutY="96.0" text="Vyber čítateľa:"/>
+<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.BookHistoryController">
+   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
+   <ComboBox fx:id="readersBox" layoutX="39.0" layoutY="126.0" onAction="#updateTableView" prefHeight="31.0" prefWidth="289.0" />
+   <Label fx:id="chooseReaderLabel" layoutX="39.0" layoutY="98.0" text="%chooseReaderLabel" />
    <TableView fx:id="tableView" layoutX="370.0" layoutY="27.0" prefHeight="626.0" prefWidth="920.0">
       <columns>
-         <TableColumn fx:id="imageColumn" maxWidth="200.0" minWidth="170.0" prefWidth="170.0" resizable="false"
-                      text="Titulná fotka"/>
-         <TableColumn fx:id="authorColumn" maxWidth="330.0" minWidth="194.0" prefWidth="206.0" resizable="false"
-                      text="Autor"/>
-         <TableColumn fx:id="titleColumn" maxWidth="416.0" minWidth="252.0" prefWidth="273.0" resizable="false"
-                      text="Názov knihy"/>
-         <TableColumn fx:id="dateFrom" prefWidth="126.0" text="datum od"/>
-         <TableColumn fx:id="dateTo" prefWidth="143.0" text="datum do"/>
+         <TableColumn fx:id="imageColumn" maxWidth="200.0" minWidth="170.0" prefWidth="170.0" resizable="false" text="%imageColumn" />
+         <TableColumn fx:id="authorColumn" maxWidth="330.0" minWidth="194.0" prefWidth="206.0" resizable="false" text="%authorColumn" />
+         <TableColumn fx:id="titleColumn" maxWidth="416.0" minWidth="245.0" prefWidth="245.0" resizable="false" text="%titleColumn" />
+         <TableColumn fx:id="dateFrom" prefWidth="139.0" text="%dateFromColumn" />
+         <TableColumn fx:id="dateTo" prefWidth="143.0" text="%dateToColumn" />
       </columns>
    </TableView>
-   <Circle fill="#98f8b1" layoutX="84.0" layoutY="214.0" radius="16.0" stroke="BLACK" strokeType="INSIDE"/>
-   <Text layoutX="133.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vratena"/>
-   <Circle fill="#ff9494" layoutX="84.0" layoutY="274.0" radius="16.0" stroke="BLACK" strokeType="INSIDE"/>
-   <Text layoutX="129.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="pozicana"/>
-   <Text layoutX="224.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vyhladaj"/>
-   <TextField fx:id="filterField" layoutX="172.0" layoutY="435.0"/>
+   <Circle fill="#98f8b1" layoutX="55.0" layoutY="216.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+   <Text fx:id="returnLabel" layoutX="104.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%returnLabel" />
+   <Circle fill="#ff9494" layoutX="55.0" layoutY="276.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+   <Text fx:id="rentedLabel" layoutX="100.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%rentedLabel" />
+   <TextField fx:id="filterField" layoutX="61.0" layoutY="376.0" prefHeight="31.0" prefWidth="246.0" promptText="%search" />
+   <Button layoutX="84.0" layoutY="12.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg" stylesheets="@../Grafic/style_sheet.css">
+      <graphic>
+         <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../images/other/sk.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
+   <Button layoutX="156.0" layoutY="12.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg" stylesheets="@../Grafic/style_sheet.css">
+      <graphic>
+         <ImageView fitHeight="36.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../images/other/us.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
 </AnchorPane>

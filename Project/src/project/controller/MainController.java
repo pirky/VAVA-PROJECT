@@ -1,5 +1,4 @@
 package project.controller;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -144,5 +143,4 @@ public class MainController {
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
     }
-
 }

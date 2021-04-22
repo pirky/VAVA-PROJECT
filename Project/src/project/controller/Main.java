@@ -1,5 +1,4 @@
 package project.controller;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +9,6 @@ import project.model.databases.BooksDatabase;
 import project.model.databases.RoomsDatabase;
 import project.model.databases.UserDatabase;
 import project.model.users.User;
-
 import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;

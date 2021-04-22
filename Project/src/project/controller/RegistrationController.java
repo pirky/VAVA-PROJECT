@@ -1,5 +1,4 @@
 package project.controller;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import project.model.databases.UserDatabase;
