@@ -43,6 +43,11 @@ public class EventEnrollController {
     @FXML private Label startEventLabel;
     @FXML private Label endEventLabel;
     @FXML private Label eventNoteLabel;
+    private String successfulRegistration;
+    private String successfulRegistrationMsgParticipant;
+    private String successfulRegistrationMsgVolunteer;
+    private String successfulCancel;
+    private String successfulCancelMsg;
 
     @FXML
     public void initialize(){
@@ -90,6 +95,11 @@ public class EventEnrollController {
         endEventLabel.setText(bundle.getString("endEventLabel"));
         eventNoteLabel.setText(bundle.getString("eventNoteLabel"));
         hostLabel.setText(bundle.getString("hostLabel"));
+        successfulRegistration = bundle.getString("successfulRegistration");
+        successfulRegistrationMsgParticipant = bundle.getString("successfulRegistrationMsgParticipant");
+        successfulRegistrationMsgVolunteer = bundle.getString("successfulRegistrationMsgVolunteer");
+        successfulCancel = bundle.getString("successfulCancel");
+        successfulCancelMsg = bundle.getString("successfulCancelMsg");
         findParticipation();
     }
 
@@ -141,18 +151,17 @@ public class EventEnrollController {
                     Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
                     stage.getIcons().add(new Image("project/images/other/logo.jpg"));
                     if(option == 1){
-                        alert.setTitle("Úspešná Registrácia");
-                        alert.setHeaderText("Ste úspešne zaregistrovaný ako účastník");
+                        alert.setTitle(successfulRegistration);
+                        alert.setHeaderText(successfulRegistrationMsgParticipant);
                     }
                     else if(option == 2){
-                        alert.setTitle("Úspešná Registrácia");
-                        alert.setHeaderText("Ste úspešne zaregistrovaný ako dobrovoľník");
+                        alert.setTitle(successfulRegistration);
+                        alert.setHeaderText(successfulRegistrationMsgVolunteer);
                     }
                     else if(option == 3){
-                        alert.setTitle("Úspešné odhlásenie sa");
-                        alert.setHeaderText("Ste úspešne odhlásený z podujatia");
+                        alert.setTitle(successfulCancel);
+                        alert.setHeaderText(successfulCancelMsg);
                     }
-                    alert.setContentText(null);
                     alert.showAndWait();
                     showCalendar();
                     return;
@@ -163,6 +172,8 @@ public class EventEnrollController {
 
     public void setEvent(Event event) {
         this.event = event;
+        if (Main.currLanguage.equals("SK")) languageSK();
+        else languageEN();
         if(event instanceof BookDiscussion){
             if(Main.currLanguage.equals("SK")) typeLabel.setText("Beseda");
             else typeLabel.setText("Book Discussion");
@@ -238,8 +249,10 @@ public class EventEnrollController {
     }
 
     public void showForum() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/DiscussionView.fxml"), bundle);
         Parent root = loader.load();
         DiscussionController discussionController = loader.getController();
@@ -251,8 +264,10 @@ public class EventEnrollController {
     }
 
     public void showBooks() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/AddExchangeBookView.fxml"), bundle);
         Parent root = loader.load();
         AddExchangeBookController addExchangeBookController = loader.getController();
@@ -264,8 +279,10 @@ public class EventEnrollController {
     }
 
     public void showCalendar() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventsView.fxml"), bundle);
         Parent root = loader.load();
         Main.mainStage.setResizable(false);

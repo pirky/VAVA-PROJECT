@@ -29,16 +29,19 @@ public class MainController {
     public void initialize(){
         datePicker.setValue(Main.booksDatabase.getDate());
         datePicker.setEditable(false);
-        languageSK();
+        if (Main.currLanguage.equals("SK")) languageSK();
+        else languageEN();
     }
 
     public void languageEN(){
+        Main.currLanguage = "US";
         Locale enLocale = new Locale("en_US");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.mainView", enLocale);
         changeSigns(bundle);
     }
 
     public void languageSK(){
+        Main.currLanguage = "SK";
         Locale skLocale = new Locale("sk_SK");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.mainView", skLocale);
         changeSigns(bundle);
@@ -66,17 +69,20 @@ public class MainController {
         }
         else{
             Parent root = null;
-            Locale skLocale = new Locale("sk_SK");
+            Locale locale;
+            if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+            else locale = new Locale("en_US");
+
             if (user instanceof Librarian){
-                ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+                ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", locale);
                 root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")), bundle);
             }
             else if (user instanceof Organizer){
-                ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
+                ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", locale);
                 root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")), bundle);
             }
             else if (user instanceof Reader){
-                ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+                ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
                 root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/ReaderView.fxml")), bundle);
             }
             Scene scene = new Scene(Objects.requireNonNull(root));
@@ -86,8 +92,10 @@ public class MainController {
     }
 
     public void changeToRegisterView() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.mainView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.mainView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/RegistrationView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
@@ -106,8 +114,10 @@ public class MainController {
                 break;
             }
         }
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
@@ -121,8 +131,10 @@ public class MainController {
                 break;
             }
         }
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/ReaderView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
@@ -136,8 +148,10 @@ public class MainController {
                 break;
             }
         }
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);

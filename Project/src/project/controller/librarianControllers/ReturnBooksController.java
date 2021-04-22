@@ -88,7 +88,31 @@ public class ReturnBooksController {
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageView"));
         returnBtn.setDisable(true);
         extendBtn.setDisable(true);
-        languageSK();
+        if (Main.currLanguage.equals("SK")) languageSK();
+        else languageEN();
+    }
+
+    public void languageEN(){
+        Main.currLanguage = "US";
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Main.currLanguage = "SK";
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        authorColumn.setText(bundle.getString("authorColumn"));
+        titleColumn.setText(bundle.getString("titleColumn"));
+        imageColumn.setText(bundle.getString("imageColumn"));
+        readerLabel.setText(bundle.getString("reader"));
+        extendBtn.setText(bundle.getString("length"));
+        returnBtn.setText(bundle.getString("return"));
     }
 
     public void updateTableView(){
@@ -204,32 +228,13 @@ public class ReturnBooksController {
     }
 
     public void showMenu() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
-    }
-
-    public void languageEN(){
-        Locale enLocale = new Locale("en_US");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", enLocale);
-        changeSigns(bundle);
-    }
-
-    public void languageSK(){
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
-        changeSigns(bundle);
-    }
-
-    public void changeSigns(ResourceBundle bundle){
-        authorColumn.setText(bundle.getString("authorColumn"));
-        titleColumn.setText(bundle.getString("titleColumn"));
-        imageColumn.setText(bundle.getString("imageColumn"));
-        readerLabel.setText(bundle.getString("reader"));
-        extendBtn.setText(bundle.getString("length"));
-        returnBtn.setText(bundle.getString("return"));
     }
 }

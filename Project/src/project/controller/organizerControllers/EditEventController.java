@@ -43,6 +43,22 @@ public class EditEventController {
     @FXML Button button3;
     private String error;
 
+    @FXML
+    public void initialize(){
+        Organizer organizer = (Organizer) Main.currUser;
+        eventsObservable.addAll(organizer.getEvents());
+        events.setItems(eventsObservable);
+        infoLabel.setVisible(false);
+        hostLabel.setVisible(false);
+        hostArea.setVisible(false);
+        comboBox.setDisable(true);
+        nameArea.setDisable(true);
+        noteArea.setDisable(true);
+        btn1.setDisable(false);
+        allRooms.addAll(Main.roomsDatabase.getRooms());
+        comboBox.setItems(allRooms);
+    }
+
     public void comboClicked(){
         comboBox.setDisable(false);
         nameArea.setDisable(false);
@@ -52,13 +68,13 @@ public class EditEventController {
 
         Organizer organizer = (Organizer) Main.currUser;
 
-        List<BookDiscussion> bookDiscusionList = new java.util.ArrayList<>(Collections.emptyList());
+        List<BookDiscussion> bookDiscussionList = new java.util.ArrayList<>(Collections.emptyList());
         List<BookExchange> bookExchangeList = new java.util.ArrayList<>(Collections.emptyList());
         List<Event> eventsList = organizer.getEvents();
 
         for(Event event : eventsList){
             if (event instanceof BookDiscussion){
-                bookDiscusionList.add((BookDiscussion) event);
+                bookDiscussionList.add((BookDiscussion) event);
             }
             else if (event instanceof BookExchange){
                 bookExchangeList.add((BookExchange) event);
@@ -71,7 +87,7 @@ public class EditEventController {
             hostArea.setVisible(true);
             globalEvent = events.getSelectionModel().getSelectedItem();
 
-            for (BookDiscussion bookDisc : bookDiscusionList) {
+            for (BookDiscussion bookDisc : bookDiscussionList) {
                 if(bookDisc.getName().equals(events.getSelectionModel().getSelectedItem().getName())){
                     globalEvent = bookDisc;
                     nameArea.setText(bookDisc.getName());
@@ -160,23 +176,6 @@ public class EditEventController {
         listView.refresh();
     }
 
-    @FXML
-    public void initialize(){
-        Organizer organizer = (Organizer) Main.currUser;
-        eventsObservable.addAll(organizer.getEvents());
-        events.setItems(eventsObservable);
-        infoLabel.setVisible(false);
-        hostLabel.setVisible(false);
-        hostArea.setVisible(false);
-        comboBox.setDisable(true);
-        nameArea.setDisable(true);
-        noteArea.setDisable(true);
-        btn1.setDisable(false);
-        allRooms.addAll(Main.roomsDatabase.getRooms());
-        comboBox.setItems(allRooms);
-
-    }
-
     public void createEvent() {
         LibraryRoom room = comboBox.getValue();
         String name = nameArea.getText();
@@ -248,12 +247,14 @@ public class EditEventController {
         eventsObservable.addAll(organizer.getEvents());
         events.setItems(eventsObservable);
         deleteFields();
-
-
     }
 
     public void showMenu() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")));
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", locale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
@@ -262,12 +263,14 @@ public class EditEventController {
     private static final Logger LOG = Logger.getLogger(EditEventController.class.getName());
 
     public void languageEN(){
+        Main.currLanguage = "US";
         Locale enLocale = new Locale("en_US");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", enLocale);
         changeSigns(bundle);
     }
 
     public void languageSK(){
+        Main.currLanguage = "SK";
         Locale skLocale = new Locale("sk_SK");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
         changeSigns(bundle);

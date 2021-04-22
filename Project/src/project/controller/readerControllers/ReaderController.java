@@ -21,12 +21,14 @@ public class ReaderController implements menuInterface {
     private Button eventBtn;
 
     public void languageEN(){
+        Main.currLanguage = "US";
         Locale enLocale = new Locale("en_US");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", enLocale);
         changeSigns(bundle);
     }
 
     public void languageSK(){
+        Main.currLanguage = "SK";
         Locale skLocale = new Locale("sk_SK");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
         changeSigns(bundle);
@@ -39,8 +41,10 @@ public class ReaderController implements menuInterface {
     }
 
     public void bookReservation() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/BookReservation/BookReservationView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
@@ -48,8 +52,10 @@ public class ReaderController implements menuInterface {
     }
 
     public void showHistory() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/BookHistoryView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
@@ -57,8 +63,10 @@ public class ReaderController implements menuInterface {
     }
 
     public void showEvents()throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/EventsCalendar/EventsView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setResizable(false);

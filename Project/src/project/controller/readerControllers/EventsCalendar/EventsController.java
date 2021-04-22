@@ -26,6 +26,8 @@ public class EventsController {
     @FXML
     public void initialize(){
         currYearMonth = YearMonth.from(Main.booksDatabase.getDate());
+        if (Main.currLanguage.equals("SK")) languageSK();
+        else languageEN();
         updateCalendar();
     }
 
@@ -57,8 +59,6 @@ public class EventsController {
     }
 
     public void updateCalendar(){
-        if(Main.currLanguage.equals("SK")) languageSK();
-        else languageEN();
         pane.getChildren().clear();
         pane.getChildren().add(new CalendarController(currYearMonth).getView());
     }
@@ -78,8 +78,10 @@ public class EventsController {
     }
 
     public void showMenu() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/ReaderView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);

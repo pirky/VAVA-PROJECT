@@ -18,8 +18,10 @@ public interface menuInterface {
      * @throws IOException Exception for reading from file
      */
     default void changeMainView() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.mainView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.mainView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/project/view/MainView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);

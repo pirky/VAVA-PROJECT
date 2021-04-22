@@ -35,16 +35,19 @@ public class BookInfoController{
 
     @FXML
     public void initialize(){
-        languageSK();
+        if (Main.currLanguage.equals("SK")) languageSK();
+        else languageEN();
     }
 
     public void languageEN(){
+        Main.currLanguage = "US";
         Locale enLocale = new Locale("en_US");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", enLocale);
         changeSigns(bundle);
     }
 
     public void languageSK(){
+        Main.currLanguage = "SK";
         Locale skLocale = new Locale("sk_SK");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
         changeSigns(bundle);
@@ -160,8 +163,10 @@ public class BookInfoController{
     }
 
     public void showBooks() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/project/view/readerViews/BookReservation/BookReservationView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);

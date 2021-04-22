@@ -40,7 +40,8 @@ public class BookHistoryController {
 
     @FXML
     public void initialize(){
-        languageSK();
+        if (Main.currLanguage.equals("SK")) languageSK();
+        else languageEN();
         for(User user: Main.userDatabase.getUserDatabase()){
             if(user instanceof Reader){
                 readers.add((Reader) user);
@@ -71,16 +72,17 @@ public class BookHistoryController {
         dateFrom.setCellValueFactory(new PropertyValueFactory<>("dateFrom"));
         dateTo.setCellValueFactory(new PropertyValueFactory<>("dateTo"));
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageView"));
-
     }
 
     public void languageEN(){
+        Main.currLanguage = "US";
         Locale enLocale = new Locale("en_US");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", enLocale);
         changeSigns(bundle);
     }
 
     public void languageSK(){
+        Main.currLanguage = "SK";
         Locale skLocale = new Locale("sk_SK");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
         changeSigns(bundle);
@@ -141,8 +143,10 @@ public class BookHistoryController {
     }
 
     public void showMenu() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/ReaderView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);

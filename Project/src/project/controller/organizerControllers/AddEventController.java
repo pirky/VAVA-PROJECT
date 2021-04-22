@@ -1,4 +1,5 @@
 package project.controller.organizerControllers;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -63,7 +64,36 @@ public class AddEventController {
         btn.setDisable(true);
         allRooms.addAll(Main.roomsDatabase.getRooms());
         comboBox.setItems(allRooms);
-        languageSK();
+        if (Main.currLanguage.equals("SK")) languageSK();
+        else languageEN();
+    }
+
+    public void languageEN(){
+        Main.currLanguage = "US";
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Main.currLanguage = "SK";
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        exchangeRB.setText(bundle.getString("exchange"));
+        discussionRB.setText(bundle.getString("discussion"));
+        btn.setText(bundle.getString("btn"));
+        text1.setText(bundle.getString("text1"));
+        text2.setText(bundle.getString("text2"));
+        text3.setText(bundle.getString("text3"));
+        text4.setText(bundle.getString("text4"));
+        text5.setText(bundle.getString("text5"));
+        text6.setText(bundle.getString("text6"));
+        error = bundle.getString("error");
+        hostLabel.setText(bundle.getString("hostname"));
     }
 
     public void radioClicked(){
@@ -242,38 +272,16 @@ public class AddEventController {
     }
 
     public void showMenu() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")));
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", locale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
     }
 
     private static final Logger LOG = Logger.getLogger(AddEventController.class.getName());
-
-    public void languageEN(){
-        Locale enLocale = new Locale("en_US");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", enLocale);
-        changeSigns(bundle);
-    }
-
-    public void languageSK(){
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
-        changeSigns(bundle);
-    }
-
-    public void changeSigns(ResourceBundle bundle){
-        exchangeRB.setText(bundle.getString("exchange"));
-        discussionRB.setText(bundle.getString("discussion"));
-        btn.setText(bundle.getString("btn"));
-        text1.setText(bundle.getString("text1"));
-        text2.setText(bundle.getString("text2"));
-        text3.setText(bundle.getString("text3"));
-        text4.setText(bundle.getString("text4"));
-        text5.setText(bundle.getString("text5"));
-        text6.setText(bundle.getString("text6"));
-        error = bundle.getString("error");
-        hostLabel.setText(bundle.getString("hostname"));
-    }
 }
 

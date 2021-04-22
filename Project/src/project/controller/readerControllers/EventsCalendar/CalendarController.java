@@ -54,6 +54,21 @@ public class CalendarController {
         view = new VBox(calendar);
     }
 
+    private int getRows(YearMonth yearMonth){
+        LocalDate calendarDate = LocalDate.of(yearMonth.getYear(), yearMonth.getMonthValue(), 1);
+        int sizeOfMonth = yearMonth.lengthOfMonth();
+        if(((calendarDate.getDayOfWeek().toString().equals("SATURDAY") || calendarDate.getDayOfWeek().toString().equals("SUNDAY"))
+                && sizeOfMonth == 31) || calendarDate.getDayOfWeek().toString().equals("SUNDAY") && sizeOfMonth==30) {
+            return 6;
+        }
+        else if((calendarDate.getDayOfWeek().toString().equals("MONDAY") && sizeOfMonth==28)) {
+            return 4;
+        }
+        else{
+            return 5;
+        }
+    }
+
     public void populateCalendar(YearMonth yearMonth) {
         LocalDate calendarDate = LocalDate.of(yearMonth.getYear(), yearMonth.getMonthValue(), 1);
         while (!calendarDate.getDayOfWeek().toString().equals("MONDAY") ) {
@@ -131,24 +146,6 @@ public class CalendarController {
         return listView;
     }
 
-    private void showEvent(ListView<Event> listView, YearMonth yearMonth) throws IOException {
-        Event event = listView.getSelectionModel().getSelectedItem();
-        if(event == null){
-            return;
-        }
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventEnrollView.fxml"), bundle);
-        Parent root = loader.load();
-        Main.mainStage.setResizable(false);
-        EventEnrollController eventEnrollController = loader.getController();
-        eventEnrollController.setYearMonth(yearMonth);
-        eventEnrollController.setEvent(event);
-        Scene scene = new Scene(root);
-        Main.mainStage.setScene(scene);
-        Main.mainStage.show();
-    }
-
     private ObservableList<Event> getCurrEvents(LocalDate currDate){
         ObservableList<Event> eventList = FXCollections.observableArrayList();
         for(Event event: events){
@@ -174,22 +171,27 @@ public class CalendarController {
         }
     }
 
-    private int getRows(YearMonth yearMonth){
-        LocalDate calendarDate = LocalDate.of(yearMonth.getYear(), yearMonth.getMonthValue(), 1);
-        int sizeOfMonth = yearMonth.lengthOfMonth();
-        if(((calendarDate.getDayOfWeek().toString().equals("SATURDAY") || calendarDate.getDayOfWeek().toString().equals("SUNDAY"))
-                && sizeOfMonth == 31) || calendarDate.getDayOfWeek().toString().equals("SUNDAY") && sizeOfMonth==30) {
-            return 6;
-        }
-        else if((calendarDate.getDayOfWeek().toString().equals("MONDAY") && sizeOfMonth==28)) {
-            return 4;
-        }
-        else{
-            return 5;
-        }
-    }
-
     public VBox getView() {
         return view;
+    }
+
+    private void showEvent(ListView<Event> listView, YearMonth yearMonth) throws IOException {
+        Event event = listView.getSelectionModel().getSelectedItem();
+        if(event == null){
+            return;
+        }
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventEnrollView.fxml"), bundle);
+        Parent root = loader.load();
+        Main.mainStage.setResizable(false);
+        EventEnrollController eventEnrollController = loader.getController();
+        eventEnrollController.setYearMonth(yearMonth);
+        eventEnrollController.setEvent(event);
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
     }
 }

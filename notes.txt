@@ -1,9 +1,10 @@
 TODO list:
 -------------------- NA ZÁVER --------------------
-→ internationalization → zapamatat si jazyk v maine a ten nastavit
 → serializácia
+→ rerfactoring 
+	→ velkosti tabuliek
+	→ vypisy v internationalizacii
 → urobit grafiku
-→ refactoring
 → UML tried diagram
 → dokumentacia → git vision Template
 → javadoc → ak bude cas

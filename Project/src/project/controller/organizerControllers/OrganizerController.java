@@ -17,36 +17,19 @@ public class OrganizerController implements menuInterface {
 
     @FXML
     public void initialize(){
-        languageSK();
-    }
-
-    public void addEvent() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/AddEventView.fxml")));
-        Scene scene = new Scene(root);
-        Main.mainStage.setScene(scene);
-        Main.mainStage.show();
-    }
-
-    public void showMenu() throws IOException {
-        this.changeMainView();
-    }
-
-    public void editEvent() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/EditEventView.fxml")), bundle);
-        Scene scene = new Scene(root);
-        Main.mainStage.setScene(scene);
-        Main.mainStage.show();
+        if (Main.currLanguage.equals("SK")) languageSK();
+        else languageEN();
     }
 
     public void languageEN(){
+        Main.currLanguage = "US";
         Locale enLocale = new Locale("en_US");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", enLocale);
         changeSigns(bundle);
     }
 
     public void languageSK(){
+        Main.currLanguage = "SK";
         Locale skLocale = new Locale("sk_SK");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
         changeSigns(bundle);
@@ -55,5 +38,31 @@ public class OrganizerController implements menuInterface {
     public void changeSigns(ResourceBundle bundle){
         button1.setText(bundle.getString("button1"));
         button2.setText(bundle.getString("button2"));
+    }
+
+    public void addEvent() throws IOException {
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", locale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/AddEventView.fxml")), bundle);
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
+
+    public void editEvent() throws IOException {
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", locale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/EditEventView.fxml")), bundle);
+        Scene scene = new Scene(root);
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
+
+    public void showMenu() throws IOException {
+        this.changeMainView();
     }
 }

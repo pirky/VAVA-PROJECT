@@ -57,16 +57,19 @@ public class AddExchangeBookController{
     @FXML
     public void initialize(){
         bookImageView.setImage(new Image("project/images/other/noImage.jpg"));
-        languageSK();
+        if (Main.currLanguage.equals("SK")) languageSK();
+        else languageEN();
     }
 
     public void languageEN(){
+        Main.currLanguage = "US";
         Locale enLocale = new Locale("en_US");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", enLocale);
         changeSigns(bundle);
     }
 
     public void languageSK(){
+        Main.currLanguage = "SK";
         Locale skLocale = new Locale("sk_SK");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
         changeSigns(bundle);
@@ -240,8 +243,10 @@ public class AddExchangeBookController{
     }
 
     public void showEvent() throws IOException {
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Locale locale;
+        if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
+        else locale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", locale);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/readerViews/EventsCalendar/EventEnrollView.fxml"), bundle);
         Parent root = loader.load();
         Main.mainStage.setResizable(false);
