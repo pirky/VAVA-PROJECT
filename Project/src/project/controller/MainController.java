@@ -24,11 +24,13 @@ public class MainController {
     @FXML private Button logInBtn;
     @FXML private Button registerBtn;
     private String error;
+    private String error_msg;
 
     @FXML
     public void initialize(){
         datePicker.setValue(Main.booksDatabase.getDate());
         datePicker.setEditable(false);
+        languageSK();
     }
 
     public void languageEN(){
@@ -49,7 +51,8 @@ public class MainController {
         sign.setText(bundle.getString("sign"));
         logInBtn.setText(bundle.getString("logInBtn"));
         registerBtn.setText(bundle.getString("registerBtn"));
-        error = bundle.getString("registerBtn");
+        error = bundle.getString("error");
+        error_msg = bundle.getString("error_msg");
     }
 
     public void logIn() throws IOException {
@@ -57,9 +60,9 @@ public class MainController {
         user = UserDatabase.login(username.getText(), password.getText());
         if (user == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            alert.setHeaderText("Nastala chyba");
-            alert.setContentText("Zadal si zle meno alebo heslo");
+            alert.setTitle(error);
+            alert.setHeaderText(error);
+            alert.setContentText(error_msg);
             alert.showAndWait();
         }
         else{
@@ -104,7 +107,9 @@ public class MainController {
                 break;
             }
         }
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
@@ -117,7 +122,9 @@ public class MainController {
                 break;
             }
         }
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/ReaderView.fxml")));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/ReaderView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
@@ -130,7 +137,9 @@ public class MainController {
                 break;
             }
         }
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
