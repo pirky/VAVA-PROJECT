@@ -5,26 +5,49 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import project.model.databases.UserDatabase;
 import project.model.users.Librarian;
 import project.model.users.Organizer;
 import project.model.users.Reader;
 import project.model.users.User;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class MainController {
     @FXML private TextField username;
     @FXML private TextField password;
     @FXML private DatePicker datePicker;
-    @FXML private Label sign;
-    @FXML private Button engBtn;
-    @FXML private Button skBtn;
+    @FXML private Text sign;
+    @FXML private Button logInBtn;
+    @FXML private Button registerBtn;
 
     @FXML
     public void initialize(){
         datePicker.setValue(Main.booksDatabase.getDate());
         datePicker.setEditable(false);
+    }
+
+    public void languageEN(){
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.mainView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.mainView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        username.setPromptText(bundle.getString("username"));
+        password.setPromptText(bundle.getString("password"));
+        sign.setText(bundle.getString("sign"));
+        logInBtn.setText(bundle.getString("logInBtn"));
+        registerBtn.setText(bundle.getString("registerBtn"));
     }
 
     public void logIn() throws IOException {
