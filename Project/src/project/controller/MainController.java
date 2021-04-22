@@ -23,6 +23,7 @@ public class MainController {
     @FXML private Text sign;
     @FXML private Button logInBtn;
     @FXML private Button registerBtn;
+    private String error;
 
     @FXML
     public void initialize(){
@@ -48,6 +49,7 @@ public class MainController {
         sign.setText(bundle.getString("sign"));
         logInBtn.setText(bundle.getString("logInBtn"));
         registerBtn.setText(bundle.getString("registerBtn"));
+        error = bundle.getString("registerBtn");
     }
 
     public void logIn() throws IOException {
@@ -62,14 +64,18 @@ public class MainController {
         }
         else{
             Parent root = null;
+            Locale skLocale = new Locale("sk_SK");
             if (user instanceof Librarian){
-                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));
+                ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")), bundle);
             }
             else if (user instanceof Organizer){
-                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")));
+                ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
+                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")), bundle);
             }
             else if (user instanceof Reader){
-                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/ReaderView.fxml")));
+                ResourceBundle bundle = ResourceBundle.getBundle("project/resources.readerView", skLocale);
+                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/readerViews/ReaderView.fxml")), bundle);
             }
             Scene scene = new Scene(Objects.requireNonNull(root));
             Main.mainStage.setScene(scene);
@@ -78,7 +84,9 @@ public class MainController {
     }
 
     public void changeToRegisterView() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/RegistrationView.fxml")));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.mainView", skLocale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/RegistrationView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
