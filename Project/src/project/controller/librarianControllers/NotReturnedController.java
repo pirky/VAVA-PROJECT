@@ -19,9 +19,7 @@ import project.model.books.TableBook;
 import project.model.users.Reader;
 import project.model.users.User;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class NotReturnedController {
     ObservableList<TableBook> rentedBooks = FXCollections.observableArrayList();
@@ -31,6 +29,7 @@ public class NotReturnedController {
     @FXML private TableColumn<TableBook, String> titleColumn;
     @FXML private TableColumn<TableBook, ImageView> imageColumn;
     @FXML TextField filterField;
+    @FXML Text text1;
 
     @FXML
     public void initialize(){
@@ -115,9 +114,30 @@ public class NotReturnedController {
     }
 
     public void showMenu() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
+    }
+
+    public void languageEN(){
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        authorColumn.setText(bundle.getString("authorColumn"));
+        titleColumn.setText(bundle.getString("titleColumn"));
+        imageColumn.setText(bundle.getString("imageColumn"));
+        text1.setText(bundle.getString("text3"));
     }
 }

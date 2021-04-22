@@ -15,7 +15,9 @@ import project.model.books.Book;
 import javax.swing.*;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,7 +27,18 @@ public class AddBookController {
     @FXML TextField bookNote;
     @FXML Button send;
     @FXML ImageView bookImageView;
+    @FXML Button addImageButton;
     private Image bookImage;
+    private String error;
+    private String errorMessage1;
+    private String errorMessage2;
+    private String titleLanguage;
+    private String success;
+
+    @FXML
+    public void initialize(){
+     languageSK();
+    }
 
     public void addImage(){
         bookImage = null;
@@ -34,13 +47,13 @@ public class AddBookController {
             FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png");
             FileChooser fileChooser = new FileChooser();
             fileChooser.getExtensionFilters().add(imageFilter);
-            fileChooser.setTitle("Vyber fotku knihy");
+            fileChooser.setTitle(titleLanguage);
             Image image = new Image(fileChooser.showOpenDialog(Main.mainStage).toURI().toString());
             bookImage = image;
             bookImageView.setImage(image);
         }
         catch(Exception e) {
-            JOptionPane.showMessageDialog(null, "Vyber obrazok");
+            JOptionPane.showMessageDialog(null, titleLanguage);
             LOG.log(Level.SEVERE, "User did not choose a picture");
         }
 
@@ -51,9 +64,9 @@ public class AddBookController {
 
         if(bookName.getText().equals("") || authorName.getText().equals("") || bookNote.getText().equals("") || bookImage == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            alert.setHeaderText("Nastala chyba");
-            alert.setContentText("nezadal si vsetky potrebne udaje");
+            alert.setTitle("Error");
+            alert.setHeaderText(error);
+            alert.setContentText(errorMessage1);
             alert.showAndWait();
             flag = false;
             LOG.log(Level.INFO, "User did not enter all required information");
@@ -72,9 +85,9 @@ public class AddBookController {
 
             if (!flag2) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error Dialog");
-                alert.setHeaderText("Nastala chyba");
-                alert.setContentText("Takato kniha sa uz v databaze nachadza");
+                alert.setTitle("Error");
+                alert.setHeaderText(error);
+                alert.setContentText(errorMessage2);
                 alert.showAndWait();
                 LOG.log(Level.INFO, "User tried to add the same book twice");
             }
@@ -82,18 +95,45 @@ public class AddBookController {
             if (flag2) {
                 book.setCreatedAt(LocalDate.now());
                 Main.booksDatabase.addBook(book);
-                JOptionPane.showMessageDialog(null, "Kniha bola uspesne pridana");
+                JOptionPane.showMessageDialog(null, success);
                 bookImageView.setImage(bookImage);
             }
         }
     }
 
     public void showMenu() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
     }
 
     private static final Logger LOG = Logger.getLogger(AddBookController.class.getName());
+
+    public void languageEN(){
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        authorName.setPromptText(bundle.getString("authorNameAddBook"));
+        bookName.setPromptText(bundle.getString("bookNameAddBook"));
+        bookNote.setPromptText(bundle.getString("noteAddBook"));
+        addImageButton.setText(bundle.getString("addImageAddBook"));
+        send.setText(bundle.getString("addBookAddBook"));
+        error = bundle.getString("error");
+        errorMessage1 = bundle.getString("errorMessage1");
+        errorMessage2 = bundle.getString("errorMessage2");
+        titleLanguage = bundle.getString("titleLanguage");
+        success = bundle.getString("deletePicture");
+    }
 }

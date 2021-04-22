@@ -19,7 +19,9 @@ import project.model.users.Reader;
 import project.model.users.User;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class ReturnBooksController {
     ObservableList<project.model.users.Reader> readers = FXCollections.observableArrayList();
@@ -34,6 +36,7 @@ public class ReturnBooksController {
     @FXML private DatePicker datePicker;
     @FXML private Button returnBtn;
     @FXML private Button extendBtn;
+    @FXML private Label readerLabel;
 
     @FXML
     public void initialize(){
@@ -85,6 +88,7 @@ public class ReturnBooksController {
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageView"));
         returnBtn.setDisable(true);
         extendBtn.setDisable(true);
+        languageSK();
     }
 
     public void updateTableView(){
@@ -200,9 +204,32 @@ public class ReturnBooksController {
     }
 
     public void showMenu() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
+    }
+
+    public void languageEN(){
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        authorColumn.setText(bundle.getString("authorColumn"));
+        titleColumn.setText(bundle.getString("titleColumn"));
+        imageColumn.setText(bundle.getString("imageColumn"));
+        readerLabel.setText(bundle.getString("reader"));
+        extendBtn.setText(bundle.getString("length"));
+        returnBtn.setText(bundle.getString("return"));
     }
 }

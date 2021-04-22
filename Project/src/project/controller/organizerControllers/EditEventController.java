@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import project.controller.Main;
+import project.model.CustomImage;
 import project.model.Rooms.LibraryRoom;
 import project.model.Rooms.RoomReservation;
 import project.model.events.BookDiscussion;
@@ -16,15 +17,14 @@ import project.model.events.BookExchange;
 import project.model.events.Event;
 import project.model.users.Organizer;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class EditEventController {
     ObservableList<LibraryRoom> allRooms = FXCollections.observableArrayList();
     ObservableList<Event> eventsObservable = FXCollections.observableArrayList();
+    ObservableList<ImageView> roomImages = FXCollections.observableArrayList();
     @FXML private ListView<ImageView> listView;
     @FXML private ComboBox<LibraryRoom> comboBox;
     @FXML private TextArea hostArea;
@@ -32,10 +32,16 @@ public class EditEventController {
     @FXML private TextArea noteArea;
     @FXML private Label hostLabel;
     @FXML private Label infoLabel;
-    @FXML private Button btn;
+    @FXML private Button btn1;
     @FXML ComboBox<Event> events;private Event globalEvent;
     @FXML private Text capacity;
     @FXML Text typeEvent;
+    @FXML Text text2;
+    @FXML Label label1;
+    @FXML Label label2;
+    @FXML Label label4;
+    @FXML Button button3;
+    private String error;
 
     public void comboClicked(){
         comboBox.setDisable(false);
@@ -73,8 +79,23 @@ public class EditEventController {
                     hostArea.setText(bookDisc.getHost());
                     comboBox.getSelectionModel().select(bookDisc.getReservation().getRoomId());
                     typeEvent.setText("diskusia");
-                    for(LibraryRoom room : Main.roomsDatabase.getRooms())
-                        if(room.getId() == bookDisc.getReservation().getRoomId()){
+
+                    LibraryRoom room = comboBox.getValue();
+                    if (room == null){
+                        return;
+                    }
+                    listView.getItems().clear();
+                    for(CustomImage image: room.getImages()){
+                        ImageView imageView = new ImageView(image.getImage());
+                        imageView.setPreserveRatio(true);
+                        imageView.setFitWidth(523);
+                        roomImages.add(imageView);
+                    }
+                    listView.setItems(roomImages);
+                    listView.refresh();
+
+                    for(LibraryRoom room1 : Main.roomsDatabase.getRooms())
+                        if(room1.getId() == bookDisc.getReservation().getRoomId()){
                             capacity.setText(String.valueOf(room.getCapacity()));
                         }
                 }
@@ -92,9 +113,27 @@ public class EditEventController {
                     noteArea.setText(bookExch.getNote());
                     comboBox.getSelectionModel().select(bookExch.getReservation().getRoomId());
                     typeEvent.setText("burza");
-                    for(LibraryRoom room : Main.roomsDatabase.getRooms())
-                        if(room.getId() == bookExch.getReservation().getRoomId()){
+                    listView.getItems().clear();
+
+                    LibraryRoom room = comboBox.getValue();
+                    if (room == null){
+                        return;
+                    }
+                    listView.getItems().clear();
+                    for(CustomImage image: room.getImages()){
+                        ImageView imageView = new ImageView(image.getImage());
+                        imageView.setPreserveRatio(true);
+                        imageView.setFitWidth(523);
+                        roomImages.add(imageView);
+                    }
+                    listView.setItems(roomImages);
+                    listView.refresh();
+
+                    for(LibraryRoom room1 : Main.roomsDatabase.getRooms())
+                        if(room1.getId() == bookExch.getReservation().getRoomId()){
                             capacity.setText(String.valueOf(room.getCapacity()));
+
+
                         }
                 }
             }
@@ -102,7 +141,23 @@ public class EditEventController {
     }
 
     public void onClicked(){
+        if (comboBox.getSelectionModel().getSelectedItem() == null){
+            return;
+        }
         capacity.setText(String.valueOf(comboBox.getSelectionModel().getSelectedItem().getCapacity()));
+        LibraryRoom room = comboBox.getValue();
+        if (room == null){
+            return;
+        }
+        listView.getItems().clear();
+        for(CustomImage image: room.getImages()){
+            ImageView imageView = new ImageView(image.getImage());
+            imageView.setPreserveRatio(true);
+            imageView.setFitWidth(523);
+            roomImages.add(imageView);
+        }
+        listView.setItems(roomImages);
+        listView.refresh();
     }
 
     @FXML
@@ -116,9 +171,10 @@ public class EditEventController {
         comboBox.setDisable(true);
         nameArea.setDisable(true);
         noteArea.setDisable(true);
-        btn.setDisable(false);
+        btn1.setDisable(false);
         allRooms.addAll(Main.roomsDatabase.getRooms());
         comboBox.setItems(allRooms);
+
     }
 
     public void createEvent() {
@@ -161,7 +217,7 @@ public class EditEventController {
 
     private boolean testRequired(String name, String host, String note){
         if(name.isEmpty() || host.isEmpty() || note.isEmpty()){
-            infoLabel.setText("Vyplň všetky polia");
+            infoLabel.setText(error);
             LOG.log(Level.INFO, "User did not enter all required fields");
             infoLabel.setVisible(true);
             return true;
@@ -205,4 +261,26 @@ public class EditEventController {
 
     private static final Logger LOG = Logger.getLogger(EditEventController.class.getName());
 
+    public void languageEN(){
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        text2.setText(bundle.getString("text2"));
+        label1.setText(bundle.getString("label1"));
+        label2.setText(bundle.getString("label2"));
+        hostLabel.setText(bundle.getString("label3"));
+        label4.setText(bundle.getString("label4"));
+        btn1.setText(bundle.getString("btn1"));
+        button3.setText(bundle.getString("button3"));
+        error = bundle.getString("error");
+    }
 }

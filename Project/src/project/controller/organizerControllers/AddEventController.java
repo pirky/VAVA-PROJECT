@@ -20,7 +20,9 @@ import project.model.users.Organizer;
 import project.model.users.User;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,6 +42,13 @@ public class AddEventController {
     @FXML private RadioButton exchangeRB;
     @FXML private RadioButton discussionRB;
     @FXML private Text capacity;
+    @FXML private Label text1;
+    @FXML private Text text2;
+    @FXML private Label text3;
+    @FXML private Label text4;
+    @FXML private Label text5;
+    @FXML private Label text6;
+    @FXML private String error;
 
     @FXML
     public void initialize(){
@@ -54,6 +63,7 @@ public class AddEventController {
         btn.setDisable(true);
         allRooms.addAll(Main.roomsDatabase.getRooms());
         comboBox.setItems(allRooms);
+        languageSK();
     }
 
     public void radioClicked(){
@@ -199,7 +209,7 @@ public class AddEventController {
 
     private boolean testRequired(String name, String host, String note){
         if(name.isEmpty() || host.isEmpty() || note.isEmpty()){
-            infoLabel.setText("Vyplň všetky polia");
+            infoLabel.setText(error);
             LOG.log(Level.INFO, "User did not enter all required fields");
             infoLabel.setVisible(true);
             return true;
@@ -239,5 +249,31 @@ public class AddEventController {
     }
 
     private static final Logger LOG = Logger.getLogger(AddEventController.class.getName());
+
+    public void languageEN(){
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        exchangeRB.setText(bundle.getString("exchange"));
+        discussionRB.setText(bundle.getString("discussion"));
+        btn.setText(bundle.getString("btn"));
+        text1.setText(bundle.getString("text1"));
+        text2.setText(bundle.getString("text2"));
+        text3.setText(bundle.getString("text3"));
+        text4.setText(bundle.getString("text4"));
+        text5.setText(bundle.getString("text5"));
+        text6.setText(bundle.getString("text6"));
+        error = bundle.getString("error");
+        hostLabel.setText(bundle.getString("hostname"));
+    }
 }
 

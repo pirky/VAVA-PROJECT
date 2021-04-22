@@ -6,30 +6,40 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0"
-            prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="project.controller.librarianControllers.ReturnBooksController">
-   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť"/>
-   <Button fx:id="returnBtn" layoutX="144.0" layoutY="605.0" mnemonicParsing="false" onAction="#returnBook"
-           prefHeight="31.0" prefWidth="138.0" text="Vrátiť knihu"/>
-   <ComboBox fx:id="readersBox" layoutX="68.0" layoutY="124.0" onAction="#updateTableView" prefHeight="31.0"
-             prefWidth="289.0"/>
-   <Label layoutX="68.0" layoutY="96.0" text="Vyber čítateľa:"/>
-   <TableView fx:id="tableView" layoutX="473.0" layoutY="30.0" onMouseReleased="#showDates" prefHeight="626.0"
-              prefWidth="800.0">
+<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.librarianControllers.ReturnBooksController">
+   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
+   <Button fx:id="returnBtn" layoutX="111.0" layoutY="604.0" mnemonicParsing="false" onAction="#returnBook" prefHeight="31.0" prefWidth="138.0" text="%return" />
+   <ComboBox fx:id="readersBox" layoutX="35.0" layoutY="125.0" onAction="#updateTableView" prefHeight="31.0" prefWidth="289.0" />
+   <Label fx:id="readerLabel" layoutX="31.0" layoutY="92.0" text="%reader" />
+   <TableView fx:id="tableView" layoutX="349.0" layoutY="37.0" onMouseReleased="#showDates" prefHeight="626.0" prefWidth="774.0">
       <columns>
-         <TableColumn fx:id="imageColumn" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" resizable="false"
-                      text="Titulná fotka"/>
-         <TableColumn fx:id="authorColumn" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" resizable="false"
-                      text="Autor"/>
-         <TableColumn fx:id="titleColumn" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" resizable="false"
-                      text="Názov knihy"/>
+         <TableColumn fx:id="imageColumn" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" resizable="false" text="Titulná fotka" />
+         <TableColumn fx:id="authorColumn" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" resizable="false" text="Autor" />
+         <TableColumn fx:id="titleColumn" maxWidth="299.0" minWidth="280.0" prefWidth="299.0" resizable="false" text="Názov knihy" />
       </columns>
    </TableView>
-   <DatePicker fx:id="datePicker" layoutX="69.0" layoutY="235.0" onAction="#showExtendBtn" prefHeight="31.0"
-               prefWidth="289.0"/>
-   <Button fx:id="extendBtn" layoutX="144.0" layoutY="549.0" mnemonicParsing="false" onAction="#extendBook"
-           text="Predĺžiť požičanie"/>
+   <DatePicker fx:id="datePicker" layoutX="31.0" layoutY="240.0" onAction="#showExtendBtn" prefHeight="31.0" prefWidth="289.0" />
+   <Button fx:id="extendBtn" layoutX="120.0" layoutY="548.0" mnemonicParsing="false" onAction="#extendBook" text="%length" />
+   <Button layoutX="1143.0" layoutY="5.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../images/other/sk.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
+   <Button layoutX="1220.0" layoutY="5.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="36.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../images/other/us.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
 </AnchorPane>

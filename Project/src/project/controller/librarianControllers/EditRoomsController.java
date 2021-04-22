@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
@@ -26,15 +27,23 @@ public class EditRoomsController implements Initializable {
     ObservableList<LibraryRoom> allRooms = FXCollections.observableArrayList();
     @FXML ComboBox<LibraryRoom> roomComboBox;
     @FXML ListView<ImageView> roomPictures;
+    private String titleLanguage;
+    private String error;
+    private String titleLanguageAddBook;
+    @FXML private Button addPictureButton;
+    @FXML private Button deletePictureButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         allRooms.addAll(Main.roomsDatabase.getRooms());
         roomComboBox.setItems(allRooms);
+        languageSK();
     }
 
     public void showMenu() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")));
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/librarianViews/LibrarianView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
         Main.mainStage.show();
@@ -69,7 +78,7 @@ public class EditRoomsController implements Initializable {
             FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png");
             FileChooser fileChooser = new FileChooser();
             fileChooser.getExtensionFilters().add(imageFilter);
-            fileChooser.setTitle("Vyber fotku izby");
+            fileChooser.setTitle(titleLanguage);
             Image image = new Image(fileChooser.showOpenDialog(Main.mainStage).toURI().toString());
             LibraryRoom libraryRoom = roomComboBox.getValue();
 
@@ -87,16 +96,16 @@ public class EditRoomsController implements Initializable {
         } catch (Exception e) {
             if (roomComboBox.getSelectionModel().getSelectedItem() == null) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error Dialog");
-                alert.setHeaderText("Nastala chyba");
-                alert.setContentText("nevybral si miestnost");
+                alert.setTitle("Error");
+                alert.setHeaderText(error);
+                alert.setContentText(titleLanguageAddBook);
                 alert.showAndWait();
                 LOG.log(Level.SEVERE, "User did not choose room");
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Dialog");
-                alert.setHeaderText("Nastala chyba");
-                alert.setContentText("nevybral si obrazok");
+                alert.setHeaderText(error);
+                alert.setContentText(titleLanguageAddBook);
                 alert.showAndWait();
                 LOG.log(Level.SEVERE, "User did not choose picture");
             }
@@ -145,13 +154,32 @@ public class EditRoomsController implements Initializable {
         }
         catch(Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            alert.setHeaderText("Nastala chyba");
-            alert.setContentText("Vyber ktory obrazok chces zmazat");
+            alert.setTitle("Error");
+            alert.setHeaderText(error);
+            alert.setContentText(titleLanguageAddBook);
             alert.showAndWait();
             LOG.log(Level.SEVERE, "User did not choose picture to be deleted");
         }
     }
 
     private static final Logger LOG = Logger.getLogger(EditRoomsController.class.getName());
+
+    public void languageEN(){
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        titleLanguage = bundle.getString("titleLanguage");
+        error = bundle.getString("error");
+        addPictureButton.setText(bundle.getString("addImageAddBook"));
+        deletePictureButton.setText(bundle.getString("deletePicture"));
+    }
 }

@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
@@ -13,19 +15,37 @@
    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
    <TextArea fx:id="noteArea" layoutX="41.0" layoutY="389.0" prefHeight="200.0" prefWidth="301.0" />
    <ComboBox fx:id="comboBox" layoutX="41.0" layoutY="170.0" onAction="#onClicked" prefHeight="31.0" prefWidth="301.0" />
-   <ListView fx:id="listView" layoutX="707.0" layoutY="14.0" prefHeight="672.0" prefWidth="561.0" />
-   <Label layoutX="48.0" layoutY="129.0" text="Vyber miestnosť:" />
-   <Label layoutX="40.0" layoutY="227.0" text="Názov podujatia:" />
-   <Label layoutX="41.0" layoutY="360.0" text="Popis podujatia:" />
+   <ListView fx:id="listView" layoutX="707.0" layoutY="14.0" prefHeight="636.0" prefWidth="423.0" />
+   <Label fx:id="label1" layoutX="48.0" layoutY="129.0" text="%label1" />
+   <Label fx:id="label2" layoutX="40.0" layoutY="227.0" text="%label2" />
+   <Label fx:id="label4" layoutX="41.0" layoutY="360.0" text="%label4" />
    <TextArea fx:id="nameArea" layoutX="40.0" layoutY="264.0" prefHeight="73.0" prefWidth="301.0" />
    <TextArea fx:id="hostArea" layoutX="383.0" layoutY="264.0" prefHeight="73.0" prefWidth="301.0" />
-   <Label fx:id="hostLabel" layoutX="500.0" layoutY="218.0" text="Meno hosťa:" />
-   <Button fx:id="btn" layoutX="115.0" layoutY="610.0" mnemonicParsing="false" onAction="#createEvent" prefHeight="31.0" prefWidth="154.0" text="zmen podujatie" />
+   <Label fx:id="hostLabel" layoutX="500.0" layoutY="218.0" text="%label3" />
+   <Button fx:id="btn1" layoutX="115.0" layoutY="610.0" mnemonicParsing="false" onAction="#createEvent" prefHeight="31.0" prefWidth="154.0" text="%btn1" />
    <Label fx:id="infoLabel" alignment="CENTER" layoutX="383.0" layoutY="389.0" prefHeight="50.0" prefWidth="301.0" text="Label" textAlignment="CENTER" textFill="RED" wrapText="true" />
    <ComboBox fx:id="events" layoutX="51.0" layoutY="85.0" onAction="#comboClicked" prefWidth="150.0" />
-   <Button layoutX="461.0" layoutY="610.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="31.0" prefWidth="150.0" text="zrus podujatie" />
-   <Text layoutX="227.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="kapacita:" />
+   <Button fx:id="button3" layoutX="461.0" layoutY="610.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="31.0" prefWidth="150.0" text="%button3" />
+   <Text fx:id="text2" layoutX="227.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text2" />
    <Text fx:id="capacity" layoutX="284.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="115.0" />
    <Text fx:id="typeEvent" layoutX="349.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="68.00000369548798" />
+   <Button layoutX="1137.0" layoutY="16.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../images/other/sk.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
+   <Button layoutX="1215.0" layoutY="17.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="36.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../images/other/us.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
 
 </AnchorPane>
