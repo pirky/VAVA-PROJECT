@@ -1,11 +1,12 @@
 package project.model.events;
+
 import project.model.Rooms.RoomReservation;
 import project.model.users.Organizer;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookDiscussion extends Event{
-    private String host;
+    private final String host;
     private List<Message> messages;
 
     public BookDiscussion(String name, String note, RoomReservation roomReservation, Organizer organizer, String host) {

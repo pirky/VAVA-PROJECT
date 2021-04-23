@@ -42,7 +42,7 @@ public class BookHistoryController {
     public void initialize(){
         if (Main.currLanguage.equals("SK")) languageSK();
         else languageEN();
-        for(User user: Main.userDatabase.getUserDatabase()){
+        for(User user: Main.userDatabase.getUsers()){
             if(user instanceof Reader){
                 readers.add((Reader) user);
             }

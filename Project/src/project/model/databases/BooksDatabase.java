@@ -1,18 +1,22 @@
 package project.model.databases;
+
 import javafx.scene.image.Image;
 import project.model.CustomImage;
 import project.model.books.Book;
+
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class BooksDatabase {
     private List<Book> books;
     private LocalDate date;
 
-    public BooksDatabase() {
-        this.date = LocalDate.now();
-        loadDemo();
+    public BooksDatabase() throws IOException, ClassNotFoundException {
+//        loadDemo();
+        deserialize();
     }
 
     public List<Book> getBooks() {
@@ -43,12 +47,12 @@ public class BooksDatabase {
         this.date = date;
     }
 
-
     public int getBookId(){
         return getBooks().size();
     }
 
     private void loadDemo(){
+        this.date = LocalDate.now();
         books = new ArrayList<>();
         Book book = new Book(0, "Pekaren", "Julie Caplinova", "Popis knihy pekaren", new CustomImage(new Image("project/images/books/book0.jpg")));
         book.setCreatedAt(LocalDate.parse("2021-01-03"));
@@ -81,5 +85,25 @@ public class BooksDatabase {
         book = new Book(7, "Zdravé črevo a trávenie", "Ladislav Kužela, Zuzana Čižmáriková", "Popis knihy Zdravé črevo a trávenie", new CustomImage(new Image("project/images/books/book7.jpg")));
         book.setCreatedAt(LocalDate.parse("2007-11-11"));
         books.add(book);
+    }
+
+    public void serialize() throws IOException {
+        File database = new File("src/project/model/databases/Books.txt");
+        FileOutputStream fos = new FileOutputStream(database);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(date);
+        oos.writeObject(books);
+        oos.close();
+        fos.close();
+    }
+
+    public void deserialize() throws IOException, ClassNotFoundException {
+        File database = new File("src/project/model/databases/Books.txt");
+        FileInputStream fis = new FileInputStream(database);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        date = (LocalDate) ois.readObject();
+        books = (List<Book>) ois.readObject();
+        ois.close();
+        fis.close();
     }
 }

@@ -1,8 +1,10 @@
 package project.model.books;
 import project.controller.Main;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class BookReservation {
+public class BookReservation implements Serializable {
     private final int bookId;
     private final LocalDate dateFrom;
     private LocalDate dateTo;

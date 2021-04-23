@@ -40,7 +40,7 @@ public class ReturnBooksController {
 
     @FXML
     public void initialize(){
-        for(User user: Main.userDatabase.getUserDatabase()){
+        for(User user: Main.userDatabase.getUsers()){
             if(user instanceof Reader){
                 readers.add((Reader) user);
             }
@@ -153,7 +153,7 @@ public class ReturnBooksController {
                             return;
                         }
 
-                        for(User user: Main.userDatabase.getUserDatabase()){
+                        for(User user: Main.userDatabase.getUsers()){
                             if (!(user instanceof Reader) || user.getUserName().equals(reader.getUserName())){
                                 continue;
                             }

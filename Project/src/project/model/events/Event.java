@@ -1,11 +1,14 @@
 package project.model.events;
+
 import project.model.Rooms.RoomReservation;
 import project.model.users.Organizer;
 import project.model.users.Reader;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Event {
+public class Event implements Serializable {
     private String name;
     private final String note;
     private final RoomReservation roomReservation;

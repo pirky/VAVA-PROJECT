@@ -45,7 +45,7 @@ public class DiscussionController {
             return;
         }
         Message message = new Message(msg, Main.currUser.getUserName());
-        for(User user: Main.userDatabase.getUserDatabase()){
+        for(User user: Main.userDatabase.getUsers()){
             if(!(user instanceof Organizer)){
                 continue;
             }

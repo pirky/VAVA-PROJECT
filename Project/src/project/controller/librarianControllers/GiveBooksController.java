@@ -46,7 +46,7 @@ public class GiveBooksController {
 
     @FXML
     public void initialize(){
-        for(User user: Main.userDatabase.getUserDatabase()){
+        for(User user: Main.userDatabase.getUsers()){
             if(user instanceof Reader){
                 readers.add((Reader) user);
             }
@@ -133,7 +133,7 @@ public class GiveBooksController {
         tableView.getItems().clear();
         for(Book book: Main.booksDatabase.getBooks()){
             boolean isFree = true;
-            for(User user: Main.userDatabase.getUserDatabase()){
+            for(User user: Main.userDatabase.getUsers()){
                 if(user instanceof Reader){
                     for(BookReservation bookReservation: ((Reader) user).getReservations()){
                         if (book.getId() == bookReservation.getBookId() &&
@@ -201,7 +201,7 @@ public class GiveBooksController {
                             return;
                         }
 
-                        for(User user: Main.userDatabase.getUserDatabase()){
+                        for(User user: Main.userDatabase.getUsers()){
                             if (!(user instanceof Reader)){
                                 continue;
                             }

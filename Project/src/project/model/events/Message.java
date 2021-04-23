@@ -1,6 +1,8 @@
 package project.model.events;
 
-public class Message {
+import java.io.Serializable;
+
+public class Message implements Serializable {
     private String text;
     private String userName;
 

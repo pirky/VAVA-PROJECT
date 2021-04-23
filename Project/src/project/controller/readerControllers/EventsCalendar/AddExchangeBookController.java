@@ -173,7 +173,7 @@ public class AddExchangeBookController{
         sellableBook.setCreatedAt(LocalDate.now());
         ((BookExchange) event).addBook(sellableBook);
 
-        for(User user: Main.userDatabase.getUserDatabase()){
+        for(User user: Main.userDatabase.getUsers()){
             if(!(user instanceof Organizer)){
                 continue;
             }

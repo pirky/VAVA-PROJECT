@@ -17,9 +17,9 @@ import java.util.ResourceBundle;
 
 public class Main extends Application {
     public static Stage mainStage;
-    public static BooksDatabase booksDatabase = new BooksDatabase();
-    public static UserDatabase userDatabase = new UserDatabase();
-    public static RoomsDatabase roomsDatabase = new RoomsDatabase();
+    public static BooksDatabase booksDatabase;
+    public static UserDatabase userDatabase;
+    public static RoomsDatabase roomsDatabase;
     public static User currUser;
     public static String currLanguage;
 

@@ -126,7 +126,7 @@ public class AddEventController {
                             return;
                         }
 
-                        for(User user: Main.userDatabase.getUserDatabase()){
+                        for(User user: Main.userDatabase.getUsers()){
                             if (!(user instanceof Organizer)){
                                 continue;
                             }

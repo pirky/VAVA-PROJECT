@@ -1,9 +1,12 @@
 package project.model.Rooms;
+
 import project.model.CustomImage;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibraryRoom {
+public class LibraryRoom implements Serializable {
     private final int id;
     private final String name;
     private final int capacity;

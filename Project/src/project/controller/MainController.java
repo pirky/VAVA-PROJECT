@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import project.model.databases.BooksDatabase;
+import project.model.databases.RoomsDatabase;
 import project.model.databases.UserDatabase;
 import project.model.users.Librarian;
 import project.model.users.Organizer;
@@ -27,7 +29,27 @@ public class MainController{
     private String error_msg;
 
     @FXML
-    public void initialize(){
+    public void initialize() throws IOException, ClassNotFoundException {
+        Main.mainStage.setOnCloseRequest(e -> {
+            try {
+                Main.booksDatabase.serialize();
+                Main.roomsDatabase.serialize();
+                Main.userDatabase.serialize();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+            Main.mainStage.close();
+        });
+        if(Main.booksDatabase == null){
+            Main.booksDatabase = new BooksDatabase();
+        }
+        if(Main.roomsDatabase == null){
+            Main.roomsDatabase = new RoomsDatabase();
+        }
+        if(Main.userDatabase == null){
+            Main.userDatabase = new UserDatabase();
+        }
+
         datePicker.setValue(Main.booksDatabase.getDate());
         datePicker.setEditable(false);
         if (Main.currLanguage.equals("SK")) languageSK();
@@ -109,7 +131,7 @@ public class MainController{
     }
 
     public void knihovnik() throws IOException {
-        for(User user: Main.userDatabase.getUserDatabase()){
+        for(User user: Main.userDatabase.getUsers()){
             if(user.getUserName().equals("librarian")){
                 Main.currUser = user;
                 break;
@@ -126,7 +148,7 @@ public class MainController{
     }
 
     public void citatel() throws IOException {
-        for(User user: Main.userDatabase.getUserDatabase()){
+        for(User user: Main.userDatabase.getUsers()){
             if(user.getUserName().equals("reader")){
                 Main.currUser = user;
                 break;
@@ -143,7 +165,7 @@ public class MainController{
     }
 
     public void organizator() throws IOException {
-        for(User user: Main.userDatabase.getUserDatabase()){
+        for(User user: Main.userDatabase.getUsers()){
             if(user.getUserName().equals("organizer")){
                 Main.currUser = user;
                 break;

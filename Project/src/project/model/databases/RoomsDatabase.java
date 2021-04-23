@@ -1,15 +1,21 @@
 package project.model.databases;
+
 import javafx.scene.image.Image;
 import project.model.CustomImage;
 import project.model.Rooms.LibraryRoom;
+import project.model.books.Book;
+
+import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RoomsDatabase {
     private List<LibraryRoom> rooms;
 
-    public RoomsDatabase() {
-        loadDemo();
+    public RoomsDatabase() throws IOException, ClassNotFoundException {
+//        loadDemo();
+        deserialize();
     }
 
     public List<LibraryRoom> getRooms() {
@@ -47,5 +53,23 @@ public class RoomsDatabase {
         room.addImage(new CustomImage(new Image("project/images/rooms/room2_1.jpg")));
         room.addImage(new CustomImage(new Image("project/images/rooms/room2_2.jpg")));
         rooms.add(room);
+    }
+
+    public void serialize() throws IOException {
+        File database = new File("src/project/model/databases/Rooms.txt");
+        FileOutputStream fos = new FileOutputStream(database);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(rooms);
+        oos.close();
+        fos.close();
+    }
+
+    public void deserialize() throws IOException, ClassNotFoundException {
+        File database = new File("src/project/model/databases/Rooms.txt");
+        FileInputStream fis = new FileInputStream(database);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        rooms = (List<LibraryRoom>) ois.readObject();
+        ois.close();
+        fis.close();
     }
 }

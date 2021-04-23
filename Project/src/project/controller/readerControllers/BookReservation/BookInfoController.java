@@ -76,7 +76,7 @@ public class BookInfoController{
                             return;
                         }
 
-                        for(User user: Main.userDatabase.getUserDatabase()){
+                        for(User user: Main.userDatabase.getUsers()){
                             if (!(user instanceof Reader)){
                                 continue;
                             }

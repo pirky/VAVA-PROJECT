@@ -1,7 +1,9 @@
 package project.model.Rooms;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class RoomReservation {
+public class RoomReservation implements Serializable {
     private final LocalDate dateFrom;
     private final LocalDate dateTo;
     private final int roomId;

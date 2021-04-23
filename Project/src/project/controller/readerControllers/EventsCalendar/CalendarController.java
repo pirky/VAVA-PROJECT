@@ -8,10 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import project.controller.Main;
 import project.model.events.Event;
@@ -159,7 +157,7 @@ public class CalendarController {
 
     private void setEvents(YearMonth yearMonth){
         events.clear();
-        for(User user: Main.userDatabase.getUserDatabase()){
+        for(User user: Main.userDatabase.getUsers()){
             if(!(user instanceof Organizer)){
                 continue;
             }

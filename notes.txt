@@ -1,6 +1,5 @@
 TODO list:
 -------------------- NA ZÁVER --------------------
-→ serializácia
 → UML tried diagram
 → dokumentacia → git vision Template
 → javadoc → ak bude cas

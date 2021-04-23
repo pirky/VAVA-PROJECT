@@ -130,7 +130,7 @@ public class EventEnrollController {
     }
 
     private void enroll(int option) throws IOException {
-        for(User user: Main.userDatabase.getUserDatabase()){
+        for(User user: Main.userDatabase.getUsers()){
             if(!(user instanceof Organizer)){
                 continue;
             }
