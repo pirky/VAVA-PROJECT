@@ -44,7 +44,7 @@ public class OrganizerController implements menuInterface {
         Locale locale;
         if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
         else locale = new Locale("en_US");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/AddEventView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);
