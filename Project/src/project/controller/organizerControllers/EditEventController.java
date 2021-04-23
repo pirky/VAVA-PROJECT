@@ -59,6 +59,31 @@ public class EditEventController {
         comboBox.setItems(allRooms);
     }
 
+    public void languageEN(){
+        Main.currLanguage = "US";
+        Locale enLocale = new Locale("en_US");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", enLocale);
+        changeSigns(bundle);
+    }
+
+    public void languageSK(){
+        Main.currLanguage = "SK";
+        Locale skLocale = new Locale("sk_SK");
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
+        changeSigns(bundle);
+    }
+
+    public void changeSigns(ResourceBundle bundle){
+        text2.setText(bundle.getString("capacityText"));
+        label1.setText(bundle.getString("label1"));
+        label2.setText(bundle.getString("label2"));
+        hostLabel.setText(bundle.getString("label3"));
+        label4.setText(bundle.getString("label4"));
+        btn1.setText(bundle.getString("btn1"));
+        button3.setText(bundle.getString("button3"));
+        error = bundle.getString("error");
+    }
+
     public void comboClicked(){
         comboBox.setDisable(false);
         nameArea.setDisable(false);
@@ -261,29 +286,4 @@ public class EditEventController {
     }
 
     private static final Logger LOG = Logger.getLogger(EditEventController.class.getName());
-
-    public void languageEN(){
-        Main.currLanguage = "US";
-        Locale enLocale = new Locale("en_US");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", enLocale);
-        changeSigns(bundle);
-    }
-
-    public void languageSK(){
-        Main.currLanguage = "SK";
-        Locale skLocale = new Locale("sk_SK");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", skLocale);
-        changeSigns(bundle);
-    }
-
-    public void changeSigns(ResourceBundle bundle){
-        text2.setText(bundle.getString("text2"));
-        label1.setText(bundle.getString("label1"));
-        label2.setText(bundle.getString("label2"));
-        hostLabel.setText(bundle.getString("label3"));
-        label4.setText(bundle.getString("label4"));
-        btn1.setText(bundle.getString("btn1"));
-        button3.setText(bundle.getString("button3"));
-        error = bundle.getString("error");
-    }
 }

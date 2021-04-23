@@ -13,6 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import project.controller.Main;
 import project.model.CustomImage;
 import project.model.Rooms.LibraryRoom;
@@ -29,7 +30,7 @@ public class EditRoomsController implements Initializable {
     @FXML ListView<ImageView> roomPictures;
     private String titleLanguage;
     private String error;
-    private String titleLanguageAddBook;
+    private String notChosen;
     @FXML private Button addPictureButton;
     @FXML private Button deletePictureButton;
 
@@ -39,6 +40,8 @@ public class EditRoomsController implements Initializable {
         roomComboBox.setItems(allRooms);
         if (Main.currLanguage.equals("SK")) languageSK();
         else languageEN();
+        addPictureButton.setDisable(true);
+        deletePictureButton.setDisable(true);
     }
 
     public void languageEN(){
@@ -60,10 +63,12 @@ public class EditRoomsController implements Initializable {
         error = bundle.getString("error");
         addPictureButton.setText(bundle.getString("addImageBtn"));
         deletePictureButton.setText(bundle.getString("deletePicture"));
-        titleLanguageAddBook = bundle.getString("errorMsg");
+        notChosen = bundle.getString("notChosen");
     }
 
     public void comboClick(){
+        addPictureButton.setDisable(false);
+        deletePictureButton.setDisable(false);
         LibraryRoom libraryRoom = roomComboBox.getValue();
         if (libraryRoom == null){
             return;
@@ -107,19 +112,7 @@ public class EditRoomsController implements Initializable {
             comboClick();
 
         } catch (Exception e) {
-            if (roomComboBox.getSelectionModel().getSelectedItem() == null) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle(error);
-                alert.setHeaderText(titleLanguageAddBook);
-                alert.showAndWait();
-                LOG.log(Level.SEVERE, "User did not choose room");
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle(error);
-                alert.setHeaderText(titleLanguageAddBook);
-                alert.showAndWait();
-                LOG.log(Level.SEVERE, "User did not choose picture");
-            }
+            LOG.log(Level.SEVERE, "User did not choose picture");
         }
     }
 
@@ -165,8 +158,10 @@ public class EditRoomsController implements Initializable {
         }
         catch(Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("project/images/other/logo.jpg"));
             alert.setTitle(error);
-            alert.setHeaderText(titleLanguageAddBook);
+            alert.setHeaderText(notChosen);
             alert.showAndWait();
             LOG.log(Level.SEVERE, "User did not choose picture to be deleted");
         }

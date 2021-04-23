@@ -1,24 +1,13 @@
 TODO list:
 -------------------- NA ZÁVER --------------------
 → zmenit JOptionPane na alertBox
-→ pridanie knihy [librarian] 
-	→ vymazat polia
-	→ dat blank image ked neni fotka
-	→ ked je raz vybrana fotka, tak nech nehadze error, ze nie je 	  vybrana
-	→ note dat ako textArea a vacsi
-→ GiveBooks
-	→ internationalization infoLabel a tabulka
-	→ text3 dat ako promptText searchBaru nie ako label
-→ EditRooms
-	→ ked je raz vybrana fotka, tak nech nehadze error, ze nie je 	  vybrana
-	→ text1 dat ako promptText searchBaru
-→ NotReturned → podavat internationalizaciu na stlpce tabulky
-→ ReturnBooks → podavat internationalizaciu na stlpce tabulky
 → AddEvent → podavat internationalizaciu do View
 → OrganizerView → podavat internationalizaciu do View
+→ infoLabel upravit na tie spravy co su v Loggeroch pri nich
+→ alertBoxy pridat ikonu
+
 → serializácia
 → rerfactoring 
-	→ velkosti tabuliek
 	→ vypisy v internationalizacii
 → urobit grafiku
 → UML tried diagram

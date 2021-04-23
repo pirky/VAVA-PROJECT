@@ -12,11 +12,11 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class LibrarianController implements menuInterface {
-    @FXML Button button1;
-    @FXML Button button2;
-    @FXML Button button3;
-    @FXML Button button4;
-    @FXML Button button5;
+    @FXML Button giveBooksBtn;
+    @FXML Button loadBooksBtn;
+    @FXML Button returnBookBtn;
+    @FXML Button editRoomBtn;
+    @FXML Button notReturnedBooksBtn;
 
     public void languageEN(){
         Main.currLanguage = "US";
@@ -33,11 +33,11 @@ public class LibrarianController implements menuInterface {
     }
 
     public void changeSigns(ResourceBundle bundle){
-        button1.setText(bundle.getString("button1"));
-        button2.setText(bundle.getString("button2"));
-        button3.setText(bundle.getString("button3"));
-        button4.setText(bundle.getString("button4"));
-        button5.setText(bundle.getString("button5"));
+        giveBooksBtn.setText(bundle.getString("giveBooks"));
+        loadBooksBtn.setText(bundle.getString("loadBooks"));
+        returnBookBtn.setText(bundle.getString("returnBook"));
+        editRoomBtn.setText(bundle.getString("editRoom"));
+        notReturnedBooksBtn.setText(bundle.getString("notReturnedBooks"));
     }
 
     public void giveBook() throws IOException {

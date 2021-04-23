@@ -29,7 +29,6 @@ public class NotReturnedController {
     @FXML private TableColumn<TableBook, String> titleColumn;
     @FXML private TableColumn<TableBook, ImageView> imageColumn;
     @FXML TextField filterField;
-    @FXML Text text1;
 
     @FXML
     public void initialize(){
@@ -99,7 +98,7 @@ public class NotReturnedController {
         authorColumn.setText(bundle.getString("authorColumn"));
         titleColumn.setText(bundle.getString("titleColumn"));
         imageColumn.setText(bundle.getString("imageColumn"));
-        text1.setText(bundle.getString("text3"));
+        filterField.setPromptText(bundle.getString("search"));
     }
 
     public void updateTableView(){

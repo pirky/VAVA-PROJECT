@@ -86,11 +86,11 @@ public class AddEventController {
         exchangeRB.setText(bundle.getString("exchange"));
         discussionRB.setText(bundle.getString("discussion"));
         btn.setText(bundle.getString("btn"));
-        text1.setText(bundle.getString("text1"));
-        text2.setText(bundle.getString("text2"));
-        text3.setText(bundle.getString("text3"));
-        text4.setText(bundle.getString("text4"));
-        text5.setText(bundle.getString("text5"));
+        text1.setText(bundle.getString("chooseRoomLabel"));
+        text2.setText(bundle.getString("capacityText"));
+        text3.setText(bundle.getString("EventNameLabel"));
+        text4.setText(bundle.getString("StartDateLabel"));
+        text5.setText(bundle.getString("EndDateLabel"));
         text6.setText(bundle.getString("text6"));
         error = bundle.getString("error");
         hostLabel.setText(bundle.getString("hostname"));

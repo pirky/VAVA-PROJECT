@@ -12,7 +12,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" stylesheets="@../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.librarianControllers.GiveBooksController">
     <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#showMenu" styleClass="button_lg">
@@ -24,27 +23,26 @@
          </ImageView>
       </graphic></Button>
     <ComboBox fx:id="readersBox" layoutX="66.0" layoutY="116.0" onAction="#showReservations" prefHeight="31.0" prefWidth="255.0" />
-    <Label fx:id="text1" layoutX="66.0" layoutY="87.0" text="%text1" />
+    <Label fx:id="text1" layoutX="66.0" layoutY="87.0" text="%chooseRoomLabel" />
     <ListView fx:id="listView" layoutX="428.0" layoutY="73.0" prefHeight="200.0" prefWidth="800.0" />
-    <Button fx:id="giveBtn" layoutX="111.0" layoutY="215.0" mnemonicParsing="false" onAction="#giveBooks" prefHeight="60.0" prefWidth="169.0" text="%giveBtn" wrapText="true" />
-    <Label fx:id="infoLabel" alignment="CENTER" layoutX="66.0" layoutY="159.0" prefHeight="56.0" prefWidth="255.0" text="infoLabel" textAlignment="CENTER" textFill="RED" wrapText="true" />
+    <Button fx:id="giveBtn" layoutX="94.0" layoutY="215.0" mnemonicParsing="false" onAction="#giveBooks" prefHeight="60.0" prefWidth="200.0" text="%giveBtn" wrapText="true" />
+    <Label fx:id="infoLabel" alignment="CENTER" layoutX="67.0" layoutY="159.0" prefHeight="56.0" prefWidth="255.0" text="%chooseReader" textAlignment="CENTER" textFill="RED" wrapText="true" />
     <TableView fx:id="tableView" layoutX="428.0" layoutY="357.0" onMouseReleased="#showDates" prefHeight="305.0" prefWidth="800.0">
       <columns>
-          <TableColumn fx:id="imageColumn" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" resizable="false" text="Titulná fotka" />
-          <TableColumn fx:id="authorColumn" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" resizable="false" text="Autor" />
-          <TableColumn fx:id="titleColumn" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" resizable="false" text="Názov knihy" />
+          <TableColumn fx:id="imageColumn" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" resizable="false" text="%imageColumn" />
+          <TableColumn fx:id="authorColumn" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" resizable="false" text="%authorColumn" />
+          <TableColumn fx:id="titleColumn" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" resizable="false" text="%titleColumn" />
       </columns>
     </TableView>
     <DatePicker fx:id="datePicker" editable="false" layoutX="41.0" layoutY="357.0" onAction="#enableAddBtn" prefHeight="31.0" prefWidth="306.0" />
-    <Button fx:id="addBtn" layoutX="109.0" layoutY="450.0" mnemonicParsing="false" onAction="#addBook" prefHeight="60.0" prefWidth="169.0" text="%addBtn" />
-    <Label fx:id="text4" layoutX="734.0" layoutY="289.0" text="%text4">
+    <Button fx:id="addBtn" layoutX="94.0" layoutY="450.0" mnemonicParsing="false" onAction="#addBook" prefHeight="60.0" prefWidth="200.0" text="%addBtn" />
+    <Label fx:id="text4" alignment="CENTER" layoutX="675.0" layoutY="289.0" prefHeight="53.0" prefWidth="306.0" text="%StartDateLabel" textAlignment="CENTER">
         <font>
           <Font size="36.0" />
         </font>
     </Label>
-    <Label fx:id="text2" layoutX="41.0" layoutY="329.0" text="%text2" />
-    <TextField fx:id="filterField" layoutX="474.0" layoutY="303.0" />
-    <Text fx:id="text3" layoutX="365.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text3" />
+    <Label fx:id="text2" layoutX="41.0" layoutY="329.0" text="%capacityText" />
+    <TextField fx:id="filterField" layoutX="428.0" layoutY="300.0" prefHeight="31.0" prefWidth="241.0" promptText="%search" />
    <Button layoutX="1167.0" layoutY="12.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">

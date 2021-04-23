@@ -88,6 +88,7 @@ public class ReturnBooksController {
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageView"));
         returnBtn.setDisable(true);
         extendBtn.setDisable(true);
+        datePicker.setDisable(true);
         if (Main.currLanguage.equals("SK")) languageSK();
         else languageEN();
     }

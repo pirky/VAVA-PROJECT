@@ -33,7 +33,7 @@
    <Label fx:id="infoLabel" alignment="CENTER" layoutX="383.0" layoutY="389.0" prefHeight="50.0" prefWidth="301.0" text="Label" textAlignment="CENTER" textFill="RED" wrapText="true" />
    <ComboBox fx:id="events" layoutX="40.0" layoutY="81.0" onAction="#comboClicked" prefHeight="31.0" prefWidth="301.0" />
    <Button fx:id="button3" layoutX="434.0" layoutY="610.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="60.0" prefWidth="200.0" text="%button3" textAlignment="CENTER" wrapText="true" />
-   <Text fx:id="text2" layoutX="354.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%text2" />
+   <Text fx:id="text2" layoutX="354.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%capacityText" />
    <Text fx:id="capacity" layoutX="411.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="115.0" />
    <Text fx:id="typeEvent" layoutX="349.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="68.00000369548798" />
    <Button layoutX="628.0" layoutY="25.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">

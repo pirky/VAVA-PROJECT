@@ -42,7 +42,6 @@ public class GiveBooksController {
     @FXML private TextField filterField;
     @FXML private Label text1;
     @FXML private Label text2;
-    @FXML private Text text3;
     @FXML private Label text4;
 
     @FXML
@@ -99,15 +98,16 @@ public class GiveBooksController {
     }
 
     public void changeSigns(ResourceBundle bundle){
-        text1.setText(bundle.getString("text1"));
+        text1.setText(bundle.getString("chooseRoomLabel"));
         giveBtn.setText(bundle.getString("giveBtn"));
-        text2.setText(bundle.getString("text2"));
+        text2.setText(bundle.getString("capacityText"));
         addBtn.setText(bundle.getString("addBtn"));
-        text3.setText(bundle.getString("text3"));
-        text4.setText(bundle.getString("text4"));
+        filterField.setPromptText(bundle.getString("search"));
+        text4.setText(bundle.getString("StartDateLabel"));
         authorColumn.setText(bundle.getString("authorColumn"));
         titleColumn.setText(bundle.getString("titleColumn"));
         imageColumn.setText(bundle.getString("imageColumn"));
+        infoLabel.setText(bundle.getString("chooseReader"));
     }
 
     public void showReservations(){
@@ -170,7 +170,6 @@ public class GiveBooksController {
     public void giveBooks(){
         if(reader == null){
             infoLabel.setVisible(true);
-            infoLabel.setText("Vyber čítateľa");
             return;
         }
         else {

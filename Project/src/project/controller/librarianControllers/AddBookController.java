@@ -6,10 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import project.controller.Main;
 import project.model.CustomImage;
 import project.model.books.Book;
@@ -25,7 +27,7 @@ import java.util.logging.Logger;
 public class AddBookController {
     @FXML TextField authorName;
     @FXML TextField bookName;
-    @FXML TextField bookNote;
+    @FXML TextArea bookNote;
     @FXML Button send;
     @FXML ImageView bookImageView;
     @FXML Button addImageButton;
@@ -70,7 +72,6 @@ public class AddBookController {
     }
 
     public void addImage(){
-        bookImage = null;
         try {
             FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png");
             FileChooser fileChooser = new FileChooser();
@@ -81,47 +82,58 @@ public class AddBookController {
             bookImageView.setImage(image);
         }
         catch(Exception e) {
-            JOptionPane.showMessageDialog(null, titleLanguage);
-            LOG.log(Level.SEVERE, "User did not choose a picture");
+            if (bookImage == null){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image("project/images/other/logo.jpg"));
+                alert.setTitle(error);
+                alert.setHeaderText(titleLanguage);
+                alert.showAndWait();
+                LOG.log(Level.SEVERE, "User did not choose a picture");
+            }
         }
     }
 
     public void sendIntoDatabase(){
-        boolean flag = true;
         if(bookName.getText().equals("") || authorName.getText().equals("") || bookNote.getText().equals("") || bookImage == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("project/images/other/logo.jpg"));
             alert.setTitle(error);
             alert.setHeaderText(errorMessage1);
             alert.showAndWait();
-            flag = false;
             LOG.log(Level.INFO, "User did not enter all required information");
+            return;
         }
 
-        if (flag) {
-            Book book = new Book(Main.booksDatabase.getBookId(), bookName.getText(), authorName.getText(), bookNote.getText(), new CustomImage(bookImage));
-            boolean flag2 = true;
+        Book book = new Book(Main.booksDatabase.getBookId(), bookName.getText(), authorName.getText(), bookNote.getText(), new CustomImage(bookImage));
 
-            for(Book i : Main.booksDatabase.getBooks()) {
-                if (i.getTitle().equals(bookName.getText())){
-                    flag2 = false;
-                }
-            }
-
-            if (!flag2) {
+        for(Book i : Main.booksDatabase.getBooks()) {
+            if (i.getTitle().equals(bookName.getText())){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image("project/images/other/logo.jpg"));
                 alert.setTitle(error);
                 alert.setHeaderText(errorMessage2);
                 alert.showAndWait();
-                LOG.log(Level.INFO, "User tried to add the same book twice");
-            }
-
-            if (flag2) {
-                book.setCreatedAt(LocalDate.now());
-                Main.booksDatabase.addBook(book);
-                JOptionPane.showMessageDialog(null, success);
-                bookImageView.setImage(bookImage);
+                LOG.log(Level.INFO, "User tried to add book with existing name");
+                return;
             }
         }
+
+        book.setCreatedAt(LocalDate.now());
+        Main.booksDatabase.addBook(book);
+        JOptionPane.showMessageDialog(null, success);
+        bookImageView.setImage(bookImage);
+        deleteFields();
+    }
+
+    private void deleteFields(){
+        authorName.clear();
+        bookName.clear();
+        bookNote.clear();
+        bookImage = null;
+        bookImageView.setImage(new Image("project/images/other/noImage.jpg"));
     }
 
     public void showMenu() throws IOException {

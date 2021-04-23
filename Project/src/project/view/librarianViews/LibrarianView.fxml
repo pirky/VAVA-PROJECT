@@ -14,11 +14,11 @@
             </image>
          </ImageView>
       </graphic></Button>
-   <Button fx:id="button3" layoutX="500.0" layoutY="320.0" mnemonicParsing="false" onAction="#returnBook" prefHeight="60.0" prefWidth="200.0" text="%button3" wrapText="true" />
-   <Button fx:id="button1" layoutX="500.0" layoutY="145.0" mnemonicParsing="false" onAction="#giveBook" prefHeight="60.0" prefWidth="200.0" text="%button1" wrapText="true" />
-   <Button fx:id="button2" layoutX="500.0" layoutY="232.0" mnemonicParsing="false" onAction="#addNewBook" prefHeight="60.0" prefWidth="200.0" text="%button2" wrapText="true" />
-   <Button fx:id="button4" layoutX="500.0" layoutY="408.0" mnemonicParsing="false" onAction="#editRooms" prefHeight="60.0" prefWidth="200.0" text="%button4" wrapText="true" />
-   <Button fx:id="button5" layoutX="500.0" layoutY="496.0" mnemonicParsing="false" onAction="#notReturned" prefHeight="60.0" prefWidth="200.0" text="%button5" wrapText="true" />
+   <Button fx:id="returnBookBtn" layoutX="500.0" layoutY="320.0" mnemonicParsing="false" onAction="#returnBook" prefHeight="60.0" prefWidth="200.0" text="%returnBook" wrapText="true" />
+   <Button fx:id="giveBooksBtn" layoutX="500.0" layoutY="145.0" mnemonicParsing="false" onAction="#giveBook" prefHeight="60.0" prefWidth="200.0" text="%giveBooks" wrapText="true" />
+   <Button fx:id="loadBooksBtn" layoutX="500.0" layoutY="232.0" mnemonicParsing="false" onAction="#addNewBook" prefHeight="60.0" prefWidth="200.0" text="%loadBooks" wrapText="true" />
+   <Button fx:id="editRoomBtn" layoutX="500.0" layoutY="408.0" mnemonicParsing="false" onAction="#editRooms" prefHeight="60.0" prefWidth="200.0" text="%editRoom" wrapText="true" />
+   <Button fx:id="notReturnedBooksBtn" layoutX="500.0" layoutY="496.0" mnemonicParsing="false" onAction="#notReturned" prefHeight="60.0" prefWidth="200.0" text="%notReturnedBooks" wrapText="true" />
    <Button layoutX="1066.0" layoutY="14.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">

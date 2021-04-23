@@ -13,65 +13,47 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.MainController">
    <left>
-      <AnchorPane prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: #0598ff;"
-                  BorderPane.alignment="CENTER">
-         <ImageView fitHeight="244.0" fitWidth="260.0" layoutX="28.0" layoutY="228.0" pickOnBounds="true"
-                    preserveRatio="true">
-            <Image url="@../images/other/book_basic.png"/>
+      <AnchorPane prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <ImageView fitHeight="244.0" fitWidth="260.0" layoutX="28.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/other/book_basic.png" />
          </ImageView>
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="576.0" prefWidth="549.0" stylesheets="@Grafic/style_sheet.css"
-                  BorderPane.alignment="CENTER">
-         <TextField fx:id="username" layoutX="380.0" layoutY="293.0" prefHeight="33.0" prefWidth="194.0"
-                    promptText="%username"
-                    style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;"/>
-         <PasswordField fx:id="password" layoutX="380.0" layoutY="369.0" prefHeight="33.0" prefWidth="194.0"
-                        promptText="%password"
-                        style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;"/>
-         <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="305.0" layoutY="357.0" pickOnBounds="true"
-                    preserveRatio="true">
-            <Image url="@../images/other/password.png"/>
+      <AnchorPane prefHeight="576.0" prefWidth="549.0" stylesheets="@Grafic/style_sheet.css" BorderPane.alignment="CENTER">
+         <TextField fx:id="username" layoutX="380.0" layoutY="293.0" prefHeight="33.0" prefWidth="194.0" promptText="%username" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+         <PasswordField fx:id="password" layoutX="380.0" layoutY="369.0" prefHeight="33.0" prefWidth="194.0" promptText="%password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+         <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="305.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/other/password.png" />
          </ImageView>
-         <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="300.0" layoutY="281.0" pickOnBounds="true"
-                    preserveRatio="true">
-            <Image url="@../images/other/user.png"/>
+         <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="300.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/other/user.png" />
          </ImageView>
-         <Button fx:id="logInBtn" layoutX="388.0" layoutY="437.0" mnemonicParsing="false" onAction="#logIn"
-                 prefHeight="52.0" prefWidth="175.0" style="-fx-background-color: #0598ff;" text="%logInBtn"
-                 wrapText="true"/>
-         <Button fx:id="registerBtn" layoutX="388.0" layoutY="518.0" mnemonicParsing="false"
-                 onAction="#changeToRegisterView" prefHeight="55.0" prefWidth="173.0"
-                 style="-fx-background-color: #0598ff;" text="%registerBtn" wrapText="true"/>
-         <Text fx:id="sign" fill="#0598ff" layoutX="280.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0"
-               text="%sign" textAlignment="CENTER" wrappingWidth="321.3515625">
+         <Button fx:id="logInBtn" layoutX="388.0" layoutY="437.0" mnemonicParsing="false" onAction="#logIn" prefHeight="52.0" prefWidth="175.0" style="-fx-background-color: #0598ff;" text="%logInBtn" wrapText="true" />
+         <Button fx:id="registerBtn" layoutX="388.0" layoutY="518.0" mnemonicParsing="false" onAction="#changeToRegisterView" prefHeight="55.0" prefWidth="173.0" style="-fx-background-color: #0598ff;" text="%registerBtn" wrapText="true" />
+         <Text fx:id="sign" fill="#0598ff" layoutX="280.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%sign" textAlignment="CENTER" wrappingWidth="321.3515625">
             <font>
-               <Font size="24.0"/>
+               <Font size="24.0" />
             </font>
          </Text>
-         <ImageView fitHeight="94.0" fitWidth="147.0" layoutX="394.0" layoutY="132.0" pickOnBounds="true"
-                    preserveRatio="true">
-            <Image url="@../images/other/users.png"/>
+         <ImageView fitHeight="94.0" fitWidth="147.0" layoutX="394.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/other/users.png" />
          </ImageView>
-         <DatePicker fx:id="datePicker" layoutX="634.0" layoutY="16.0" onAction="#changeDate" prefHeight="31.0"
-                     prefWidth="252.0"/>
-         <Button layoutX="286.0" layoutY="613.0" mnemonicParsing="false" onAction="#knihovnik" text="knihovník"/>
-         <Button layoutX="414.0" layoutY="613.0" mnemonicParsing="false" onAction="#citatel" text="čítateľ"/>
-         <Button layoutX="518.0" layoutY="613.0" mnemonicParsing="false" onAction="#organizator" text="organizátor"/>
-         <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0"
-                 prefWidth="0.0" styleClass="button_lg">
+         <DatePicker fx:id="datePicker" layoutX="634.0" layoutY="16.0" onAction="#changeDate" prefHeight="31.0" prefWidth="252.0" />
+         <Button layoutX="313.0" layoutY="614.0" mnemonicParsing="false" onAction="#knihovnik" text="knihovník" />
+         <Button layoutX="441.0" layoutY="614.0" mnemonicParsing="false" onAction="#citatel" text="čítateľ" />
+         <Button layoutX="545.0" layoutY="614.0" mnemonicParsing="false" onAction="#organizator" text="organizátor" />
+         <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
             <graphic>
                <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../images/other/sk.png"/>
+                  <Image url="@../images/other/sk.png" />
                </ImageView>
             </graphic>
          </Button>
-         <Button layoutX="86.0" layoutY="13.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0"
-                 prefWidth="17.0" styleClass="button_lg">
+         <Button layoutX="86.0" layoutY="13.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg">
             <graphic>
                <ImageView fitHeight="36.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../images/other/us.png"/>
+                  <Image url="@../images/other/us.png" />
                </ImageView>
             </graphic>
          </Button>
