@@ -49,7 +49,6 @@ public class AddEventController {
     @FXML private Label text4;
     @FXML private Label text5;
     @FXML private Label text6;
-    @FXML private String error;
 
     @FXML
     public void initialize(){
@@ -92,7 +91,7 @@ public class AddEventController {
         text4.setText(bundle.getString("StartDateLabel"));
         text5.setText(bundle.getString("EndDateLabel"));
         text6.setText(bundle.getString("text6"));
-        error = bundle.getString("error");
+        infoLabel.setText(bundle.getString("error"));
         hostLabel.setText(bundle.getString("hostname"));
     }
 
@@ -239,7 +238,6 @@ public class AddEventController {
 
     private boolean testRequired(String name, String host, String note){
         if(name.isEmpty() || host.isEmpty() || note.isEmpty()){
-            infoLabel.setText(error);
             LOG.log(Level.INFO, "User did not enter all required fields");
             infoLabel.setVisible(true);
             return true;

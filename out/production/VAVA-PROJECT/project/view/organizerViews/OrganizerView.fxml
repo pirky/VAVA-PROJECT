@@ -5,11 +5,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.organizerControllers.OrganizerController">
-    <Button fx:id="button1" layoutX="596.0" layoutY="182.0" mnemonicParsing="false" onAction="#addEvent" text="pridaj udalosť" />
-   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
-   <Button fx:id="button2" layoutX="596.0" layoutY="224.0" mnemonicParsing="false" onAction="#editEvent" text="uprav udalost" />
-   <Button layoutX="1132.0" layoutY="17.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
+<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" stylesheets="@../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.organizerControllers.OrganizerController">
+    <Button fx:id="button1" layoutX="550.0" layoutY="254.0" mnemonicParsing="false" onAction="#addEvent" prefHeight="60.0" prefWidth="200.0" text="pridaj udalosť" />
+   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../images/other/back_button.png" />
+            </image>
+         </ImageView>
+      </graphic></Button>
+   <Button fx:id="button2" layoutX="550.0" layoutY="375.0" mnemonicParsing="false" onAction="#editEvent" prefHeight="60.0" prefWidth="200.0" text="uprav udalost" />
+   <Button layoutX="1158.0" layoutY="14.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -18,7 +25,7 @@
          </ImageView>
       </graphic>
    </Button>
-   <Button layoutX="1215.0" layoutY="17.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg">
+   <Button layoutX="1231.0" layoutY="14.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
             <image>

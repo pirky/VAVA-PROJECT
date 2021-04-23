@@ -22,9 +22,9 @@
    <PasswordField fx:id="password" layoutX="310.0" layoutY="148.0" promptText="%password" />
    <PasswordField fx:id="password1" layoutX="310.0" layoutY="198.0" promptText="%confirm_password" />
    <AnchorPane prefHeight="501.0" prefWidth="209.0" style="-fx-background-color: #0598ff;" />
-   <AnchorPane layoutX="562.0" prefHeight="501.0" prefWidth="239.0" style="-fx-background-color: #0598ff;" />
+   <AnchorPane layoutX="567.0" prefHeight="501.0" prefWidth="234.0" style="-fx-background-color: #0598ff;" />
    <Button layoutX="372.0" layoutY="430.0" mnemonicParsing="false" onAction="#showMain" styleClass="button_lg" />
-   <Button layoutX="341.0" layoutY="24.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
+   <Button layoutX="427.0" layoutY="17.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -33,7 +33,7 @@
          </ImageView>
       </graphic>
    </Button>
-   <Button layoutX="413.0" layoutY="24.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg">
+   <Button layoutX="499.0" layoutY="17.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -42,9 +42,9 @@
          </ImageView>
       </graphic>
    </Button>
-   <Button layoutX="218.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMain" styleClass="button_lg">
+   <Button layoutX="212.0" layoutY="5.0" mnemonicParsing="false" onAction="#showMain" prefHeight="31.0" prefWidth="0.0" styleClass="button_lg">
       <graphic>
-         <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../images/other/back_button.png" />
             </image>

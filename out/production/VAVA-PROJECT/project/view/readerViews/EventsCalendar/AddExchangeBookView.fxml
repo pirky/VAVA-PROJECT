@@ -8,16 +8,23 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="683.0" minWidth="1300.0" prefHeight="683.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsCalendar.AddExchangeBookController">
-   <Button fx:id="addBookBtn" layoutX="95.0" layoutY="292.0" mnemonicParsing="false" onAction="#sendIntoDatabase" prefHeight="36.0" prefWidth="162.0" text="%addBookBtn" wrapText="true" />
-   <TextField fx:id="authorName" layoutX="88.0" layoutY="84.0" promptText="%authorName" />
-   <TextField fx:id="bookName" layoutX="88.0" layoutY="128.0" promptText="%bookName" />
-   <Button fx:id="addImageBtn" layoutX="95.0" layoutY="246.0" mnemonicParsing="false" onAction="#addImage" prefHeight="36.0" prefWidth="162.0" text="%addImageBtn" wrapText="true" />
-   <TextField fx:id="bookNote" layoutX="88.0" layoutY="168.0" promptText="%bookNote" />
-   <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#showEvent" text="Späť" />
-   <ImageView fx:id="bookImageView" fitHeight="282.0" fitWidth="247.0" layoutX="58.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true" />
-   <TextField fx:id="price" layoutX="88.0" layoutY="207.0" promptText="%price" />
-   <TableView fx:id="tableView" layoutX="365.0" layoutY="62.0" prefHeight="599.0" prefWidth="921.0">
+<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" stylesheets="@../../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsCalendar.AddExchangeBookController">
+   <Button fx:id="addBookBtn" layoutX="103.0" layoutY="334.0" mnemonicParsing="false" onAction="#sendIntoDatabase" prefHeight="50.0" prefWidth="160.0" text="%addBookBtn" wrapText="true" />
+   <TextField fx:id="authorName" layoutX="33.0" layoutY="93.0" prefWidth="300.0" promptText="%authorName" />
+   <TextField fx:id="bookName" layoutX="33.0" layoutY="137.0" prefWidth="300.0" promptText="%bookName" />
+   <Button fx:id="addImageBtn" layoutX="102.0" layoutY="263.0" mnemonicParsing="false" onAction="#addImage" prefHeight="50.0" prefWidth="160.0" text="%addImageBtn" wrapText="true" />
+   <TextField fx:id="bookNote" layoutX="33.0" layoutY="177.0" prefWidth="300.0" promptText="%bookNote" />
+   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showEvent" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="button_lg">
+            <image>
+               <Image url="@../../../images/other/back_button.png" />
+            </image>
+         </ImageView>
+      </graphic></Button>
+   <ImageView fx:id="bookImageView" fitHeight="282.0" fitWidth="247.0" layoutX="59.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true" />
+   <TextField fx:id="price" layoutX="33.0" layoutY="216.0" prefWidth="300.0" promptText="%price" />
+   <TableView fx:id="tableView" layoutX="365.0" layoutY="62.0" prefHeight="624.0" prefWidth="921.0">
       <columns>
          <TableColumn fx:id="imageColumn" maxWidth="282.0" minWidth="200.0" prefWidth="250.0" resizable="false" text="%imageColumn" />
          <TableColumn fx:id="authorColumn" maxWidth="300.0" minWidth="218.0" prefWidth="250.0" resizable="false" text="%authorColumn" />

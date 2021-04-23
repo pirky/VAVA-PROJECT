@@ -41,7 +41,6 @@ public class EditEventController {
     @FXML Label label2;
     @FXML Label label4;
     @FXML Button button3;
-    private String error;
 
     @FXML
     public void initialize(){
@@ -81,7 +80,7 @@ public class EditEventController {
         label4.setText(bundle.getString("label4"));
         btn1.setText(bundle.getString("btn1"));
         button3.setText(bundle.getString("button3"));
-        error = bundle.getString("error");
+        infoLabel.setText(bundle.getString("error"));
     }
 
     public void comboClicked(){
@@ -241,7 +240,6 @@ public class EditEventController {
 
     private boolean testRequired(String name, String host, String note){
         if(name.isEmpty() || host.isEmpty() || note.isEmpty()){
-            infoLabel.setText(error);
             LOG.log(Level.INFO, "User did not enter all required fields");
             infoLabel.setVisible(true);
             return true;

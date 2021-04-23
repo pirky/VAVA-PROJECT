@@ -123,7 +123,12 @@ public class AddBookController {
 
         book.setCreatedAt(LocalDate.now());
         Main.booksDatabase.addBook(book);
-        JOptionPane.showMessageDialog(null, success);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("project/images/other/logo.jpg"));
+        alert.setTitle(error);
+        alert.setHeaderText(success);
+        alert.showAndWait();
         bookImageView.setImage(bookImage);
         deleteFields();
     }

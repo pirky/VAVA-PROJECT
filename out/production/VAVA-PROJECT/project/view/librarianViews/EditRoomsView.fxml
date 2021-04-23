@@ -7,13 +7,20 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.librarianControllers.EditRoomsController">
-   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
-   <ListView fx:id="roomPictures" layoutX="538.0" layoutY="14.0" prefHeight="672.0" prefWidth="530.0" />
-   <ComboBox fx:id="roomComboBox" layoutX="181.0" layoutY="138.0" onAction="#comboClick" prefWidth="150.0" />
-   <Button fx:id="addPictureButton" layoutX="181.0" layoutY="196.0" mnemonicParsing="false" onAction="#addImage" text="%addImageAddBook" />
-   <Button fx:id="deletePictureButton" layoutX="181.0" layoutY="245.0" mnemonicParsing="false" onAction="#deletePhoto" text="%deletePicture" />
-   <Button layoutX="1133.0" layoutY="17.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
+<AnchorPane maxHeight="700.0" maxWidth="1200.0" minHeight="700.0" minWidth="1200.0" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.librarianControllers.EditRoomsController">
+   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" styleClass="button_lg" stylesheets="@../Grafic/style_sheet.css">
+      <graphic>
+         <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../images/other/back_button.png" />
+            </image>
+         </ImageView>
+      </graphic></Button>
+   <ListView fx:id="roomPictures" layoutX="636.0" layoutY="14.0" prefHeight="672.0" prefWidth="533.0" />
+   <ComboBox fx:id="roomComboBox" layoutX="171.0" layoutY="214.0" onAction="#comboClick" prefHeight="31.0" prefWidth="294.0" />
+   <Button fx:id="addPictureButton" layoutX="207.0" layoutY="325.0" mnemonicParsing="false" onAction="#addImage" prefHeight="68.0" prefWidth="222.0" text="%addImageBtn" wrapText="true" />
+   <Button fx:id="deletePictureButton" layoutX="207.0" layoutY="418.0" mnemonicParsing="false" onAction="#deletePhoto" prefHeight="68.0" prefWidth="222.0" text="%deletePicture" wrapText="true" />
+   <Button layoutX="495.0" layoutY="26.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg" stylesheets="@../Grafic/style_sheet.css">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -22,7 +29,7 @@
          </ImageView>
       </graphic>
    </Button>
-   <Button layoutX="1215.0" layoutY="17.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg">
+   <Button layoutX="563.0" layoutY="26.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg" stylesheets="@../Grafic/style_sheet.css">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
             <image>

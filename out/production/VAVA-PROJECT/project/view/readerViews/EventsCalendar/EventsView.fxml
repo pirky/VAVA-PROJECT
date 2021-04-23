@@ -11,8 +11,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="800.0" maxWidth="1400.0" minHeight="800.0" minWidth="1400.0" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsCalendar.EventsController">
-    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
+<AnchorPane maxHeight="800.0" maxWidth="1400.0" minHeight="800.0" minWidth="1400.0" prefHeight="800.0" prefWidth="1400.0" stylesheets="@../../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsCalendar.EventsController">
+    <Button layoutX="6.0" layoutY="3.0" mnemonicParsing="false" onAction="#showMenu" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../images/other/back_button.png" />
+            </image>
+         </ImageView>
+      </graphic></Button>
    <Pane fx:id="pane" layoutX="27.0" layoutY="96.0" prefHeight="690.0" prefWidth="1347.0" />
    <HBox alignment="CENTER" layoutX="553.0" layoutY="20.0" prefHeight="51.0" prefWidth="293.0" spacing="30.0">
       <Button mnemonicParsing="false" onAction="#previousMonth" prefHeight="31.0" prefWidth="45.0" text="←" />

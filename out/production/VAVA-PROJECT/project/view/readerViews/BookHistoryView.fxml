@@ -12,11 +12,18 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.BookHistoryController">
-   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMenu" text="Späť" />
+<AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" stylesheets="@../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.BookHistoryController">
+   <Button layoutX="8.0" layoutY="7.0" mnemonicParsing="false" onAction="#showMenu" styleClass="button_lg">
+      <graphic>
+         <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../images/other/back_button.png" />
+            </image>
+         </ImageView>
+      </graphic></Button>
    <ComboBox fx:id="readersBox" layoutX="39.0" layoutY="126.0" onAction="#updateTableView" prefHeight="31.0" prefWidth="289.0" />
-   <Label fx:id="chooseReaderLabel" layoutX="39.0" layoutY="98.0" text="%chooseReaderLabel" />
-   <TableView fx:id="tableView" layoutX="370.0" layoutY="27.0" prefHeight="626.0" prefWidth="920.0">
+   <Label fx:id="chooseReaderLabel" layoutX="39.0" layoutY="98.0" prefHeight="21.0" prefWidth="289.0" text="%chooseReaderLabel" />
+   <TableView fx:id="tableView" layoutX="366.0" layoutY="14.0" prefHeight="670.0" prefWidth="920.0">
       <columns>
          <TableColumn fx:id="imageColumn" maxWidth="200.0" minWidth="170.0" prefWidth="170.0" resizable="false" text="%imageColumn" />
          <TableColumn fx:id="authorColumn" maxWidth="330.0" minWidth="194.0" prefWidth="206.0" resizable="false" text="%authorColumn" />
@@ -26,11 +33,11 @@
       </columns>
    </TableView>
    <Circle fill="#98f8b1" layoutX="55.0" layoutY="216.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
-   <Text fx:id="returnLabel" layoutX="104.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%returnLabel" />
+   <Text fx:id="returnLabel" layoutX="100.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%returnLabel" wrappingWidth="194.59765625" />
    <Circle fill="#ff9494" layoutX="55.0" layoutY="276.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
-   <Text fx:id="rentedLabel" layoutX="100.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%rentedLabel" />
+   <Text fx:id="rentedLabel" layoutX="100.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%rentedLabel" wrappingWidth="194.59766149520874" />
    <TextField fx:id="filterField" layoutX="61.0" layoutY="376.0" prefHeight="31.0" prefWidth="246.0" promptText="%search" />
-   <Button layoutX="84.0" layoutY="12.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg" stylesheets="@../Grafic/style_sheet.css">
+   <Button layoutX="240.0" layoutY="19.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg" stylesheets="@../Grafic/style_sheet.css">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -39,7 +46,7 @@
          </ImageView>
       </graphic>
    </Button>
-   <Button layoutX="156.0" layoutY="12.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg" stylesheets="@../Grafic/style_sheet.css">
+   <Button layoutX="304.0" layoutY="19.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg" stylesheets="@../Grafic/style_sheet.css">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
             <image>
