@@ -1,6 +1,8 @@
 package project.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import project.model.databases.UserDatabase;
 import java.io.IOException;
 import java.util.Locale;
@@ -63,6 +65,8 @@ public class RegistrationController implements menuInterface{
         if (!UserDatabase.checkIfExists(username.getText())){
             if (username.getText().equals("") || password.getText().equals("")) {
                 Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                Stage stage = (Stage) errorAlert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image("project/images/other/logo.jpg"));
                 errorAlert.setHeaderText(wrong_input);
                 errorAlert.setContentText(error_msg);
                 errorAlert.showAndWait();
@@ -71,6 +75,8 @@ public class RegistrationController implements menuInterface{
             if (flag) {
                 if (!password.getText().equals(password1.getText())) {
                     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                    Stage stage = (Stage) errorAlert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("project/images/other/logo.jpg"));
                     errorAlert.setHeaderText(wrong_input);
                     errorAlert.setContentText(not_matching);
                     errorAlert.showAndWait();
@@ -94,6 +100,8 @@ public class RegistrationController implements menuInterface{
         }
         else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("project/images/other/logo.jpg"));
             alert.setTitle(error);
             alert.setHeaderText(error);
             alert.setContentText(existing_user);

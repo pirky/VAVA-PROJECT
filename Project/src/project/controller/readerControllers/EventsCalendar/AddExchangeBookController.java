@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import project.controller.Main;
 import project.model.CustomImage;
 import project.model.books.Book;
@@ -137,7 +138,12 @@ public class AddExchangeBookController{
         }
         catch(Exception e) {
             if(bookImage == null){
-                JOptionPane.showMessageDialog(null, choosePhoto);
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image("project/images/other/logo.jpg"));
+                alert.setTitle(error);
+                alert.setHeaderText(choosePhoto);
+                alert.showAndWait();
                 LOG.log(Level.SEVERE, "User did not choose a picture");
             }
         }
@@ -153,6 +159,8 @@ public class AddExchangeBookController{
             for(Book i : ((BookExchange) event).getBooks()) {
                 if (i.getTitle().equals(bookName.getText())){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("project/images/other/logo.jpg"));
                     alert.setTitle(error);
                     alert.setHeaderText(existingBook);
                     alert.showAndWait();
@@ -218,6 +226,8 @@ public class AddExchangeBookController{
     private boolean testRequired(){
         if(bookName.getText().equals("") || authorName.getText().equals("") || bookNote.getText().equals("") || bookImage == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("project/images/other/logo.jpg"));
             alert.setTitle(error);
             alert.setHeaderText(requiredError);
             alert.showAndWait();
@@ -233,6 +243,8 @@ public class AddExchangeBookController{
         }
         catch(Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("project/images/other/logo.jpg"));
             alert.setTitle(error);
             alert.setHeaderText(wrongNumber);
             alert.showAndWait();
