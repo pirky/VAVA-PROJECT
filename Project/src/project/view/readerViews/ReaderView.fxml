@@ -6,17 +6,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" stylesheets="@../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.ReaderController">
-   <Button fx:id="reservationBtn" layoutX="500.0" layoutY="242.0" mnemonicParsing="false" onAction="#bookReservation" prefHeight="60.0" prefWidth="200.0" text="%reservationBtn" textAlignment="CENTER" wrapText="true" />
-   <Button layoutX="6.0" layoutY="7.0" mnemonicParsing="false" onAction="#showMain" styleClass="button_lg">
+   <Button fx:id="reservationBtn" layoutX="184.0" layoutY="209.0" mnemonicParsing="false" onAction="#bookReservation" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%reservationBtn" textAlignment="CENTER" wrapText="true" />
+   <Button layoutX="6.0" layoutY="7.0" mnemonicParsing="false" onAction="#showMain" styleClass="button_back">
       <graphic>
-         <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../images/other/back_button.png" />
             </image>
          </ImageView>
       </graphic></Button>
-   <Button fx:id="historyBtn" layoutX="500.0" layoutY="323.0" mnemonicParsing="false" onAction="#showHistory" prefHeight="60.0" prefWidth="200.0" text="%historyBtn" textAlignment="CENTER" wrapText="true" />
-   <Button fx:id="eventBtn" layoutX="500.0" layoutY="399.0" mnemonicParsing="false" onAction="#showEvents" prefHeight="60.0" prefWidth="200.0" text="%eventBtn" textAlignment="CENTER" wrapText="true" />
+   <Button fx:id="historyBtn" layoutX="184.0" layoutY="321.0" mnemonicParsing="false" onAction="#showHistory" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%historyBtn" textAlignment="CENTER" wrapText="true" />
+   <Button fx:id="eventBtn" layoutX="184.0" layoutY="432.0" mnemonicParsing="false" onAction="#showEvents" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%eventBtn" textAlignment="CENTER" wrapText="true" />
    <Button layoutX="1059.0" layoutY="14.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg" stylesheets="@../Grafic/style_sheet.css">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
@@ -35,4 +35,9 @@
          </ImageView>
       </graphic>
    </Button>
+   <ImageView fitHeight="404.0" fitWidth="431.0" layoutX="796.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../images/other/reader.png" />
+      </image>
+   </ImageView>
 </AnchorPane>

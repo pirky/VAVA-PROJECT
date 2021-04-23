@@ -61,6 +61,8 @@ public class EventsController {
     public void updateCalendar(){
         pane.getChildren().clear();
         pane.getChildren().add(new CalendarController(currYearMonth).getView());
+        if (Main.currLanguage.equals("SK")) languageSK();
+        else languageEN();
     }
 
     public void previousMonth(){

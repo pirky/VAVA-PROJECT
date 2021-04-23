@@ -33,6 +33,7 @@ public class DiscussionController {
 
     private void updateList(){
         listView.getItems().clear();
+        messages.add(new Message("Serus", "Pažo"));
         messages.addAll(((BookDiscussion) event).getMessages());
         listView.setCellFactory(ListView -> new MessageController());
         listView.setItems(messages);

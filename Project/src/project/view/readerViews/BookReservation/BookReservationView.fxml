@@ -18,20 +18,20 @@
          <Insets left="10.0" top="10.0" />
       </HBox.margin>
       <Pane prefHeight="690.0" prefWidth="175.0">
-         <Button mnemonicParsing="false" onAction="#showMenu" styleClass="button_lg">
+         <Button mnemonicParsing="false" onAction="#showMenu" styleClass="button_back">
             <graphic>
-               <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../../images/other/back_button.png" />
                   </image>
                </ImageView>
             </graphic></Button>
-         <Label fx:id="showOptionsLabel" layoutX="10.0" layoutY="81.0" prefHeight="21.0" prefWidth="157.0" text="%showOptionsLabel" />
-         <ComboBox fx:id="comboBox" layoutX="10.0" layoutY="110.0" onAction="#changeBooks" prefHeight="0.0" prefWidth="157.0" />
+         <Label fx:id="showOptionsLabel" layoutX="7.0" layoutY="80.0" prefHeight="21.0" prefWidth="157.0" text="%showOptionsLabel" />
+         <ComboBox fx:id="comboBox" layoutX="3.0" layoutY="110.0" onAction="#changeBooks" prefHeight="29.0" prefWidth="164.0" />
       </Pane>
    </VBox>
    <VBox prefHeight="799.0" prefWidth="1100.0">
-      <AnchorPane prefHeight="60.0" prefWidth="1097.0">
+      <AnchorPane prefHeight="90.0" prefWidth="1100.0">
          <children>
             <Button layoutX="982.0" layoutY="12.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg" stylesheets="@../../Grafic/style_sheet.css">
                <graphic>
@@ -52,7 +52,7 @@
                </graphic>
             </Button>
          </children></AnchorPane>
-      <ListView fx:id="listView" prefHeight="580.0" prefWidth="1200.0" />
+      <ListView fx:id="listView" prefHeight="659.0" prefWidth="1100.0" styleClass="list-view_transparent" />
       <HBox prefHeight="50.0" prefWidth="200.0" />
    </VBox>
    <VBox prefHeight="700.0" prefWidth="12.0" />

@@ -86,7 +86,7 @@ public class CalendarController {
             vBoxNode.setDate(calendarDate);
 
             if(calendarDate.getMonthValue() != yearMonth.getMonthValue()){
-                vBoxNode.setStyle("-fx-background-color: #ffb8b8;");
+                vBoxNode.setStyle("-fx-background-color: transparent;");
                 calendarDate = calendarDate.plusDays(1);
                 vBoxNode.setAlignment(Pos.TOP_LEFT);
                 vBoxNode.getChildren().add(label);
@@ -94,6 +94,7 @@ public class CalendarController {
             }
 
             ListView<Event> listView = getListView(calendarDate, vBoxNode, yearMonth);
+            listView.getStylesheets().add("project/view/Grafic/calendar_cell.css");
             vBoxNode.getChildren().addAll(label, listView);
             calendarDate = calendarDate.plusDays(1);
         }
@@ -115,13 +116,13 @@ public class CalendarController {
                 }else{
                     for(Reader reader: event.getParticipants()){
                         if(reader.toString().equals(Main.currUser.toString())){
-                            setStyle("-fx-background-color: #bdffb3");
+                            getStylesheets().add("project/view/Grafic/participant_cell.css");
                             break;
                         }
                     }
                     for(Reader reader: event.getVolunteers()){
                         if(reader.toString().equals(Main.currUser.toString())){
-                            setStyle("-fx-background-color: #bdffb3");
+                            getStylesheets().add("project/view/Grafic/participant_cell.css");
                             break;
                         }
                     }

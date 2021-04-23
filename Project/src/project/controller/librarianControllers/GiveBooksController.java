@@ -98,12 +98,12 @@ public class GiveBooksController {
     }
 
     public void changeSigns(ResourceBundle bundle){
-        text1.setText(bundle.getString("chooseRoomLabel"));
+        text1.setText(bundle.getString("text1"));
         giveBtn.setText(bundle.getString("giveBtn"));
-        text2.setText(bundle.getString("capacityText"));
+        text2.setText(bundle.getString("text2"));
         addBtn.setText(bundle.getString("addBtn"));
         filterField.setPromptText(bundle.getString("search"));
-        text4.setText(bundle.getString("StartDateLabel"));
+        text4.setText(bundle.getString("text4"));
         authorColumn.setText(bundle.getString("authorColumn"));
         titleColumn.setText(bundle.getString("titleColumn"));
         imageColumn.setText(bundle.getString("imageColumn"));

@@ -6,19 +6,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="700.0" maxWidth="1200.0" minHeight="700.0" minWidth="1200.0" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.librarianControllers.LibrarianController">
-   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMain" styleClass="button_lg">
+   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showMain" styleClass="button_back">
       <graphic>
-         <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../images/other/back_button.png" />
             </image>
          </ImageView>
       </graphic></Button>
-   <Button fx:id="returnBookBtn" layoutX="500.0" layoutY="320.0" mnemonicParsing="false" onAction="#returnBook" prefHeight="60.0" prefWidth="200.0" text="%returnBook" wrapText="true" />
-   <Button fx:id="giveBooksBtn" layoutX="500.0" layoutY="145.0" mnemonicParsing="false" onAction="#giveBook" prefHeight="60.0" prefWidth="200.0" text="%giveBooks" wrapText="true" />
-   <Button fx:id="loadBooksBtn" layoutX="500.0" layoutY="232.0" mnemonicParsing="false" onAction="#addNewBook" prefHeight="60.0" prefWidth="200.0" text="%loadBooks" wrapText="true" />
-   <Button fx:id="editRoomBtn" layoutX="500.0" layoutY="408.0" mnemonicParsing="false" onAction="#editRooms" prefHeight="60.0" prefWidth="200.0" text="%editRoom" wrapText="true" />
-   <Button fx:id="notReturnedBooksBtn" layoutX="500.0" layoutY="496.0" mnemonicParsing="false" onAction="#notReturned" prefHeight="60.0" prefWidth="200.0" text="%notReturnedBooks" wrapText="true" />
+   <Button fx:id="returnBookBtn" layoutX="729.0" layoutY="320.0" mnemonicParsing="false" onAction="#returnBook" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%returnBook" wrapText="true" />
+   <Button fx:id="giveBooksBtn" layoutX="729.0" layoutY="145.0" mnemonicParsing="false" onAction="#giveBook" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%giveBooks" wrapText="true" />
+   <Button fx:id="loadBooksBtn" layoutX="729.0" layoutY="232.0" mnemonicParsing="false" onAction="#addNewBook" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%loadBooks" wrapText="true" />
+   <Button fx:id="editRoomBtn" layoutX="729.0" layoutY="408.0" mnemonicParsing="false" onAction="#editRooms" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%editRoom" wrapText="true" />
+   <Button fx:id="notReturnedBooksBtn" layoutX="729.0" layoutY="496.0" mnemonicParsing="false" onAction="#notReturned" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%notReturnedBooks" wrapText="true" />
    <Button layoutX="1066.0" layoutY="14.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
@@ -37,4 +37,9 @@
          </ImageView>
       </graphic>
    </Button>
+   <ImageView fitHeight="349.0" fitWidth="387.0" layoutX="110.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../images/other/librarian.png" />
+      </image>
+   </ImageView>
 </AnchorPane>

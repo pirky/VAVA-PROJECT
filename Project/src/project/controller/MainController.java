@@ -1,4 +1,5 @@
 package project.controller;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +16,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController{
     @FXML private TextField username;
     @FXML private TextField password;
     @FXML private DatePicker datePicker;

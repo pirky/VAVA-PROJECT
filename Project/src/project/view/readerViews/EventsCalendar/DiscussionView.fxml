@@ -7,20 +7,20 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1042.0" stylesheets="@../../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsCalendar.DiscussionController">
-   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showEvent" styleClass="button_lg">
+<AnchorPane prefHeight="800.0" prefWidth="1042.0" stylesheets="@../../Grafic/discussion_style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsCalendar.DiscussionController">
+   <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showEvent" styleClass="button_back">
       <graphic>
-         <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="button_lg">
+         <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="button_lg">
             <image>
                <Image url="@../../../images/other/back_button.png" />
             </image>
          </ImageView>
       </graphic></Button>
-   <ListView fx:id="listView" layoutX="137.0" layoutY="15.0" prefHeight="650.0" prefWidth="890.0" stylesheets="@../../Grafic/disable_selection.css" />
-   <TextArea fx:id="textArea" layoutX="138.0" layoutY="681.0" prefHeight="104.0" prefWidth="812.0" wrapText="true" />
-   <Button layoutX="956.0" layoutY="701.0" mnemonicParsing="false" onAction="#addMessage" prefHeight="36.0" prefWidth="30.0" styleClass="button_lg" stylesheets="@../../Grafic/style_sheet.css">
+   <ListView fx:id="listView" layoutX="137.0" layoutY="15.0" prefHeight="650.0" prefWidth="890.0" stylesheets="@../../Grafic/discussion_style.css" />
+   <TextArea fx:id="textArea" layoutX="138.0" layoutY="681.0" prefHeight="104.0" prefWidth="812.0" styleClass="text-area_send" wrapText="true" />
+   <Button layoutX="958.0" layoutY="703.0" mnemonicParsing="false" onAction="#addMessage" prefHeight="36.0" prefWidth="30.0" styleClass="button_back" stylesheets="@../../Grafic/style_sheet.css">
       <graphic>
-         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="60.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../../images/other/sendBtn.png" />
             </image>

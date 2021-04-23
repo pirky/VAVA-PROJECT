@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane maxHeight="800.0" maxWidth="1400.0" minHeight="800.0" minWidth="1400.0" prefHeight="800.0" prefWidth="1400.0" stylesheets="@../../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.readerControllers.EventsCalendar.EventsController">
-    <Button layoutX="6.0" layoutY="3.0" mnemonicParsing="false" onAction="#showMenu" styleClass="button_lg">
+    <Button layoutX="6.0" layoutY="3.0" mnemonicParsing="false" onAction="#showMenu" styleClass="button_back">
       <graphic>
-         <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../../images/other/back_button.png" />
             </image>
@@ -22,9 +22,23 @@
       </graphic></Button>
    <Pane fx:id="pane" layoutX="27.0" layoutY="96.0" prefHeight="690.0" prefWidth="1347.0" />
    <HBox alignment="CENTER" layoutX="553.0" layoutY="20.0" prefHeight="51.0" prefWidth="293.0" spacing="30.0">
-      <Button mnemonicParsing="false" onAction="#previousMonth" prefHeight="31.0" prefWidth="45.0" text="←" />
+      <Button mnemonicParsing="false" onAction="#previousMonth" prefHeight="31.0" prefWidth="45.0" styleClass="button_back">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="button_back">
+               <image>
+                  <Image url="@../../../images/other/left_arrow.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <Label fx:id="yearMonthLabel" alignment="CENTER" prefHeight="21.0" prefWidth="170.0" text="SEPTEMBER 2021" textAlignment="CENTER" />
-      <Button mnemonicParsing="false" onAction="#nextMonth" prefHeight="31.0" prefWidth="45.0" text="→" />
+      <Button mnemonicParsing="false" onAction="#nextMonth" prefHeight="31.0" prefWidth="45.0" styleClass="button_back">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/other/right_arrow.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </HBox>
    <Button layoutX="1271.0" layoutY="20.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg" stylesheets="@../../Grafic/style_sheet.css">
       <graphic>

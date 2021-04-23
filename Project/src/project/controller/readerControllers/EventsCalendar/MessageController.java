@@ -44,7 +44,7 @@ public class MessageController extends ListCell<Message> {
             helper.setText(message.getText());
             helper.setFont(textArea.getFont());
             helper.setWrappingWidth(473);
-            double areaHeight = helper.getLayoutBounds().getHeight() + 25;
+            double areaHeight = helper.getLayoutBounds().getHeight() * 1.07 + 20;
             int height = 23 + (int) areaHeight;
 
             textArea.setPrefHeight(areaHeight);

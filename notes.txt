@@ -1,15 +1,6 @@
 TODO list:
 -------------------- NA ZÁVER --------------------
-→ zmenit JOptionPane na alertBox
-→ AddEvent → podavat internationalizaciu do View
-→ OrganizerView → podavat internationalizaciu do View
-→ infoLabel upravit na tie spravy co su v Loggeroch pri nich
-→ alertBoxy pridat ikonu
-
 → serializácia
-→ rerfactoring 
-	→ vypisy v internationalizacii
-→ urobit grafiku
 → UML tried diagram
 → dokumentacia → git vision Template
 → javadoc → ak bude cas
