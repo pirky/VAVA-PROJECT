@@ -24,9 +24,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class BookHistoryController {
-    ObservableList<Reader> readers = FXCollections.observableArrayList();
     ObservableList<TableBook> rentedBooks = FXCollections.observableArrayList();
-    @FXML private ComboBox<Reader> readersBox;
     @FXML private TableView<TableBook> tableView;
     @FXML private TableColumn<TableBook, String> authorColumn;
     @FXML private TableColumn<TableBook, String> titleColumn;
@@ -34,7 +32,6 @@ public class BookHistoryController {
     @FXML private TableColumn<TableBook, LocalDate> dateFrom;
     @FXML private TableColumn<TableBook, LocalDate> dateTo;
     @FXML private TextField filterField;
-    @FXML private Label chooseReaderLabel;
     @FXML private Text returnLabel;
     @FXML private Text rentedLabel;
 
@@ -42,12 +39,6 @@ public class BookHistoryController {
     public void initialize(){
         if (Main.currLanguage.equals("SK")) languageSK();
         else languageEN();
-        for(User user: Main.userDatabase.getUsers()){
-            if(user instanceof Reader){
-                readers.add((Reader) user);
-            }
-        }
-        readersBox.setItems(readers);
 
         authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
         authorColumn.setCellFactory(param -> {
@@ -72,6 +63,7 @@ public class BookHistoryController {
         dateFrom.setCellValueFactory(new PropertyValueFactory<>("dateFrom"));
         dateTo.setCellValueFactory(new PropertyValueFactory<>("dateTo"));
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageView"));
+        updateTableView();
     }
 
     public void languageEN(){
@@ -90,7 +82,6 @@ public class BookHistoryController {
 
     public void changeSigns(ResourceBundle bundle){
         filterField.setPromptText(bundle.getString("search"));
-        chooseReaderLabel.setText(bundle.getString("chooseReaderLabel"));
         returnLabel.setText(bundle.getString("returnLabel"));
         rentedLabel.setText(bundle.getString("rentedLabel"));
         authorColumn.setText(bundle.getString("authorColumn"));
@@ -102,7 +93,7 @@ public class BookHistoryController {
 
     public void updateTableView(){
         tableView.getItems().clear();
-        Reader reader = readersBox.getValue();
+        Reader reader = (Reader) Main.currUser;
         for(BookReservation bookReservation: reader.getReservations()){
             if(bookReservation.isReturned() == null){
                 continue;
