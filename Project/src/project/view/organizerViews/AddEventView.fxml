@@ -44,7 +44,7 @@
    <Button fx:id="btn" layoutX="412.0" layoutY="534.0" mnemonicParsing="false" onAction="#createEvent" prefHeight="84.0" prefWidth="229.0" styleClass="button_basic" text="%btn" />
    <Label fx:id="infoLabel" alignment="CENTER" layoutX="376.0" layoutY="418.0" prefHeight="50.0" prefWidth="301.0" text="%error" textAlignment="CENTER" textFill="RED" wrapText="true" />
    <Text fx:id="text2" fontSmoothingType="LCD" layoutX="40.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%capacityText" />
-   <Text fx:id="capacity" layoutX="89.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.45315110683441" />
+   <Text fx:id="capacity" layoutX="109.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.45315110683441" />
    <Button layoutX="620.0" layoutY="19.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">

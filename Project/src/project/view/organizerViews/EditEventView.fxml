@@ -8,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="700.0" prefWidth="1300.0" stylesheets="@../Grafic/style_sheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.organizerControllers.EditEventController">
@@ -20,22 +21,23 @@
             </image>
          </ImageView>
       </graphic></Button>
-   <TextArea fx:id="noteArea" layoutX="41.0" layoutY="389.0" prefHeight="200.0" prefWidth="301.0" />
-   <ComboBox fx:id="comboBox" layoutX="41.0" layoutY="170.0" onAction="#onClicked" prefHeight="31.0" prefWidth="301.0" />
+   <TextArea fx:id="noteArea" layoutX="41.0" layoutY="361.0" prefHeight="200.0" prefWidth="301.0" />
    <ListView fx:id="listView" layoutX="753.0" layoutY="24.0" prefHeight="652.0" prefWidth="533.0" styleClass="list-view_transparent" />
-   <Label fx:id="label1" layoutX="48.0" layoutY="129.0" text="%label1" />
-   <Label fx:id="label2" layoutX="40.0" layoutY="227.0" text="%label2" />
-   <Label fx:id="label4" layoutX="41.0" layoutY="360.0" text="%label4" />
-   <TextArea fx:id="nameArea" layoutX="40.0" layoutY="264.0" prefHeight="73.0" prefWidth="301.0" />
-   <TextArea fx:id="hostArea" layoutX="383.0" layoutY="264.0" prefHeight="73.0" prefWidth="301.0" />
-   <Label fx:id="hostLabel" layoutX="500.0" layoutY="218.0" text="%label3" />
-   <Button fx:id="btn1" layoutX="92.0" layoutY="610.0" mnemonicParsing="false" onAction="#createEvent" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%btn1" textAlignment="CENTER" wrapText="true" />
-   <Label fx:id="infoLabel" alignment="CENTER" layoutX="383.0" layoutY="389.0" prefHeight="50.0" prefWidth="301.0" text="%error" textAlignment="CENTER" textFill="RED" wrapText="true" />
-   <ComboBox fx:id="events" layoutX="40.0" layoutY="81.0" onAction="#comboClicked" prefHeight="31.0" prefWidth="301.0" />
-   <Button fx:id="button3" layoutX="434.0" layoutY="610.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%button3" textAlignment="CENTER" wrapText="true" />
-   <Text fx:id="text2" layoutX="354.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="%capacityText" />
-   <Text fx:id="capacity" layoutX="411.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" wrappingWidth="115.0" />
-   <Text fx:id="typeEvent" layoutX="349.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="68.00000369548798" />
+   <Label fx:id="label2" layoutX="40.0" layoutY="199.0" text="%label2" />
+   <Label fx:id="label4" layoutX="41.0" layoutY="332.0" text="%label4" />
+   <TextArea fx:id="nameArea" layoutX="40.0" layoutY="236.0" prefHeight="73.0" prefWidth="301.0" />
+   <TextArea fx:id="hostArea" layoutX="383.0" layoutY="236.0" prefHeight="73.0" prefWidth="301.0" />
+   <Label fx:id="hostLabel" layoutX="500.0" layoutY="190.0" text="%label3" />
+   <Button fx:id="btn1" layoutX="92.0" layoutY="616.0" mnemonicParsing="false" onAction="#createEvent" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%btn1" textAlignment="CENTER" wrapText="true" />
+   <Label fx:id="infoLabel" alignment="CENTER" layoutX="383.0" layoutY="361.0" prefHeight="50.0" prefWidth="301.0" text="%error" textAlignment="CENTER" textFill="RED" wrapText="true" />
+   <ComboBox fx:id="events" layoutX="41.0" layoutY="85.0" onAction="#comboClicked" prefHeight="31.0" prefWidth="655.0" />
+   <Button fx:id="button3" layoutX="434.0" layoutY="616.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%button3" textAlignment="CENTER" wrapText="true" />
+   <Text fx:id="text2" layoutX="41.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="%capacityText" />
+   <Text fx:id="capacity" layoutX="117.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" wrappingWidth="115.0" />
+   <Text fx:id="typeEvent" layoutX="207.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="323.000003695488">
+      <font>
+         <Font name="Segoe UI Bold" size="34.0" />
+      </font></Text>
    <Button layoutX="620.0" layoutY="25.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">

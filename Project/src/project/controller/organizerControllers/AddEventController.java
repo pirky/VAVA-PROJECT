@@ -178,7 +178,7 @@ public class AddEventController {
         for(CustomImage image: room.getImages()){
             ImageView imageView = new ImageView(image.getImage());
             imageView.setPreserveRatio(true);
-            imageView.setFitWidth(523);
+            imageView.setFitWidth(493);
             roomImages.add(imageView);
         }
         listView.setItems(roomImages);
@@ -242,7 +242,6 @@ public class AddEventController {
             infoLabel.setVisible(true);
             return true;
         }
-
         infoLabel.setVisible(false);
         return false;
     }
@@ -273,7 +272,7 @@ public class AddEventController {
         Locale locale;
         if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
         else locale = new Locale("en_US");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);

@@ -22,25 +22,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class EditEventController {
-    ObservableList<LibraryRoom> allRooms = FXCollections.observableArrayList();
     ObservableList<Event> eventsObservable = FXCollections.observableArrayList();
     ObservableList<ImageView> roomImages = FXCollections.observableArrayList();
+    private Event globalEvent;
     @FXML private ListView<ImageView> listView;
-    @FXML private ComboBox<LibraryRoom> comboBox;
     @FXML private TextArea hostArea;
     @FXML private TextArea nameArea;
     @FXML private TextArea noteArea;
     @FXML private Label hostLabel;
     @FXML private Label infoLabel;
     @FXML private Button btn1;
-    @FXML ComboBox<Event> events;private Event globalEvent;
+    @FXML private ComboBox<Event> events;
     @FXML private Text capacity;
-    @FXML Text typeEvent;
-    @FXML Text text2;
-    @FXML Label label1;
-    @FXML Label label2;
-    @FXML Label label4;
-    @FXML Button button3;
+    @FXML private Text typeEvent;
+    @FXML private Text text2;
+    @FXML private Label label2;
+    @FXML private Label label4;
+    @FXML private Button button3;
 
     @FXML
     public void initialize(){
@@ -50,12 +48,9 @@ public class EditEventController {
         infoLabel.setVisible(false);
         hostLabel.setVisible(false);
         hostArea.setVisible(false);
-        comboBox.setDisable(true);
         nameArea.setDisable(true);
         noteArea.setDisable(true);
         btn1.setDisable(false);
-        allRooms.addAll(Main.roomsDatabase.getRooms());
-        comboBox.setItems(allRooms);
     }
 
     public void languageEN(){
@@ -74,7 +69,6 @@ public class EditEventController {
 
     public void changeSigns(ResourceBundle bundle){
         text2.setText(bundle.getString("capacityText"));
-        label1.setText(bundle.getString("label1"));
         label2.setText(bundle.getString("label2"));
         hostLabel.setText(bundle.getString("label3"));
         label4.setText(bundle.getString("label4"));
@@ -84,7 +78,6 @@ public class EditEventController {
     }
 
     public void comboClicked(){
-        comboBox.setDisable(false);
         nameArea.setDisable(false);
         noteArea.setDisable(false);
         hostLabel.setVisible(true);
@@ -117,10 +110,10 @@ public class EditEventController {
                     nameArea.setText(bookDisc.getName());
                     noteArea.setText(bookDisc.getNote());
                     hostArea.setText(bookDisc.getHost());
-                    comboBox.getSelectionModel().select(bookDisc.getReservation().getRoomId());
-                    typeEvent.setText("diskusia");
+                    if(Main.currLanguage.equals("SK")) typeEvent.setText("Diskusia");
+                    else typeEvent.setText("Discussion");
 
-                    LibraryRoom room = comboBox.getValue();
+                    LibraryRoom room = Main.roomsDatabase.getRooms().get(bookDisc.getReservation().getRoomId());
                     if (room == null){
                         return;
                     }
@@ -128,19 +121,19 @@ public class EditEventController {
                     for(CustomImage image: room.getImages()){
                         ImageView imageView = new ImageView(image.getImage());
                         imageView.setPreserveRatio(true);
-                        imageView.setFitWidth(523);
+                        imageView.setFitWidth(493);
                         roomImages.add(imageView);
                     }
                     listView.setItems(roomImages);
                     listView.refresh();
 
-                    for(LibraryRoom room1 : Main.roomsDatabase.getRooms())
-                        if(room1.getId() == bookDisc.getReservation().getRoomId()){
+                    for(LibraryRoom room1 : Main.roomsDatabase.getRooms()) {
+                        if (room1.getId() == bookDisc.getReservation().getRoomId()) {
                             capacity.setText(String.valueOf(room.getCapacity()));
                         }
+                    }
                 }
             }
-
         }
         else if (events.getSelectionModel().getSelectedItem() instanceof BookExchange){
             hostLabel.setVisible(false);
@@ -151,11 +144,12 @@ public class EditEventController {
                 if(bookExch.getName().equals(events.getSelectionModel().getSelectedItem().getName())){
                     nameArea.setText(bookExch.getName());
                     noteArea.setText(bookExch.getNote());
-                    comboBox.getSelectionModel().select(bookExch.getReservation().getRoomId());
-                    typeEvent.setText("burza");
+
+                    if(Main.currLanguage.equals("SK")) typeEvent.setText("Burza");
+                    else typeEvent.setText("Books Exchange");
                     listView.getItems().clear();
 
-                    LibraryRoom room = comboBox.getValue();
+                    LibraryRoom room = Main.roomsDatabase.getRooms().get(bookExch.getReservation().getRoomId());
                     if (room == null){
                         return;
                     }
@@ -163,45 +157,24 @@ public class EditEventController {
                     for(CustomImage image: room.getImages()){
                         ImageView imageView = new ImageView(image.getImage());
                         imageView.setPreserveRatio(true);
-                        imageView.setFitWidth(523);
+                        imageView.setFitWidth(493);
                         roomImages.add(imageView);
                     }
                     listView.setItems(roomImages);
                     listView.refresh();
 
-                    for(LibraryRoom room1 : Main.roomsDatabase.getRooms())
-                        if(room1.getId() == bookExch.getReservation().getRoomId()){
+                    for(LibraryRoom room1 : Main.roomsDatabase.getRooms()) {
+                        if (room1.getId() == bookExch.getReservation().getRoomId()) {
                             capacity.setText(String.valueOf(room.getCapacity()));
-
-
                         }
+                    }
                 }
             }
         }
     }
 
-    public void onClicked(){
-        if (comboBox.getSelectionModel().getSelectedItem() == null){
-            return;
-        }
-        capacity.setText(String.valueOf(comboBox.getSelectionModel().getSelectedItem().getCapacity()));
-        LibraryRoom room = comboBox.getValue();
-        if (room == null){
-            return;
-        }
-        listView.getItems().clear();
-        for(CustomImage image: room.getImages()){
-            ImageView imageView = new ImageView(image.getImage());
-            imageView.setPreserveRatio(true);
-            imageView.setFitWidth(523);
-            roomImages.add(imageView);
-        }
-        listView.setItems(roomImages);
-        listView.refresh();
-    }
-
     public void createEvent() {
-        LibraryRoom room = comboBox.getValue();
+        LibraryRoom room = Main.roomsDatabase.getRooms().get(globalEvent.getReservation().getRoomId());
         String name = nameArea.getText();
         String host;
 
@@ -250,7 +223,6 @@ public class EditEventController {
     }
 
     private void deleteFields(){
-        comboBox.getSelectionModel().clearSelection();
         nameArea.clear();
         hostArea.clear();
         noteArea.clear();
@@ -258,7 +230,6 @@ public class EditEventController {
         listView.refresh();
         hostLabel.setVisible(false);
         hostArea.setVisible(false);
-        comboBox.setDisable(true);
         nameArea.setDisable(true);
         noteArea.setDisable(true);
     }
@@ -276,7 +247,7 @@ public class EditEventController {
         Locale locale;
         if (Main.currLanguage.equals("SK")) locale = new Locale("sk_SK");
         else locale = new Locale("en_US");
-        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.librarianView", locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("project/resources.organizerView", locale);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/organizerViews/OrganizerView.fxml")), bundle);
         Scene scene = new Scene(root);
         Main.mainStage.setScene(scene);

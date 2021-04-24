@@ -1,5 +1,6 @@
 TODO list:
 -------------------- NA ZÁVER --------------------
+→ odstranit tlacidla na hlavnej stranke
 → UML tried diagram
 → dokumentacia → git vision Template
 → javadoc → ak bude cas
