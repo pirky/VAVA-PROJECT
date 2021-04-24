@@ -1,7 +1,6 @@
 package project.model.databases;
 
 import project.controller.Main;
-import project.model.Rooms.LibraryRoom;
 import project.model.Rooms.RoomReservation;
 import project.model.books.BookReservation;
 import project.model.events.BookDiscussion;
@@ -11,7 +10,6 @@ import project.model.users.Librarian;
 import project.model.users.Organizer;
 import project.model.users.Reader;
 import project.model.users.User;
-
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;

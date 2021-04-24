@@ -222,6 +222,10 @@ public class EventEnrollController {
 
         if(event.getReservation().getDateFrom().compareTo(Main.booksDatabase.getDate()) <= 0){
             cancelBtn.setVisible(false);
+            volunteerBtn.setVisible(false);
+        }
+        if(event.getReservation().getDateTo().compareTo(Main.booksDatabase.getDate()) < 0){
+            participantBtn.setVisible(false);
         }
     }
 

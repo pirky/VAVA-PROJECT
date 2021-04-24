@@ -43,7 +43,11 @@ public class EditEventController {
     @FXML
     public void initialize(){
         Organizer organizer = (Organizer) Main.currUser;
-        eventsObservable.addAll(organizer.getEvents());
+        for(Event event: organizer.getEvents()){
+            if(event.getReservation().getDateFrom().compareTo(Main.booksDatabase.getDate()) > 0){
+                eventsObservable.add(event);
+            }
+        }
         events.setItems(eventsObservable);
         infoLabel.setVisible(false);
         hostLabel.setVisible(false);

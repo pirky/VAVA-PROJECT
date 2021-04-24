@@ -27,7 +27,7 @@
    <Label fx:id="label4" layoutX="41.0" layoutY="332.0" text="%label4" />
    <TextArea fx:id="nameArea" layoutX="40.0" layoutY="236.0" prefHeight="73.0" prefWidth="301.0" />
    <TextArea fx:id="hostArea" layoutX="383.0" layoutY="236.0" prefHeight="73.0" prefWidth="301.0" />
-   <Label fx:id="hostLabel" layoutX="500.0" layoutY="190.0" text="%label3" />
+   <Label fx:id="hostLabel" layoutX="383.0" layoutY="199.0" text="%label3" />
    <Button fx:id="btn1" layoutX="92.0" layoutY="616.0" mnemonicParsing="false" onAction="#createEvent" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%btn1" textAlignment="CENTER" wrapText="true" />
    <Label fx:id="infoLabel" alignment="CENTER" layoutX="383.0" layoutY="361.0" prefHeight="50.0" prefWidth="301.0" text="%error" textAlignment="CENTER" textFill="RED" wrapText="true" />
    <ComboBox fx:id="events" layoutX="41.0" layoutY="85.0" onAction="#comboClicked" prefHeight="31.0" prefWidth="655.0" />
