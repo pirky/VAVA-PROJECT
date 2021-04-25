@@ -84,14 +84,14 @@ public class RegistrationController implements menuInterface{
                 }
                 else{
                     switch (selectedType) {
-                        case "librarian":
-                            selectedType = "knihovník";
+                        case "Librarian":
+                            selectedType = "Knihovník";
                             break;
-                        case "reader":
-                            selectedType = "čítateľ";
+                        case "Reader":
+                            selectedType = "Čitateľ";
                             break;
-                        case "organizer":
-                            selectedType = "organizátor";
+                        case "Organizer":
+                            selectedType = "Organizátor";
                             break;
                     }
                     UserDatabase.registration(username.getText(), password.getText(), selectedType);

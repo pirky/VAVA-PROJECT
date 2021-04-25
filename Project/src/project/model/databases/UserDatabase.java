@@ -35,15 +35,15 @@ public class UserDatabase {
 
     public static void registration(String username, String password, String type) {
         switch(type) {
-            case "knihovník":
+            case "Knihovník":
                 Librarian librarian = new Librarian(username,password);
                 Main.userDatabase.addUser(librarian);
                 break;
-            case "organizátor":
+            case "Organizátor":
                 Organizer organizer = new Organizer(username,password);
                 Main.userDatabase.addUser(organizer);
                 break;
-            case "čitateľ":
+            case "Čitateľ":
                 Reader reader = new Reader(username,password);
                 Main.userDatabase.addUser(reader);
                 break;

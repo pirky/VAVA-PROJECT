@@ -37,7 +37,9 @@ public class Reader extends User{
 
     public Object clone(){
         Reader reader = new Reader(this.getUserName(), this.getPassword());
-        reader.setReservations(this.reservations);
+        if(!(this.reservations == null)){
+            reader.setReservations(this.reservations);
+        }
         return reader;
     }
 }
