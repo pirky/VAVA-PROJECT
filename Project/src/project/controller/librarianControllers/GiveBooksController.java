@@ -127,10 +127,12 @@ public class GiveBooksController {
         listView.setItems(bookReservations);
         listView.refresh();
         giveBtn.setDisable(false);
+        addBtn.setDisable(true);
         updateTableView();
     }
 
     private void updateTableView(){
+        freeBooks.clear();
         for(Book book: Main.booksDatabase.getBooks()){
             boolean isFree = true;
             for(User user: Main.userDatabase.getUsers()){
@@ -138,8 +140,11 @@ public class GiveBooksController {
                     for(BookReservation bookReservation: ((Reader) user).getReservations()){
                         if (book.getId() == bookReservation.getBookId() &&
                                 ((Main.booksDatabase.getDate().compareTo(bookReservation.getDateFrom()) >= 0 &&
-                                        Main.booksDatabase.getDate().compareTo(bookReservation.getDateTo()) <= 0) &&
+                                        Main.booksDatabase.getDate().compareTo(bookReservation.getDateTo()) <= 0) ||
                                         (bookReservation.isReturned() != null && !bookReservation.isReturned()))) {
+                            if(bookReservation.isReturned() != null && !bookReservation.isReturned()){
+                                continue;
+                            }
                             isFree = false;
                             break;
                         }
