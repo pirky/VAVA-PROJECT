@@ -25,7 +25,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         currLanguage = "SK";
-        Locale skLocale = new Locale("sk_SK");
+        Locale skLocale = new Locale("sk_sk");
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.mainView", skLocale);
         mainStage = primaryStage;
         mainStage.setTitle("eLib");
