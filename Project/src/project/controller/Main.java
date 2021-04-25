@@ -29,7 +29,7 @@ public class Main extends Application {
         ResourceBundle bundle = ResourceBundle.getBundle("project/resources.mainView", skLocale);
         mainStage = primaryStage;
         mainStage.setTitle("eLib");
-        mainStage.getIcons().add(new Image("project/images/other/logo.jpg"));
+        mainStage.getIcons().add(new Image("project/images/other/logo.png"));
         mainStage.setResizable(false);
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/project/view/MainView.fxml")), bundle);
         Scene scene = new Scene(root);

@@ -67,9 +67,9 @@ public class RegistrationController implements menuInterface{
             if (username.getText().equals("") || password.getText().equals("")) {
                 Alert errorAlert = new Alert(Alert.AlertType.ERROR);
                 Stage stage = (Stage) errorAlert.getDialogPane().getScene().getWindow();
-                stage.getIcons().add(new Image("project/images/other/logo.jpg"));
-                errorAlert.setHeaderText(wrong_input);
-                errorAlert.setContentText(error_msg);
+                stage.getIcons().add(new Image("project/images/other/logo.png"));
+                errorAlert.setTitle(wrong_input);
+                errorAlert.setHeaderText(error_msg);
                 errorAlert.showAndWait();
                 flag = false;
             }
@@ -77,9 +77,9 @@ public class RegistrationController implements menuInterface{
                 if (!password.getText().equals(password1.getText())) {
                     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
                     Stage stage = (Stage) errorAlert.getDialogPane().getScene().getWindow();
-                    stage.getIcons().add(new Image("project/images/other/logo.jpg"));
-                    errorAlert.setHeaderText(wrong_input);
-                    errorAlert.setContentText(not_matching);
+                    stage.getIcons().add(new Image("project/images/other/logo.png"));
+                    errorAlert.setTitle(wrong_input);
+                    errorAlert.setHeaderText(not_matching);
                     errorAlert.showAndWait();
                 }
                 else{
@@ -102,10 +102,9 @@ public class RegistrationController implements menuInterface{
         else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image("project/images/other/logo.jpg"));
+            stage.getIcons().add(new Image("project/images/other/logo.png"));
             alert.setTitle(error);
-            alert.setHeaderText(error);
-            alert.setContentText(existing_user);
+            alert.setHeaderText(existing_user);
             alert.showAndWait();
         }
     }

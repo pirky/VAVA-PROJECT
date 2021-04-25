@@ -150,7 +150,7 @@ public class EventEnrollController {
 
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-                    stage.getIcons().add(new Image("project/images/other/logo.jpg"));
+                    stage.getIcons().add(new Image("project/images/other/logo.png"));
                     if(option == 1){
                         alert.setTitle(successfulRegistration);
                         alert.setHeaderText(successfulRegistrationMsgParticipant);

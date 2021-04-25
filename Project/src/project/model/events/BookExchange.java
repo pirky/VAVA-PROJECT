@@ -1,6 +1,6 @@
 package project.model.events;
 
-import project.model.Rooms.RoomReservation;
+import project.model.rooms.RoomReservation;
 import project.model.books.SellableBook;
 import project.model.users.Organizer;
 import java.util.ArrayList;

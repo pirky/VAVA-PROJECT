@@ -17,7 +17,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import project.controller.Main;
 import project.model.CustomImage;
-import project.model.Rooms.LibraryRoom;
+import project.model.rooms.LibraryRoom;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -160,7 +160,7 @@ public class EditRoomsController implements Initializable {
         catch(Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image("project/images/other/logo.jpg"));
+            stage.getIcons().add(new Image("project/images/other/logo.png"));
             alert.setTitle(error);
             alert.setHeaderText(notChosen);
             alert.showAndWait();

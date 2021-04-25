@@ -1,4 +1,4 @@
-package project.model.Rooms;
+package project.model.rooms;
 
 import project.model.CustomImage;
 

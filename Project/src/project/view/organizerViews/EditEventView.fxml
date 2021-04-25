@@ -16,15 +16,15 @@
    <Button layoutX="9.0" layoutY="7.0" mnemonicParsing="false" onAction="#showMenu" styleClass="button_back" stylesheets="@../Graphic/style_sheet.css">
       <graphic>
          <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../images/other/back_button.png"/>
+            <Image url="@../../images/other/back_button.png" />
          </ImageView>
       </graphic></Button>
-   <TextArea fx:id="noteArea" layoutX="41.0" layoutY="361.0" prefHeight="200.0" prefWidth="301.0" />
+   <TextArea fx:id="noteArea" layoutX="41.0" layoutY="361.0" prefHeight="200.0" prefWidth="301.0" wrapText="true" />
    <ListView fx:id="listView" layoutX="753.0" layoutY="24.0" prefHeight="652.0" prefWidth="533.0" styleClass="list-view_transparent" />
    <Label fx:id="label2" layoutX="40.0" layoutY="199.0" text="%label2" />
    <Label fx:id="label4" layoutX="41.0" layoutY="332.0" text="%label4" />
-   <TextArea fx:id="nameArea" layoutX="40.0" layoutY="236.0" prefHeight="73.0" prefWidth="301.0" />
-   <TextArea fx:id="hostArea" layoutX="383.0" layoutY="236.0" prefHeight="73.0" prefWidth="301.0" />
+   <TextArea fx:id="nameArea" layoutX="40.0" layoutY="236.0" prefHeight="73.0" prefWidth="301.0" wrapText="true" />
+   <TextArea fx:id="hostArea" layoutX="383.0" layoutY="236.0" prefHeight="73.0" prefWidth="301.0" wrapText="true" />
    <Label fx:id="hostLabel" layoutX="383.0" layoutY="199.0" text="%label3" />
    <Button fx:id="btn1" layoutX="92.0" layoutY="616.0" mnemonicParsing="false" onAction="#createEvent" prefHeight="60.0" prefWidth="200.0" styleClass="button_basic" text="%btn1" textAlignment="CENTER" wrapText="true" />
    <Label fx:id="infoLabel" alignment="CENTER" layoutX="383.0" layoutY="361.0" prefHeight="50.0" prefWidth="301.0" text="%error" textAlignment="CENTER" textFill="RED" wrapText="true" />
@@ -39,14 +39,14 @@
    <Button layoutX="620.0" layoutY="25.0" mnemonicParsing="false" onAction="#languageSK" prefHeight="0.0" prefWidth="0.0" styleClass="button_lg">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../images/other/sk.png"/>
+            <Image url="@../../images/other/sk.png" />
          </ImageView>
       </graphic>
    </Button>
    <Button layoutX="686.0" layoutY="26.0" mnemonicParsing="false" onAction="#languageEN" prefHeight="12.0" prefWidth="17.0" styleClass="button_lg">
       <graphic>
          <ImageView fitHeight="36.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../images/other/us.png"/>
+            <Image url="@../../images/other/us.png" />
          </ImageView>
       </graphic>
    </Button>

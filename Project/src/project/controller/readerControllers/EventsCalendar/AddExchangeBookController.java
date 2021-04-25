@@ -141,7 +141,7 @@ public class AddExchangeBookController{
             if(bookImage == null){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-                stage.getIcons().add(new Image("project/images/other/logo.jpg"));
+                stage.getIcons().add(new Image("project/images/other/logo.png"));
                 alert.setTitle(error);
                 alert.setHeaderText(choosePhoto);
                 alert.showAndWait();
@@ -161,7 +161,7 @@ public class AddExchangeBookController{
                 if (i.getTitle().equals(bookName.getText())){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-                    stage.getIcons().add(new Image("project/images/other/logo.jpg"));
+                    stage.getIcons().add(new Image("project/images/other/logo.png"));
                     alert.setTitle(error);
                     alert.setHeaderText(existingBook);
                     alert.showAndWait();
@@ -228,7 +228,7 @@ public class AddExchangeBookController{
         if(bookName.getText().equals("") || authorName.getText().equals("") || bookNote.getText().equals("") || bookImage == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image("project/images/other/logo.jpg"));
+            stage.getIcons().add(new Image("project/images/other/logo.png"));
             alert.setTitle(error);
             alert.setHeaderText(requiredError);
             alert.showAndWait();
@@ -245,7 +245,7 @@ public class AddExchangeBookController{
         catch(Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image("project/images/other/logo.jpg"));
+            stage.getIcons().add(new Image("project/images/other/logo.png"));
             alert.setTitle(error);
             alert.setHeaderText(wrongNumber);
             alert.showAndWait();

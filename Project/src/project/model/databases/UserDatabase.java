@@ -1,7 +1,7 @@
 package project.model.databases;
 
 import project.controller.Main;
-import project.model.Rooms.RoomReservation;
+import project.model.rooms.RoomReservation;
 import project.model.books.BookReservation;
 import project.model.events.BookDiscussion;
 import project.model.events.BookExchange;
@@ -110,27 +110,42 @@ public class UserDatabase {
     private void loadDemo(){
         users = new ArrayList<>();
         List<BookReservation> reservations = new ArrayList<>();
-        reservations.add(new BookReservation(0, LocalDate.parse("2021-04-13"), LocalDate.parse("2021-04-21")));
-        reservations.add(new BookReservation(1, LocalDate.parse("2021-05-03"), LocalDate.parse("2021-05-11")));
-        reservations.add(new BookReservation(2, LocalDate.parse("2021-04-14"), LocalDate.parse("2021-04-20")));
-        reservations.add(new BookReservation(3, LocalDate.parse("2021-04-15"), LocalDate.parse("2021-04-30")));
+        reservations.add(new BookReservation(0, LocalDate.parse("2021-04-20"), LocalDate.parse("2021-04-28")));
+        reservations.add(new BookReservation(1, LocalDate.parse("2021-04-15"), LocalDate.parse("2021-04-26")));
+        reservations.add(new BookReservation(2, LocalDate.parse("2021-04-14"), LocalDate.parse("2021-05-16")));
+        reservations.add(new BookReservation(3, LocalDate.parse("2021-04-16"), LocalDate.parse("2021-04-30")));
 
-        users.add(new Librarian("librarian", "heslo"));
+        Reader reader = new Reader("peto", "reader");
+        reader.setReservations(reservations);
+        users.add(reader);
 
-        Organizer organizer = new Organizer("organizer", "heslo");
+        reservations = new ArrayList<>();
+        reservations.add(new BookReservation(5, LocalDate.parse("2021-04-21"), LocalDate.parse("2021-04-27")));
+        reservations.add(new BookReservation(12, LocalDate.parse("2021-04-15"), LocalDate.parse("2021-04-28")));
+        reservations.add(new BookReservation(10, LocalDate.parse("2021-04-10"), LocalDate.parse("2021-04-29")));
+        reservations.add(new BookReservation(9, LocalDate.parse("2021-04-17"), LocalDate.parse("2021-04-30")));
+
+        reader = new Reader("mato", "reader");
+        reader.setReservations(reservations);
+        users.add(reader);
+
+        users.add(new Librarian("deli", "librarian"));
+
+        Organizer organizer = new Organizer("pazo", "organizer");
         List<Event> events = new ArrayList<>();
-        events.add(new BookDiscussion("Diskusia o knihe Sapiens", "velmi zaujmava diskusia", new RoomReservation(LocalDate.parse("2021-04-20"), LocalDate.parse("2021-04-21"), 0), organizer, "Yuval Harari"));
-        events.add(new BookDiscussion("Diskusia o knihe Homo Deus", "velmi pestra diskusia", new RoomReservation(LocalDate.parse("2021-04-28"), LocalDate.parse("2021-04-30"), 0), organizer, "Yuval Harari"));
-        events.add(new BookDiscussion("Diskusia o knihe Life 3.0", "velmi intelektualna diskusia", new RoomReservation(LocalDate.parse("2021-04-17"), LocalDate.parse("2021-04-18"), 1), organizer, "Max Tegmark"));
-        events.add(new BookExchange("Aprilova vymena knih", "popis Aprilova vymena knih", new RoomReservation(LocalDate.parse("2021-04-20"), LocalDate.parse("2021-04-25"), 1), organizer));
-        events.add(new BookExchange("Majova vymena knih", "popis Majova vymena knih", new RoomReservation(LocalDate.parse("2021-05-20"), LocalDate.parse("2021-05-25"), 1), organizer));
+        events.add(new BookDiscussion("Diskusia o knihe Sapiens", "veľmi zaujímavá diskusia", new RoomReservation(LocalDate.parse("2021-04-20"), LocalDate.parse("2021-04-21"), 0), organizer, "Yuval Harari"));
+        events.add(new BookDiscussion("Diskusia o knihe Homo Deus", "veľmi pestrá diskusia", new RoomReservation(LocalDate.parse("2021-04-28"), LocalDate.parse("2021-04-30"), 1), organizer, "Yuval Harari"));
+        events.add(new BookExchange("Májová výmena kníh", "Témou Májová výmeny kníh sú romány minulého storočia", new RoomReservation(LocalDate.parse("2021-05-23"), LocalDate.parse("2021-05-30"), 4), organizer));
 
         organizer.setEvents(events);
         users.add(organizer);
 
-        Reader reader = new Reader("reader", "heslo");
-        reader.setReservations(reservations);
-        users.add(reader);
+        organizer = new Organizer("roman", "organizer");
+        events = new ArrayList<>();
+        events.add(new BookDiscussion("Diskusia o knihe Life 3.0", "veľmi intelektuálna diskusia", new RoomReservation(LocalDate.parse("2021-04-24"), LocalDate.parse("2021-04-29"), 2), organizer, "Max Tegmark"));
+        events.add(new BookExchange("Aprílová výmena kníh", "Témou Aprílovej výmeny kníh sú detektívky", new RoomReservation(LocalDate.parse("2021-04-23"), LocalDate.parse("2021-04-30"), 3), organizer));
+        organizer.setEvents(events);
+        users.add(organizer);
     }
 
     public void serialize() throws IOException {

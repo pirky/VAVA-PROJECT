@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import project.model.databases.BooksDatabase;
 import project.model.databases.RoomsDatabase;
 import project.model.databases.UserDatabase;
@@ -85,9 +87,10 @@ public class MainController{
         user = UserDatabase.login(username.getText(), password.getText());
         if (user == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("project/images/other/logo.png"));
             alert.setTitle(error);
-            alert.setHeaderText(error);
-            alert.setContentText(error_msg);
+            alert.setHeaderText(error_msg);
             alert.showAndWait();
         }
         else{

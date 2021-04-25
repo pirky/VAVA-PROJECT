@@ -139,7 +139,7 @@ public class BookInfoController{
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("project/images/other/logo.jpg"));
+        stage.getIcons().add(new Image("project/images/other/logo.png"));
         alert.setTitle(successfulReservation);
         alert.setHeaderText(successfulReservationMsg);
         ImageView imageView = new ImageView(book.getImage().getImage());

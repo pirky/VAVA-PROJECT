@@ -131,7 +131,6 @@ public class GiveBooksController {
     }
 
     private void updateTableView(){
-        tableView.getItems().clear();
         for(Book book: Main.booksDatabase.getBooks()){
             boolean isFree = true;
             for(User user: Main.userDatabase.getUsers()){
