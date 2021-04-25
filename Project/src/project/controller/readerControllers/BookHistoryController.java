@@ -1,4 +1,5 @@
 package project.controller.readerControllers;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -16,7 +17,6 @@ import project.model.books.Book;
 import project.model.books.BookReservation;
 import project.model.books.TableBook;
 import project.model.users.Reader;
-import project.model.users.User;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Locale;

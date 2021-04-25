@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import project.controller.Main;
 import project.model.CustomImage;
 import project.model.books.Book;
-import javax.swing.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Locale;

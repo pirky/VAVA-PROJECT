@@ -1,4 +1,5 @@
 package project.controller.readerControllers.EventsCalendar;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -92,7 +93,7 @@ public class CalendarController {
             }
 
             ListView<Event> listView = getListView(calendarDate, vBoxNode, yearMonth);
-            listView.getStylesheets().add("project/view/Grafic/calendar_cell.css");
+            listView.getStylesheets().add("project/view/Graphic/calendar_cell.css");
             vBoxNode.getChildren().addAll(label, listView);
             calendarDate = calendarDate.plusDays(1);
         }
@@ -114,13 +115,13 @@ public class CalendarController {
                 }else{
                     for(Reader reader: event.getParticipants()){
                         if(reader.toString().equals(Main.currUser.toString())){
-                            getStylesheets().add("project/view/Grafic/participant_cell.css");
+                            getStylesheets().add("project/view/Graphic/participant_cell.css");
                             break;
                         }
                     }
                     for(Reader reader: event.getVolunteers()){
                         if(reader.toString().equals(Main.currUser.toString())){
-                            getStylesheets().add("project/view/Grafic/participant_cell.css");
+                            getStylesheets().add("project/view/Graphic/participant_cell.css");
                             break;
                         }
                     }

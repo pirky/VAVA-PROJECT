@@ -7,12 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookExchange extends Event{
-    private int numOfSold;
     private List<SellableBook> books;
 
     public BookExchange(String name, String note, RoomReservation roomReservation, Organizer organizer) {
         super(name, note, roomReservation, organizer);
-        this.numOfSold = 0;
         this.books = new ArrayList<>();
     }
 
@@ -36,17 +34,8 @@ public class BookExchange extends Event{
         this.books = list;
     }
 
-    public int getNumOfSold() {
-        return numOfSold;
-    }
-
-    public void setNumOfSold(int numOfSold) {
-        this.numOfSold = numOfSold;
-    }
-
     public Object clone(){
         BookExchange bookExchange = new BookExchange(this.getName(), this.getNote(), this.getReservation(), this.getOrganizer());
-        bookExchange.setNumOfSold(this.numOfSold);
         bookExchange.setBooks(this.books);
         bookExchange.setVolunteers(this.getVolunteers());
         bookExchange.setParticipants(this.getParticipants());

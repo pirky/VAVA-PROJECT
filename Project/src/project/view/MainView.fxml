@@ -13,8 +13,8 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controller.MainController">
    <center>
-      <AnchorPane prefHeight="700.0" prefWidth="1200.0" styleClass="root" stylesheets="@Grafic/style_sheet.css" BorderPane.alignment="CENTER">
-         <TextField fx:id="username" layoutX="504.0" layoutY="307.0" prefHeight="33.0" prefWidth="194.0" promptText="%username" styleClass="text-field" stylesheets="@Grafic/style_sheet.css" />
+      <AnchorPane prefHeight="700.0" prefWidth="1200.0" styleClass="root" stylesheets="@Graphic/style_sheet.css" BorderPane.alignment="CENTER">
+         <TextField fx:id="username" layoutX="504.0" layoutY="307.0" prefHeight="33.0" prefWidth="194.0" promptText="%username" styleClass="text-field" stylesheets="@Graphic/style_sheet.css" />
          <PasswordField fx:id="password" layoutX="504.0" layoutY="383.0" prefHeight="33.0" prefWidth="194.0" promptText="%password" />
          <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="429.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/other/password.png" />

@@ -1,4 +1,5 @@
 package project.controller.organizerControllers;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -79,6 +80,14 @@ public class EditEventController {
         btn1.setText(bundle.getString("btn1"));
         button3.setText(bundle.getString("button3"));
         infoLabel.setText(bundle.getString("error"));
+        if(globalEvent instanceof BookExchange){
+            if(Main.currLanguage.equals("SK")) typeEvent.setText("Burza");
+            else typeEvent.setText("Books Exchange");
+        }
+        else {
+            if(Main.currLanguage.equals("SK")) typeEvent.setText("Diskusia");
+            else typeEvent.setText("Discussion");
+        }
     }
 
     public void comboClicked(){
@@ -144,16 +153,16 @@ public class EditEventController {
             hostArea.setVisible(false);
             globalEvent = events.getSelectionModel().getSelectedItem();
 
-            for (BookExchange bookExch : bookExchangeList) {
-                if(bookExch.getName().equals(events.getSelectionModel().getSelectedItem().getName())){
-                    nameArea.setText(bookExch.getName());
-                    noteArea.setText(bookExch.getNote());
+            for (BookExchange bookExchange : bookExchangeList) {
+                if(bookExchange.getName().equals(events.getSelectionModel().getSelectedItem().getName())){
+                    nameArea.setText(bookExchange.getName());
+                    noteArea.setText(bookExchange.getNote());
 
                     if(Main.currLanguage.equals("SK")) typeEvent.setText("Burza");
                     else typeEvent.setText("Books Exchange");
                     listView.getItems().clear();
 
-                    LibraryRoom room = Main.roomsDatabase.getRooms().get(bookExch.getReservation().getRoomId());
+                    LibraryRoom room = Main.roomsDatabase.getRooms().get(bookExchange.getReservation().getRoomId());
                     if (room == null){
                         return;
                     }
@@ -168,7 +177,7 @@ public class EditEventController {
                     listView.refresh();
 
                     for(LibraryRoom room1 : Main.roomsDatabase.getRooms()) {
-                        if (room1.getId() == bookExch.getReservation().getRoomId()) {
+                        if (room1.getId() == bookExchange.getReservation().getRoomId()) {
                             capacity.setText(String.valueOf(room.getCapacity()));
                         }
                     }

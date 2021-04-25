@@ -18,12 +18,9 @@ import java.util.*;
 public class BookReservationController{
     ObservableList<List<Book>> booksQuartet = FXCollections.observableArrayList();
     ObservableList<String> choices = FXCollections.observableArrayList();
-    @FXML
-    private ListView<List<Book>> listView;
-    @FXML
-    private ComboBox<String> comboBox;
-    @FXML
-    private Label showOptionsLabel;
+    @FXML private ListView<List<Book>> listView;
+    @FXML private ComboBox<String> comboBox;
+    @FXML private Label showOptionsLabel;
 
     @FXML
     public void initialize(){

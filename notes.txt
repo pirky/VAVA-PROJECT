@@ -1,8 +1,4 @@
 TODO list:
--------------------- NA ZÁVER --------------------
-→ odstranit tlacidla na hlavnej stranke
-→ dokumentacia → git vision Template
-→ javadoc → ak bude cas
 
 ====================== BRANCH MANAGEMENT ======================
 git branch → zobrazi branche a zvyrazni tu v ktorej si
