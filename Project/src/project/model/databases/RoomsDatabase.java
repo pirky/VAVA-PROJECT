@@ -3,10 +3,7 @@ package project.model.databases;
 import javafx.scene.image.Image;
 import project.model.CustomImage;
 import project.model.Rooms.LibraryRoom;
-import project.model.books.Book;
-
 import java.io.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

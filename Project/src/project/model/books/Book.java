@@ -1,4 +1,5 @@
 package project.model.books;
+
 import project.model.CustomImage;
 import java.io.Serializable;
 import java.time.LocalDate;

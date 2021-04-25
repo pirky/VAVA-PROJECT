@@ -1,4 +1,5 @@
 package project.model.books;
+
 import javafx.scene.image.ImageView;
 import project.model.CustomImage;
 import java.time.LocalDate;
@@ -40,15 +41,15 @@ public class TableBook extends Book{
         this.imageView = imageView;
     }
 
-    public Object clone(){
-        return new TableBook(this.getId(), this.getTitle(), this.getAuthor(), this.getNote(), this.getImage(), this.dateFrom, this.dateTo, this.returned);
-    }
-
     public double getPrice() {
         return price;
     }
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public Object clone(){
+        return new TableBook(this.getId(), this.getTitle(), this.getAuthor(), this.getNote(), this.getImage(), this.dateFrom, this.dateTo, this.returned);
     }
 }

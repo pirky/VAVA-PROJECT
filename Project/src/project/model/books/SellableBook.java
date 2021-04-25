@@ -1,6 +1,6 @@
 package project.model.books;
+
 import project.model.CustomImage;
-import java.io.Serializable;
 
 public class SellableBook extends Book{
     private final double price;
