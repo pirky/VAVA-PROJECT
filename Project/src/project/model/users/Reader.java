@@ -9,6 +9,7 @@ public class Reader extends User{
 
     public Reader(String userName, String password) {
         super(userName, password);
+        this.reservations = new ArrayList<>();
     }
 
     public List<BookReservation> getReservations() {

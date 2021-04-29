@@ -8,6 +8,8 @@ import project.model.databases.UserDatabase;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegistrationController implements menuInterface{
     @FXML private TextField username;
@@ -23,6 +25,7 @@ public class RegistrationController implements menuInterface{
     private String wrong_input;
     private String existing_user;
     private String not_matching;
+    private String valid_password;
 
     @FXML
     public void initialize(){
@@ -57,6 +60,7 @@ public class RegistrationController implements menuInterface{
         wrong_input = bundle.getString("wrong_input");
         existing_user = bundle.getString("existing_user");
         not_matching = bundle.getString("not_matching");
+        valid_password = bundle.getString("valid_password");
     }
 
     public void registerUser() throws IOException {
@@ -70,6 +74,16 @@ public class RegistrationController implements menuInterface{
                 stage.getIcons().add(new Image("project/images/other/logo.png"));
                 errorAlert.setTitle(wrong_input);
                 errorAlert.setHeaderText(error_msg);
+                errorAlert.showAndWait();
+                flag = false;
+            }
+
+            if(testPassword(password.getText())){
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                Stage stage = (Stage) errorAlert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image("project/images/other/logo.png"));
+                errorAlert.setTitle(wrong_input);
+                errorAlert.setHeaderText(valid_password);
                 errorAlert.showAndWait();
                 flag = false;
             }
@@ -107,6 +121,12 @@ public class RegistrationController implements menuInterface{
             alert.setHeaderText(existing_user);
             alert.showAndWait();
         }
+    }
+
+    public boolean testPassword(String password){
+        Pattern pattern = Pattern.compile("^.{5,}$");
+        Matcher matcher = pattern.matcher(password);
+        return !matcher.find();
     }
 
     public void showMain() throws IOException {

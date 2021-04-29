@@ -12,6 +12,7 @@ public class Organizer extends User{
 
     public Organizer(String userName, String password) {
         super(userName, password);
+        this.events = new ArrayList<>();
     }
 
     public List<Event> getEvents() {
